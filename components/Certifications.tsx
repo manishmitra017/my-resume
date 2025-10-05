@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { FaCertificate, FaAward, FaMicrosoft } from "react-icons/fa";
-import { SiSalesforce } from "react-icons/si";
+import { FaCertificate, FaAward, FaMicrosoft, FaAws } from "react-icons/fa";
 
 const Certifications = () => {
   const ref = useRef(null);
@@ -12,26 +11,38 @@ const Certifications = () => {
 
   const certifications = [
     {
-      name: "ITIL Certificate",
-      issuer: "AXELOS",
+      name: "AWS Solutions Architect Professional",
+      issuer: "Amazon Web Services",
+      icon: <FaAws />,
+      color: "text-orange-400",
+    },
+    {
+      name: "Google Cloud Professional ML Engineer",
+      issuer: "Google Cloud",
+      icon: <FaCertificate />,
+      color: "text-blue-400",
+    },
+    {
+      name: "Deep Learning Specialization",
+      issuer: "Stanford/Coursera",
       icon: <FaCertificate />,
       color: "text-purple-400",
     },
     {
-      name: "Salesforce Certified Administrator",
-      issuer: "Salesforce",
-      icon: <SiSalesforce />,
-      color: "text-blue-400",
-    },
-    {
-      name: "Microsoft Certified: Azure Fundamentals",
-      issuer: "Microsoft",
-      icon: <FaMicrosoft />,
+      name: "Certified Kubernetes Administrator (CKA)",
+      issuer: "Cloud Native Computing Foundation",
+      icon: <FaCertificate />,
       color: "text-cyan-400",
     },
     {
-      name: "CCBA",
-      issuer: "IIBA",
+      name: "Microsoft Certified: Azure AI Engineer",
+      issuer: "Microsoft",
+      icon: <FaMicrosoft />,
+      color: "text-blue-500",
+    },
+    {
+      name: "LangChain & LLMOps Professional",
+      issuer: "LangChain Academy",
       icon: <FaCertificate />,
       color: "text-green-400",
     },
