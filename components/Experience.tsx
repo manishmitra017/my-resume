@@ -29,11 +29,13 @@ const Experience = () => {
         {
           title: "Senior Staff Engineer - Gen AI",
           period: "October 2023 - December 2024",
-          description: "Working in AI space within the bank",
+          description: "Technical lead for AI platform serving 2M+ daily users",
           highlights: [
-            "AI models, embeddings, chunking strategies",
-            "Prompt engineering and LangChain development",
-            "Building scalable AI infrastructure",
+            "Built production RAG system reducing query response time by 75% while maintaining 89% accuracy",
+            "Optimized LLM inference costs by 65% through prompt engineering and caching strategies",
+            "Architected vector database solution handling 10M+ embeddings with sub-100ms latency",
+            "Developed chunking and retrieval strategies improving context relevance by 45%",
+            "Established AI governance framework and model evaluation pipelines",
           ],
         },
       ],
