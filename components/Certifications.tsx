@@ -15,42 +15,49 @@ const Certifications = () => {
       issuer: "Amazon Web Services",
       icon: <FaAws />,
       color: "text-orange-400",
+      image: null,
     },
     {
       name: "AWS Certified Developer",
       issuer: "Amazon Web Services",
       icon: <FaAws />,
       color: "text-orange-400",
+      image: null,
     },
     {
       name: "AWS AI Certified",
       issuer: "Amazon Web Services",
       icon: <FaAws />,
       color: "text-orange-400",
+      image: null,
     },
     {
       name: "ITIL Certificate",
       issuer: "AXELOS",
       icon: <FaCertificate />,
       color: "text-blue-400",
+      image: "itil.jpeg",
     },
     {
       name: "Salesforce Certified Administrator",
       issuer: "Salesforce",
       icon: <FaCertificate />,
       color: "text-cyan-400",
+      image: "salesforce.png",
     },
     {
       name: "Microsoft Certified: Azure Fundamentals",
       issuer: "Microsoft",
       icon: <FaMicrosoft />,
       color: "text-blue-500",
+      image: null,
     },
     {
       name: "CCBA",
       issuer: "IIBA",
       icon: <FaCertificate />,
       color: "text-purple-400",
+      image: "ccba.jpeg",
     },
   ];
 
@@ -107,7 +114,19 @@ const Certifications = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all text-center"
               >
-                <div className={`text-5xl mb-4 ${cert.color}`}>{cert.icon}</div>
+                {cert.image ? (
+                  <div className="mb-4 flex justify-center">
+                    <div className="w-20 h-20 rounded-lg overflow-hidden bg-white flex items-center justify-center">
+                      <img
+                        src={`/images/companies/${cert.image}`}
+                        alt={cert.name}
+                        className="w-full h-full object-contain p-2"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div className={`text-5xl mb-4 ${cert.color}`}>{cert.icon}</div>
+                )}
                 <h4 className="text-white font-semibold mb-2">{cert.name}</h4>
                 <p className="text-gray-400 text-sm">{cert.issuer}</p>
               </motion.div>
