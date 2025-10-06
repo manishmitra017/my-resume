@@ -31,13 +31,13 @@ const Skills = () => {
       color: "from-purple-500 to-pink-500",
       skills: [
         { name: "Model Context Protocol (MCP)", icon: <FaRobot /> },
+        { name: "OpenAI Agents SDK", icon: <SiOpenai /> },
         { name: "Google ADK", icon: <FaRobot /> },
         { name: "Pydantic AI", icon: <SiPython /> },
-        { name: "LangChain", icon: <FaRobot /> },
         { name: "LangGraph", icon: <FaRobot /> },
+        { name: "LlamaIndex", icon: <FaRobot /> },
         { name: "AutoGen", icon: <FaRobot /> },
-        { name: "Multi-Agent Systems", icon: <FaRobot /> },
-        { name: "Agent Orchestration", icon: <FaRobot /> },
+        { name: "A2A", icon: <FaRobot /> },
       ],
     },
     {
@@ -56,16 +56,33 @@ const Skills = () => {
       ],
     },
     {
-      category: "Programming",
+      category: "AI Evaluation & Observability",
+      icon: <FaRobot size={32} />,
+      color: "from-green-500 to-teal-500",
+      skills: [
+        { name: "LangFuse", icon: <FaRobot /> },
+        { name: "Agent Evaluation", icon: <FaRobot /> },
+        { name: "LLM Tracing", icon: <FaRobot /> },
+        { name: "Prompt Optimization", icon: <FaRobot /> },
+        { name: "Cost Analytics", icon: <FaRobot /> },
+        { name: "Performance Monitoring", icon: <FaRobot /> },
+        { name: "A/B Testing (AI)", icon: <FaRobot /> },
+        { name: "Model Benchmarking", icon: <FaRobot /> },
+      ],
+    },
+    {
+      category: "Programming & APIs",
       icon: <FaCode size={32} />,
       color: "from-blue-500 to-cyan-500",
       skills: [
+        { name: "Python (Fast API)", icon: <SiPython /> },
         { name: "TypeScript", icon: <SiTypescript /> },
-        { name: "JavaScript", icon: <SiJavascript /> },
-        { name: "Python", icon: <SiPython /> },
-        { name: "React", icon: <SiReact /> },
         { name: "Next.js", icon: <SiNextdotjs /> },
-        { name: "Node.js", icon: <SiJavascript /> },
+        { name: "REST API", icon: <FaCode /> },
+        { name: "gRPC", icon: <FaCode /> },
+        { name: "GraphQL", icon: <FaCode /> },
+        { name: "GH Actions", icon: <SiGithub /> },
+        { name: "React", icon: <SiReact /> },
       ],
     },
     {
@@ -73,10 +90,12 @@ const Skills = () => {
       icon: <FaCloud size={32} />,
       color: "from-orange-500 to-red-500",
       skills: [
-        { name: "AWS", icon: <FaAws /> },
+        { name: "AWS (SA + Dev + AI Certified)", icon: <FaAws /> },
+        { name: "DevSecOps", icon: <FaTools /> },
+        { name: "DORA Specialist", icon: <FaTools /> },
+        { name: "Terraform", icon: <SiTerraform /> },
         { name: "Docker", icon: <SiDocker /> },
         { name: "Kubernetes", icon: <SiKubernetes /> },
-        { name: "Terraform", icon: <SiTerraform /> },
         { name: "Jenkins", icon: <SiJenkins /> },
         { name: "CI/CD", icon: <SiGithub /> },
       ],
@@ -99,7 +118,7 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-900/50" ref={ref}>
+    <section id="skills" className="py-20 bg-gradient-to-b from-gray-900 via-blue-900/10 to-gray-900" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

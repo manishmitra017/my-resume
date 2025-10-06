@@ -18,34 +18,18 @@ const CompanyLogo = ({ company, size = "md" }: CompanyLogoProps) => {
     "Wesfarmers OneDigital": "onedigital.jpeg",
     "ANZ": "anz.jpeg",
     "NAB": "NAB.jpeg",
+    "AIA Australia": "aia.png",
+    "UnitedHealth Group": "uhg.jpeg",
+    "Deloitte": "Deloittte.png",
+    "Oracle Corporation": "Oracle.png",
   };
 
   // Fallback colors for companies without images
   const companyColors: Record<string, { bg: string; text: string; name: string }> = {
-    "AIA Australia": {
-      bg: "bg-red-700",
-      text: "text-white",
-      name: "AIA"
-    },
     "Wells Fargo": {
       bg: "bg-yellow-500",
       text: "text-red-700",
       name: "WF"
-    },
-    "Deloitte": {
-      bg: "bg-green-600",
-      text: "text-white",
-      name: "DTT"
-    },
-    "UnitedHealth Group": {
-      bg: "bg-blue-600",
-      text: "text-white",
-      name: "UHG"
-    },
-    "Oracle Corporation": {
-      bg: "bg-red-600",
-      text: "text-white",
-      name: "ORC"
     },
   };
 

@@ -2,10 +2,8 @@
 
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import KeyAchievements from "@/components/KeyAchievements";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
-import ThoughtLeadership from "@/components/ThoughtLeadership";
 import Certifications from "@/components/Certifications";
 import Education from "@/components/Education";
 import Contact from "@/components/Contact";
@@ -17,10 +15,8 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
-      <KeyAchievements />
       <Skills />
       <Experience />
-      <ThoughtLeadership />
       <Certifications />
       <Education />
       <Contact />

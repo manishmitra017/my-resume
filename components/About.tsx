@@ -13,27 +13,27 @@ const About = () => {
     {
       icon: <FaBrain size={32} />,
       title: "Agentic AI Leadership",
-      description: "Built production AI systems serving 5M+ users with Google ADK, Pydantic AI, and MCP",
+      description: "Built first GENAI project in bank winning CEO Excellence Awards - reusable AI agents and dialogue templates",
     },
     {
       icon: <FaUsers size={32} />,
-      title: "Team Building",
-      description: "Scaled teams from 5 to 35+ engineers, 94% retention, promoted 15+ to senior roles",
+      title: "Team Growth",
+      description: "Grew team from 4 to 80 members across Melbourne/Sydney/India - led 120 people at ANZ",
     },
     {
       icon: <FaRocket size={32} />,
-      title: "Business Impact",
-      description: "$20M+ in cost savings and revenue through AI product delivery and optimization",
+      title: "Innovation & Awards",
+      description: "Won Excellence Awards for E2E dispute journey AI agents - DORA specialist",
     },
     {
       icon: <FaTrophy size={32} />,
-      title: "Strategic Leadership",
-      description: "C-suite partnership, board presentations, $8M budget management",
+      title: "Technical Expertise",
+      description: "Pydantic AI, Google ADK, MCP, ML OPS, LangGraph - AWS Certified (SA, Developer, AI)",
     },
   ];
 
   return (
-    <section id="about" className="py-20 bg-gray-900/50" ref={ref}>
+    <section id="about" className="py-20 bg-gradient-to-b from-gray-900 via-gray-800/50 to-gray-900" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -59,31 +59,29 @@ const About = () => {
             </h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
               <p className="text-xl text-white font-semibold mb-6">
-                Strategic engineering leader with 18 years building high-performance teams and delivering AI products at scale.
+                Engineering leader with close to 20 years dedicated to developing reusable AI agents and agentic AI capabilities,
+                contributing to banking modernization and enhancing human experiences.
               </p>
               <p>
-                Currently leading <span className="text-primary-400 font-semibold">25-person Gen AI engineering organization</span> at
-                Commonwealth Bank, delivering conversational AI platform serving{" "}
-                <span className="text-white font-semibold">5M+ customers</span> with{" "}
-                <span className="text-primary-400 font-semibold">$12M+ annual cost savings</span>. Managing{" "}
-                <span className="text-white font-semibold">$6M engineering budget</span> and strategic partnerships with OpenAI, Anthropic, and Google.
+                Currently <span className="text-primary-400 font-semibold">Senior Engineering Manager (Agentic Banking – Gen AI)</span> at
+                Commonwealth Bank. Built the <span className="text-white font-semibold">first GENAI project in the bank</span> on RACO for
+                adverse media screening, <span className="text-primary-400 font-semibold">winning CEO Excellence Awards</span>. Grew team from{" "}
+                <span className="text-white font-semibold">4 to 80 members</span> across Melbourne/Sydney/India.
               </p>
               <p>
-                Proven track record scaling engineering teams from{" "}
-                <span className="text-primary-400 font-semibold">5 to 35+ engineers</span>, managing multi-million dollar budgets,
-                and partnering with C-suite on AI strategy and board presentations. Delivered{" "}
-                <span className="text-white font-semibold">12+ production AI applications</span> processing{" "}
-                <span className="text-primary-400 font-semibold">2M+ daily transactions</span> with 99.95% uptime.
+                Deep expertise in <span className="text-white font-semibold">Agentic AI frameworks</span> including{" "}
+                <span className="text-primary-400 font-semibold">Pydantic AI, Google ADK, LangGraph, MCP, ML OPS, and A2A</span>.
+                Built reusable expert AI systems, dialogue agent templates, and AI agents for E2E dispute journey{" "}
+                <span className="text-primary-400 font-semibold">winning Excellence Awards</span>.
               </p>
               <p>
-                Deep expertise in <span className="text-white font-semibold">Agentic AI</span> (MCP, Google ADK, Pydantic AI),
-                LLMOps, multi-agent orchestration, and building production ML platforms. Architected AI systems reducing
-                inference costs by 65% while improving accuracy and performance at enterprise scale.
+                Previously led <span className="text-primary-400 font-semibold">120 people at ANZ</span> building API modernization platform,
+                served as <span className="text-white font-semibold">Principal Engineer at Wesfarmers</span> for OnePass (one of most successful ventures),
+                and built AWS Business Banking Engineering Labs at NAB.
               </p>
               <p>
-                Passionate about engineering excellence, team development, and delivering measurable business value through
-                AI innovation. Mentored <span className="text-primary-400 font-semibold">50+ engineers</span>, promoted{" "}
-                <span className="text-white font-semibold">15+ to senior roles</span>, and built quality engineering cultures across 37 squads.
+                Passionate about engineering excellence, team development, and AI innovation. Strong contributor to AIPE projects with
+                campus relationships at Monash/Melbourne University. Completed <span className="text-primary-400 font-semibold">Executive Leadership program at CBA SPARK</span>.
               </p>
             </div>
           </motion.div>

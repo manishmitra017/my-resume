@@ -127,14 +127,14 @@ const Hero = () => {
           >
             Building production{" "}
             <span className="text-primary-400 font-semibold">Agentic AI systems</span> with{" "}
-            <span className="text-primary-400">Google ADK, Pydantic AI</span>, and{" "}
-            <span className="text-primary-400">LangChain</span>
+            <span className="text-primary-400">MCP, OpenAI Agents SDK, LlamaIndex, Google ADK</span>, and{" "}
+            <span className="text-primary-400">Pydantic AI</span>
             <br />
-            Leading Gen AI development at{" "}
-            <span className="font-semibold text-white">Commonwealth Bank</span> |{" "}
-            <span className="text-primary-400">LLMOps</span> •{" "}
-            <span className="text-primary-400">Multi-Agent Systems</span> •{" "}
-            <span className="text-primary-400">RAG Architecture</span>
+            <span className="font-semibold text-white">CEO Excellence Awards</span> winner •{" "}
+            Leading Gen AI at{" "}
+            <span className="font-semibold text-white">Commonwealth Bank</span> •{" "}
+            Grew team <span className="text-primary-400">4 to 80 members</span> •{" "}
+            <span className="text-primary-400">DORA Specialist</span>
           </motion.p>
 
           {/* Social Links */}

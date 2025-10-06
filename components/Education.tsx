@@ -27,7 +27,7 @@ const Education = () => {
   ];
 
   return (
-    <section id="education" className="py-20 bg-gray-900/50" ref={ref}>
+    <section id="education" className="py-20 bg-gradient-to-b from-gray-900 via-green-900/10 to-gray-900" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

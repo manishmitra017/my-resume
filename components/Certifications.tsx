@@ -11,44 +11,60 @@ const Certifications = () => {
 
   const certifications = [
     {
-      name: "AWS Solutions Architect Professional",
+      name: "AWS Certified Solutions Architect",
       issuer: "Amazon Web Services",
       icon: <FaAws />,
       color: "text-orange-400",
     },
     {
-      name: "Google Cloud Professional ML Engineer",
-      issuer: "Google Cloud",
+      name: "AWS Certified Developer",
+      issuer: "Amazon Web Services",
+      icon: <FaAws />,
+      color: "text-orange-400",
+    },
+    {
+      name: "AWS AI Certified",
+      issuer: "Amazon Web Services",
+      icon: <FaAws />,
+      color: "text-orange-400",
+    },
+    {
+      name: "ITIL Certificate",
+      issuer: "AXELOS",
       icon: <FaCertificate />,
       color: "text-blue-400",
     },
     {
-      name: "Deep Learning Specialization",
-      issuer: "Stanford/Coursera",
-      icon: <FaCertificate />,
-      color: "text-purple-400",
-    },
-    {
-      name: "Certified Kubernetes Administrator (CKA)",
-      issuer: "Cloud Native Computing Foundation",
+      name: "Salesforce Certified Administrator",
+      issuer: "Salesforce",
       icon: <FaCertificate />,
       color: "text-cyan-400",
     },
     {
-      name: "Microsoft Certified: Azure AI Engineer",
+      name: "Microsoft Certified: Azure Fundamentals",
       issuer: "Microsoft",
       icon: <FaMicrosoft />,
       color: "text-blue-500",
     },
     {
-      name: "LangChain & LLMOps Professional",
-      issuer: "LangChain Academy",
+      name: "CCBA",
+      issuer: "IIBA",
       icon: <FaCertificate />,
-      color: "text-green-400",
+      color: "text-purple-400",
     },
   ];
 
   const awards = [
+    {
+      name: "CEO Excellence Awards",
+      description: "Won for building first GENAI project in bank on RACO for adverse media screening",
+      icon: <FaAward />,
+    },
+    {
+      name: "Excellence Awards",
+      description: "Won for building reusable expert AI system and AI agents for E2E dispute journey",
+      icon: <FaAward />,
+    },
     {
       name: "Spot Award Winner",
       description: "Recognition for exceptional performance and contributions",
@@ -62,7 +78,7 @@ const Certifications = () => {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-gray-900" ref={ref}>
+    <section id="certifications" className="py-20 bg-gradient-to-b from-gray-900 via-indigo-900/10 to-gray-900" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
