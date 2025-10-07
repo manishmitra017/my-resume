@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "pnpm run build && cd cdk && npm install && npm run deploy",
+    "deploy:cdk": "cd cdk && npm run deploy",
+    "destroy": "cd cdk && npm run destroy",
+    "cdk:diff": "cd cdk && npm run diff",
+    "cdk:synth": "cd cdk && npm run synth"
   },
   "keywords": [],
   "author": "",

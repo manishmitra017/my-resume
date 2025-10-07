@@ -1,0 +1,95 @@
+name: Deploy Portfolio to AWS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ap-southeast-2
+  NODE_VERSION: '20'
+
+jobs:
+  deploy:
+    name: Deploy to AWS S3 + CloudFront
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build Next.js application
+        run: pnpm run build
+        env:
+          NODE_ENV: production
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Install CDK dependencies
+        working-directory: ./cdk
+        run: npm install
+
+      - name: Build CDK
+        working-directory: ./cdk
+        run: npm run build
+
+      - name: Bootstrap CDK (first time only)
+        working-directory: ./cdk
+        run: |
+          npx cdk bootstrap aws://${{ secrets.AWS_ACCOUNT_ID }}/${{ env.AWS_REGION }} || true
+        continue-on-error: true
+
+      - name: Deploy to AWS with CDK
+        working-directory: ./cdk
+        run: npx cdk deploy --require-approval never --outputs-file outputs.json
+
+      - name: Get CloudFront Distribution ID
+        id: get-distribution-id
+        working-directory: ./cdk
+        run: |
+          DISTRIBUTION_ID=$(cat outputs.json | grep -o '"DistributionId": "[^"]*"' | cut -d'"' -f4)
+          echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
+
+      - name: Invalidate CloudFront cache
+        if: steps.get-distribution-id.outputs.distribution_id != ''
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ steps.get-distribution-id.outputs.distribution_id }} \
+            --paths "/*"
+
+      - name: Upload deployment outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdk-outputs
+          path: cdk/outputs.json
+          retention-days: 30
+
+      - name: Print deployment URL
+        working-directory: ./cdk
+        run: |
+          echo "🚀 Deployment successful!"
+          cat outputs.json | grep -o '"WebsiteURL": "[^"]*"' | cut -d'"' -f4

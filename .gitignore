@@ -41,3 +41,10 @@ pnpm-lock.yaml
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# cdk
+cdk/cdk.out
+cdk/node_modules
+cdk/*.js
+cdk/*.d.ts
+cdk/outputs.json
