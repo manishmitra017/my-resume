@@ -12,7 +12,7 @@ export const downloadResumeAsPDF = () => {
   const opt = {
     margin: 0.5,
     filename: 'Manish_Mitra_Resume.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
+    image: { type: 'jpeg' as const, quality: 0.98 },
     html2canvas: {
       scale: 2,
       useCORS: true,
@@ -22,7 +22,7 @@ export const downloadResumeAsPDF = () => {
     jsPDF: {
       unit: 'in',
       format: 'a4',
-      orientation: 'portrait'
+      orientation: 'portrait' as const
     },
     pagebreak: {
       mode: ['avoid-all', 'css', 'legacy'],
