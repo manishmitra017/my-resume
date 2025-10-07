@@ -58,12 +58,6 @@ jobs:
         working-directory: ./cdk
         run: npm run build
 
-      - name: Bootstrap CDK (first time only)
-        working-directory: ./cdk
-        run: |
-          npx cdk bootstrap aws://${{ secrets.AWS_ACCOUNT_ID }}/${{ env.AWS_REGION }} || true
-        continue-on-error: true
-
       - name: Deploy CDK Stack
         working-directory: ./cdk
         run: npx cdk deploy --require-approval never --outputs-file outputs.json
