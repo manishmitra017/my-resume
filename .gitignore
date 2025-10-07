@@ -30,7 +30,7 @@ yarn-error.log*
 pnpm-debug.log*
 
 # pnpm
-pnpm-lock.yaml
+# pnpm-lock.yaml  # Lock file should be committed for reproducible builds
 
 # local env files
 .env*.local
