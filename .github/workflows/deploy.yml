@@ -38,8 +38,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Package Lambda function
-        run: pnpm run package:lambda
+      - name: Build Next.js static site
+        run: pnpm run build
         env:
           NODE_ENV: production
 
@@ -66,43 +66,17 @@ jobs:
         id: stack-outputs
         working-directory: ./cdk
         run: |
-          BUCKET_NAME=$(cat outputs.json | grep -o '"StaticBucketName": "[^"]*"' | cut -d'"' -f4)
-          LAMBDA_NAME=$(cat outputs.json | grep -o '"LambdaFunctionName": "[^"]*"' | cut -d'"' -f4)
+          BUCKET_NAME=$(cat outputs.json | grep -o '"BucketName": "[^"]*"' | cut -d'"' -f4)
           DISTRIBUTION_ID=$(cat outputs.json | grep -o '"DistributionId": "[^"]*"' | cut -d'"' -f4)
 
           echo "bucket_name=$BUCKET_NAME" >> $GITHUB_OUTPUT
-          echo "lambda_name=$LAMBDA_NAME" >> $GITHUB_OUTPUT
           echo "distribution_id=$DISTRIBUTION_ID" >> $GITHUB_OUTPUT
 
-      - name: Upload static assets to S3
+      - name: Sync static site to S3
         run: |
-          # Sync Next.js static assets
-          aws s3 sync .next/static s3://${{ steps.stack-outputs.outputs.bucket_name }}/_next/static \
+          aws s3 sync out s3://${{ steps.stack-outputs.outputs.bucket_name }} \
             --delete \
-            --cache-control "public, max-age=31536000, immutable"
-
-          # Sync public assets (images, etc.)
-          if [ -d "public" ]; then
-            aws s3 sync public s3://${{ steps.stack-outputs.outputs.bucket_name }}/images \
-              --delete \
-              --cache-control "public, max-age=31536000"
-          fi
-
-      - name: Update Lambda function
-        run: |
-          cd .next-lambda
-          zip -r ../lambda-package.zip .
-          cd ..
-
-          aws lambda update-function-code \
-            --function-name ${{ steps.stack-outputs.outputs.lambda_name }} \
-            --zip-file fileb://lambda-package.zip \
-            --no-cli-pager
-
-      - name: Wait for Lambda update to complete
-        run: |
-          aws lambda wait function-updated \
-            --function-name ${{ steps.stack-outputs.outputs.lambda_name }}
+            --cache-control "public, max-age=3600"
 
       - name: Invalidate CloudFront cache
         if: steps.stack-outputs.outputs.distribution_id != ''
@@ -126,7 +100,6 @@ jobs:
           echo ""
           echo "📦 Resources deployed:"
           echo "  - S3 Bucket: ${{ steps.stack-outputs.outputs.bucket_name }}"
-          echo "  - Lambda Function: ${{ steps.stack-outputs.outputs.lambda_name }}"
           echo "  - CloudFront Distribution: ${{ steps.stack-outputs.outputs.distribution_id }}"
           echo ""
           echo "🌐 Website URL:"

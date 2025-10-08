@@ -49,3 +49,4 @@ cdk/node_modules
 cdk/*.js
 cdk/*.d.ts
 cdk/outputs.json
+cdk/package-lock.json

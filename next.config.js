@@ -1,10 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: 'export',  // Static export for S3 hosting
   images: {
     unoptimized: true,
   },
-  outputFileTracingRoot: __dirname,
+  trailingSlash: true,  // Better for S3 static hosting
 };
 
 module.exports = nextConfig;
