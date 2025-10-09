@@ -1,14 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope, FaRobot, FaDownload } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { SiOpenai } from "react-icons/si";
 
 const Hero = () => {
-  const handleDownloadCV = async () => {
-    const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
-    downloadResumeAsPDF();
-  };
   const socialLinks = [
     {
       icon: <FaLinkedin size={24} />,
@@ -123,18 +119,23 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-lg md:text-xl text-gray-400 mb-8 max-w-3xl mx-auto"
+            className="text-base md:text-lg lg:text-xl text-gray-400 mb-8 max-w-3xl mx-auto px-4"
           >
             Building production{" "}
             <span className="text-primary-400 font-semibold">Agentic AI systems</span> with{" "}
             <span className="text-primary-400">MCP, OpenAI Agents SDK, LlamaIndex, Google ADK</span>, and{" "}
             <span className="text-primary-400">Pydantic AI</span>
-            <br />
-            <span className="font-semibold text-white">CEO Excellence Awards</span> winner •{" "}
-            Leading Gen AI at{" "}
-            <span className="font-semibold text-white">Commonwealth Bank</span> •{" "}
-            Grew team <span className="text-primary-400">4 to 80 members</span> •{" "}
-            <span className="text-primary-400">DORA Specialist</span>
+            <br className="hidden sm:block" />
+            <span className="block sm:inline mt-2 sm:mt-0">
+              <span className="font-semibold text-white">CEO Excellence Awards</span> winner •{" "}
+              Leading Gen AI at{" "}
+              <span className="font-semibold text-white">Commonwealth Bank</span>
+            </span>
+            <br className="hidden sm:block" />
+            <span className="block sm:inline mt-2 sm:mt-0">
+              Grew team <span className="text-primary-400">4 to 80 members</span> •{" "}
+              <span className="text-primary-400">DORA Specialist</span>
+            </span>
           </motion.p>
 
           {/* Social Links */}
@@ -167,20 +168,11 @@ const Hero = () => {
             transition={{ delay: 1 }}
             className="flex flex-col sm:flex-row justify-center gap-4"
           >
-            <motion.button
-              onClick={handleDownloadCV}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50 flex items-center justify-center gap-2"
-            >
-              <FaDownload />
-              Download CV
-            </motion.button>
             <motion.a
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-colors border border-gray-700"
+              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50"
             >
               Get In Touch
             </motion.a>

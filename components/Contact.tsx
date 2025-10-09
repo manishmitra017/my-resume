@@ -8,12 +8,21 @@ import {
   FaLinkedin,
   FaGithub,
   FaMapMarkerAlt,
-  FaPhone,
+  FaDownload,
 } from "react-icons/fa";
 
 const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+
+  const handleDownloadCV = async () => {
+    try {
+      const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
+      await downloadResumeAsPDF();
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+    }
+  };
 
   const contactInfo = [
     {
@@ -21,12 +30,6 @@ const Contact = () => {
       label: "Email",
       value: "manishmitra013@gmail.com",
       href: "mailto:manishmitra013@gmail.com",
-    },
-    {
-      icon: <FaPhone size={24} />,
-      label: "Phone",
-      value: "+61 451878193",
-      href: "tel:+61451878193",
     },
     {
       icon: <FaMapMarkerAlt size={24} />,
@@ -61,7 +64,7 @@ const Contact = () => {
             Get In <span className="text-primary-400">Touch</span>
           </h2>
           <div className="w-20 h-1 bg-primary-400 mx-auto mb-6" />
-          <p className="text-gray-300 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-4">
             I'm always open to discussing new opportunities, collaborations, or
             just connecting with fellow professionals in AI and engineering.
           </p>
@@ -76,16 +79,16 @@ const Contact = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: info.href ? 1.03 : 1 }}
-                className={`bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all ${
+                className={`bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all ${
                   info.href ? "cursor-pointer" : ""
                 }`}
                 onClick={() => info.href && window.open(info.href, "_blank")}
               >
-                <div className="flex items-center space-x-4">
-                  <div className="text-primary-400">{info.icon}</div>
-                  <div className="flex-1">
-                    <p className="text-gray-400 text-sm mb-1">{info.label}</p>
-                    <p className="text-white font-medium">{info.value}</p>
+                <div className="flex items-center space-x-3 md:space-x-4">
+                  <div className="text-primary-400 flex-shrink-0">{info.icon}</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-gray-400 text-xs md:text-sm mb-1">{info.label}</p>
+                    <p className="text-white font-medium text-sm md:text-base break-all">{info.value}</p>
                   </div>
                 </div>
               </motion.div>
@@ -97,16 +100,25 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-center mt-12"
+            className="flex flex-col sm:flex-row justify-center gap-4 mt-12"
           >
             <motion.a
               href="mailto:manishmitra013@gmail.com"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50"
+              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50 text-center"
             >
               Send Me an Email
             </motion.a>
+            <motion.button
+              onClick={handleDownloadCV}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-medium transition-colors border border-gray-700"
+            >
+              <FaDownload />
+              Download CV
+            </motion.button>
           </motion.div>
         </div>
 

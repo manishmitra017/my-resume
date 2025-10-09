@@ -189,31 +189,31 @@ const Experience = () => {
                   }`}
                 >
                   {/* Content */}
-                  <div className="md:w-1/2">
-                    <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all hover:shadow-lg hover:shadow-primary-500/20">
+                  <div className="md:w-1/2 w-full">
+                    <div className="bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all hover:shadow-lg hover:shadow-primary-500/20">
                       <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <div className="flex items-center gap-3 mb-3">
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 md:gap-3 mb-3">
                             <CompanyLogo company={exp.company} size="md" />
-                            <h4 className="text-primary-400 font-semibold text-lg">
+                            <h4 className="text-primary-400 font-semibold text-base md:text-lg truncate">
                               {exp.company}
                             </h4>
                           </div>
-                          <h3 className="text-xl font-bold text-white mb-1">
+                          <h3 className="text-lg md:text-xl font-bold text-white mb-1">
                             {role.title}
                           </h3>
-                          <p className="text-gray-400 text-sm">{role.period}</p>
+                          <p className="text-gray-400 text-xs md:text-sm">{role.period}</p>
                         </div>
-                        <FaBriefcase className="text-primary-400 text-2xl flex-shrink-0" />
+                        <FaBriefcase className="text-primary-400 text-xl md:text-2xl flex-shrink-0 ml-2" />
                       </div>
-                      <p className="text-gray-300 mb-4">{role.description}</p>
+                      <p className="text-gray-300 mb-4 text-sm md:text-base">{role.description}</p>
                       <ul className="space-y-2">
                         {role.highlights.map((highlight, hIndex) => (
                           <li
                             key={hIndex}
-                            className="text-gray-400 text-sm flex items-start"
+                            className="text-gray-400 text-xs md:text-sm flex items-start"
                           >
-                            <span className="text-primary-400 mr-2">▹</span>
+                            <span className="text-primary-400 mr-2 flex-shrink-0">▹</span>
                             <span>{highlight}</span>
                           </li>
                         ))}

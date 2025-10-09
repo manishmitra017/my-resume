@@ -101,10 +101,10 @@ const Certifications = () => {
 
         {/* Certifications */}
         <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
             Professional Certifications
           </h3>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
@@ -112,11 +112,11 @@ const Certifications = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all text-center"
+                className="bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all text-center"
               >
                 {cert.image ? (
-                  <div className="mb-4 flex justify-center">
-                    <div className="w-20 h-20 rounded-lg overflow-hidden bg-white flex items-center justify-center">
+                  <div className="mb-3 md:mb-4 flex justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden bg-white flex items-center justify-center">
                       <img
                         src={`/images/companies/${cert.image}`}
                         alt={cert.name}
@@ -125,10 +125,10 @@ const Certifications = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className={`text-5xl mb-4 ${cert.color}`}>{cert.icon}</div>
+                  <div className={`text-4xl md:text-5xl mb-3 md:mb-4 ${cert.color}`}>{cert.icon}</div>
                 )}
-                <h4 className="text-white font-semibold mb-2">{cert.name}</h4>
-                <p className="text-gray-400 text-sm">{cert.issuer}</p>
+                <h4 className="text-white font-semibold mb-2 text-sm md:text-base">{cert.name}</h4>
+                <p className="text-gray-400 text-xs md:text-sm">{cert.issuer}</p>
               </motion.div>
             ))}
           </div>
@@ -136,10 +136,10 @@ const Certifications = () => {
 
         {/* Awards */}
         <div>
-          <h3 className="text-2xl font-bold text-white mb-6 text-center">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
             Honors & Awards
           </h3>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             {awards.map((award, index) => (
               <motion.div
                 key={index}
@@ -147,13 +147,13 @@ const Certifications = () => {
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                 whileHover={{ scale: 1.03 }}
-                className="bg-gradient-to-r from-primary-500/10 to-primary-400/10 backdrop-blur-sm p-6 rounded-lg border border-primary-400/30 hover:border-primary-400 transition-all"
+                className="bg-gradient-to-r from-primary-500/10 to-primary-400/10 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary-400/30 hover:border-primary-400 transition-all"
               >
-                <div className="flex items-start space-x-4">
-                  <div className="text-primary-400 text-4xl">{award.icon}</div>
-                  <div>
-                    <h4 className="text-white font-bold mb-2">{award.name}</h4>
-                    <p className="text-gray-300 text-sm">{award.description}</p>
+                <div className="flex items-start space-x-3 md:space-x-4">
+                  <div className="text-primary-400 text-3xl md:text-4xl flex-shrink-0">{award.icon}</div>
+                  <div className="min-w-0">
+                    <h4 className="text-white font-bold mb-2 text-base md:text-lg">{award.name}</h4>
+                    <p className="text-gray-300 text-xs md:text-sm">{award.description}</p>
                   </div>
                 </div>
               </motion.div>

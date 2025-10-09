@@ -58,7 +58,7 @@ const About = () => {
               AI Leader & Engineering Manager
             </h3>
             <div className="space-y-4 text-gray-300 leading-relaxed">
-              <p className="text-xl text-white font-semibold mb-6">
+              <p className="text-lg md:text-xl text-white font-semibold mb-6">
                 Engineering leader with close to 20 years dedicated to developing reusable AI agents and agentic AI capabilities,
                 contributing to banking modernization and enhancing human experiences.
               </p>

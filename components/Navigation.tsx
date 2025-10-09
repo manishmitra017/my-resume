@@ -58,16 +58,22 @@ const Navigation = () => {
                   {item.name}
                 </motion.a>
               ))}
-              <motion.a
-                href="/Manish_Mitra_Resume.pdf"
-                download
+              <motion.button
+                onClick={async () => {
+                  try {
+                    const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
+                    await downloadResumeAsPDF();
+                  } catch (error) {
+                    console.error('Error downloading CV:', error);
+                  }
+                }}
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
                 className="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Download CV
-              </motion.a>
+              </motion.button>
             </div>
           </div>
 
@@ -101,13 +107,21 @@ const Navigation = () => {
                 {item.name}
               </a>
             ))}
-            <a
-              href="/Manish_Mitra_Resume.pdf"
-              download
-              className="bg-primary-500 hover:bg-primary-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center"
+            <button
+              onClick={async () => {
+                try {
+                  const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
+                  await downloadResumeAsPDF();
+                  setIsOpen(false);
+                } catch (error) {
+                  console.error('Error downloading CV:', error);
+                  setIsOpen(false);
+                }
+              }}
+              className="bg-primary-500 hover:bg-primary-600 text-white block px-3 py-2 rounded-md text-base font-medium text-center w-full"
             >
               Download CV
-            </a>
+            </button>
           </div>
         </motion.div>
       )}
