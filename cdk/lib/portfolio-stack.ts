@@ -2,11 +2,34 @@ import * as cdk from 'aws-cdk-lib';
 import * as s3 from 'aws-cdk-lib/aws-s3';
 import * as cloudfront from 'aws-cdk-lib/aws-cloudfront';
 import * as origins from 'aws-cdk-lib/aws-cloudfront-origins';
+import * as route53 from 'aws-cdk-lib/aws-route53';
+import * as targets from 'aws-cdk-lib/aws-route53-targets';
+import * as acm from 'aws-cdk-lib/aws-certificatemanager';
 import { Construct } from 'constructs';
 
+export interface PortfolioStackProps extends cdk.StackProps {
+  certificateArn?: string;
+}
+
 export class PortfolioStack extends cdk.Stack {
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  public readonly hostedZone: route53.IHostedZone;
+
+  constructor(scope: Construct, id: string, props?: PortfolioStackProps) {
     super(scope, id, props);
+
+    const domainName = 'manishmitra.com';
+    const wwwDomainName = `www.${domainName}`;
+
+    // Create Route53 Hosted Zone for the domain
+    this.hostedZone = new route53.PublicHostedZone(this, 'PortfolioHostedZone', {
+      zoneName: domainName,
+      comment: 'Hosted zone for Manish Mitra portfolio website',
+    });
+
+    // Import ACM Certificate from us-east-1 (created by CertificateStack)
+    const certificate = props?.certificateArn
+      ? acm.Certificate.fromCertificateArn(this, 'ImportedCertificate', props.certificateArn)
+      : undefined;
 
     // Create S3 bucket for static website hosting (private, accessed via CloudFront)
     const websiteBucket = new s3.Bucket(this, 'PortfolioWebsiteBucket', {
@@ -18,7 +41,7 @@ export class PortfolioStack extends cdk.Stack {
       versioned: false,
     });
 
-    // Create CloudFront distribution
+    // Create CloudFront distribution with custom domain
     const distribution = new cloudfront.Distribution(this, 'PortfolioDistribution', {
       defaultBehavior: {
         origin: origins.S3BucketOrigin.withOriginAccessControl(websiteBucket),
@@ -28,6 +51,8 @@ export class PortfolioStack extends cdk.Stack {
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
         compress: true,
       },
+      domainNames: certificate ? [domainName, wwwDomainName] : undefined,
+      certificate: certificate,
       defaultRootObject: 'index.html',
       errorResponses: [
         {
@@ -50,6 +75,21 @@ export class PortfolioStack extends cdk.Stack {
     // NO BUCKET DEPLOYMENT - Files uploaded via GitHub Actions S3 sync
     // This eliminates custom resource stuck issues
 
+    // Create Route53 A records only if certificate is available
+    if (certificate) {
+      new route53.ARecord(this, 'PortfolioAliasRecord', {
+        zone: this.hostedZone,
+        recordName: domainName,
+        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      });
+
+      new route53.ARecord(this, 'PortfolioWwwAliasRecord', {
+        zone: this.hostedZone,
+        recordName: wwwDomainName,
+        target: route53.RecordTarget.fromAlias(new targets.CloudFrontTarget(distribution)),
+      });
+    }
+
     // Outputs for GitHub Actions
     new cdk.CfnOutput(this, 'BucketName', {
       value: websiteBucket.bucketName,
@@ -70,12 +110,39 @@ export class PortfolioStack extends cdk.Stack {
     });
 
     new cdk.CfnOutput(this, 'WebsiteURL', {
-      value: `https://${distribution.distributionDomainName}`,
+      value: `https://${domainName}`,
       description: 'Portfolio Website URL',
     });
 
+    new cdk.CfnOutput(this, 'CloudFrontURL', {
+      value: `https://${distribution.distributionDomainName}`,
+      description: 'CloudFront Distribution URL',
+    });
+
+    new cdk.CfnOutput(this, 'HostedZoneId', {
+      value: this.hostedZone.hostedZoneId,
+      description: 'Route53 Hosted Zone ID',
+      exportName: 'PortfolioHostedZoneId',
+    });
+
+    new cdk.CfnOutput(this, 'HostedZoneName', {
+      value: this.hostedZone.zoneName,
+      description: 'Route53 Hosted Zone Name',
+      exportName: 'PortfolioHostedZoneName',
+    });
+
+    new cdk.CfnOutput(this, 'NameServers', {
+      value: cdk.Fn.join(', ', this.hostedZone.hostedZoneNameServers || []),
+      description: 'Route53 Name Servers - Update these at your domain registrar',
+    });
+
+    new cdk.CfnOutput(this, 'DomainName', {
+      value: domainName,
+      description: 'Custom Domain Name',
+    });
+
     new cdk.CfnOutput(this, 'Architecture', {
-      value: 'S3 + CloudFront (Static Site)',
+      value: 'Route53 + S3 + CloudFront + ACM (Static Site with Custom Domain)',
       description: 'Pure static site hosting - no Lambda, no server',
     });
 
@@ -85,7 +152,7 @@ export class PortfolioStack extends cdk.Stack {
     });
 
     new cdk.CfnOutput(this, 'CostOptimization', {
-      value: 'S3 + CloudFront: ~$1-3/month',
+      value: 'Route53 ($0.50) + S3 + CloudFront: ~$1.50-4/month',
       description: 'Expected monthly cost for low traffic',
     });
   }
