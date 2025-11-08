@@ -22,6 +22,19 @@ const config: Config = {
           900: '#0c4a6e',
         },
       },
+      animation: {
+        'float': 'float 3s ease-in-out infinite',
+        'glow': 'glow 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite',
+      },
+      backdropBlur: {
+        xs: '2px',
+      },
+      boxShadow: {
+        'glow': '0 0 20px rgba(14, 165, 233, 0.5)',
+        'glow-lg': '0 0 30px rgba(14, 165, 233, 0.8)',
+        'glow-primary': '0 0 20px rgba(14, 165, 233, 0.3)',
+      },
     },
   },
   plugins: [],
