@@ -105,13 +105,14 @@ const PersonalProjects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Personal <span className="text-primary-400">Projects</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Personal </span>
+            <span className="gradient-text">Projects</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-4">
             Side projects showcasing full-stack development, AI/ML experimentation, and community impact
           </p>
-          <div className="w-20 h-1 bg-primary-400 mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
         <div className="space-y-12">
@@ -121,8 +122,11 @@ const PersonalProjects = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
-              className={`relative bg-gradient-to-br ${project.gradient} backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-primary-400 transition-all hover:shadow-lg hover:shadow-primary-500/20`}
+              className={`relative glass-strong p-8 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow overflow-hidden group`}
             >
+              <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-50 group-hover:opacity-70 transition-opacity duration-500`} />
+
+              <div className="relative z-10">
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                 <div className="flex-1">
@@ -152,7 +156,7 @@ const PersonalProjects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 px-4 py-2 rounded-lg transition-colors"
+                    className="flex items-center gap-2 glass px-4 py-2 rounded-lg border border-gray-600/50 hover:border-primary-400/50 transition-all hover:shadow-glow"
                   >
                     <FaGithub className="text-xl" />
                     <span className="text-sm">Code</span>
@@ -162,7 +166,7 @@ const PersonalProjects = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-lg transition-colors"
+                      className="flex items-center gap-2 bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 px-4 py-2 rounded-lg transition-all shadow-glow-primary"
                     >
                       <FaExternalLinkAlt className="text-sm" />
                       <span className="text-sm">Live</span>
@@ -213,6 +217,7 @@ const PersonalProjects = () => {
                 <p className="text-primary-300 font-semibold text-sm">
                   Impact: <span className="text-gray-300 font-normal">{project.impact}</span>
                 </p>
+              </div>
               </div>
             </motion.div>
           ))}

@@ -69,13 +69,14 @@ const Hero = () => {
               <motion.div
                 animate={{
                   boxShadow: [
-                    "0 0 20px rgba(14, 165, 233, 0.3)",
-                    "0 0 60px rgba(14, 165, 233, 0.6)",
-                    "0 0 20px rgba(14, 165, 233, 0.3)",
+                    "0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(168, 85, 247, 0.2)",
+                    "0 0 40px rgba(168, 85, 247, 0.6), 0 0 60px rgba(6, 182, 212, 0.4)",
+                    "0 0 30px rgba(6, 182, 212, 0.5), 0 0 50px rgba(14, 165, 233, 0.3)",
+                    "0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(168, 85, 247, 0.2)",
                   ],
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="rounded-full overflow-hidden border-4 border-primary-400/30 w-40 h-40 md:w-48 md:h-48"
+                transition={{ duration: 4, repeat: Infinity }}
+                className="rounded-full overflow-hidden border-4 border-transparent w-40 h-40 md:w-48 md:h-48 neon-border"
               >
                 <img
                   src="/images/Profile-picture.jpg"
@@ -98,9 +99,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold text-white mb-4"
+            className="text-5xl md:text-7xl font-bold mb-4"
           >
-            Manish <span className="text-primary-400">Mitra</span>
+            <span className="text-white">Manish </span>
+            <span className="gradient-text-animated">Mitra</span>
           </motion.h1>
 
           {/* Title */}
@@ -172,15 +174,16 @@ const Hero = () => {
               href="#contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-primary-500 hover:bg-primary-600 text-white px-8 py-3 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50"
+              className="relative bg-gradient-to-r from-primary-500 via-purple-500 to-cyan-500 hover:from-primary-600 hover:via-purple-600 hover:to-cyan-600 text-white px-8 py-3 rounded-lg font-medium transition-all shadow-neon hover:shadow-neon-strong overflow-hidden group"
             >
-              Get In Touch
+              <span className="relative z-10">Get In Touch</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity" />
             </motion.a>
             <motion.a
               href="#experience"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-800 hover:bg-gray-700 text-white px-8 py-3 rounded-lg font-medium transition-colors border border-gray-700"
+              className="glass-strong hover:bg-gray-700/50 text-white px-8 py-3 rounded-lg font-medium transition-all border-2 border-gray-600/50 hover:border-primary-400/50 hover:shadow-glow"
             >
               View Experience
             </motion.a>

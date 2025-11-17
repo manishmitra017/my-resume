@@ -126,10 +126,11 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Technical <span className="text-primary-400">Skills</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Technical </span>
+            <span className="gradient-text">Skills</span>
           </h2>
-          <div className="w-20 h-1 bg-primary-400 mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -139,34 +140,37 @@ const Skills = () => {
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIndex * 0.1 }}
-              className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all"
+              className="glass-strong p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group"
             >
-              <div className="flex items-center mb-6">
-                <div className={`bg-gradient-to-r ${category.color} p-2 md:p-3 rounded-lg mr-3 md:mr-4 flex-shrink-0`}>
-                  <div className="text-white">{category.icon}</div>
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-center mb-6">
+                  <div className={`bg-gradient-to-r ${category.color} p-2 md:p-3 rounded-lg mr-3 md:mr-4 flex-shrink-0 shadow-lg`}>
+                    <div className="text-white">{category.icon}</div>
+                  </div>
+                  <h3 className="text-lg md:text-2xl font-bold text-white">
+                    {category.category}
+                  </h3>
                 </div>
-                <h3 className="text-lg md:text-2xl font-bold text-white">
-                  {category.category}
-                </h3>
-              </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skillIndex}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{
-                      duration: 0.4,
-                      delay: catIndex * 0.1 + skillIndex * 0.05,
-                    }}
-                    whileHover={{ scale: 1.05 }}
-                    className="flex items-center space-x-2 bg-gray-900/50 px-3 py-2 rounded-lg"
-                  >
-                    <span className="text-primary-400 flex-shrink-0">{skill.icon}</span>
-                    <span className="text-gray-300 text-xs sm:text-sm">{skill.name}</span>
-                  </motion.div>
-                ))}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                      transition={{
+                        duration: 0.4,
+                        delay: catIndex * 0.1 + skillIndex * 0.05,
+                      }}
+                      whileHover={{ scale: 1.08, y: -2 }}
+                      className="flex items-center space-x-2 bg-gray-900/80 px-3 py-2 rounded-lg border border-gray-700/50 hover:border-primary-400/50 transition-all hover:shadow-glow-primary"
+                    >
+                      <span className="text-primary-400 flex-shrink-0">{skill.icon}</span>
+                      <span className="text-gray-300 text-xs sm:text-sm">{skill.name}</span>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
