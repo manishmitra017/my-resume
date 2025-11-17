@@ -41,10 +41,11 @@ const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            About <span className="text-primary-400">Me</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">About </span>
+            <span className="gradient-text">Me</span>
           </h2>
-          <div className="w-20 h-1 bg-primary-400 mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -99,12 +100,17 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-colors"
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="glass-strong p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group"
               >
-                <div className="text-primary-400 mb-4">{item.icon}</div>
-                <h4 className="text-white font-semibold mb-2">{item.title}</h4>
-                <p className="text-gray-400 text-sm">{item.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="text-transparent bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 bg-clip-text mb-4">
+                    {item.icon}
+                  </div>
+                  <h4 className="text-white font-semibold mb-2">{item.title}</h4>
+                  <p className="text-gray-400 text-sm">{item.description}</p>
+                </div>
               </motion.div>
             ))}
           </motion.div>

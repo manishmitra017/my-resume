@@ -93,10 +93,11 @@ const Certifications = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Certifications & <span className="text-primary-400">Awards</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Certifications & </span>
+            <span className="gradient-text">Awards</span>
           </h2>
-          <div className="w-20 h-1 bg-primary-400 mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
         {/* Certifications */}
@@ -112,8 +113,10 @@ const Certifications = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all text-center"
+                className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow text-center relative overflow-hidden group"
               >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
                 {cert.image ? (
                   <div className="mb-3 md:mb-4 flex justify-center">
                     <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden bg-white flex items-center justify-center">
@@ -129,6 +132,7 @@ const Certifications = () => {
                 )}
                 <h4 className="text-white font-semibold mb-2 text-sm md:text-base">{cert.name}</h4>
                 <p className="text-gray-400 text-xs md:text-sm">{cert.issuer}</p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -146,14 +150,17 @@ const Certifications = () => {
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ scale: 1.03 }}
-                className="bg-gradient-to-r from-primary-500/10 to-primary-400/10 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-primary-400/30 hover:border-primary-400 transition-all"
+                whileHover={{ scale: 1.03, y: -5 }}
+                className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group"
               >
-                <div className="flex items-start space-x-3 md:space-x-4">
-                  <div className="text-primary-400 text-3xl md:text-4xl flex-shrink-0">{award.icon}</div>
-                  <div className="min-w-0">
-                    <h4 className="text-white font-bold mb-2 text-base md:text-lg">{award.name}</h4>
-                    <p className="text-gray-300 text-xs md:text-sm">{award.description}</p>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-purple-500/10 opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10">
+                  <div className="flex items-start space-x-3 md:space-x-4">
+                    <div className="text-transparent bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-3xl md:text-4xl flex-shrink-0">{award.icon}</div>
+                    <div className="min-w-0">
+                      <h4 className="text-white font-bold mb-2 text-base md:text-lg">{award.name}</h4>
+                      <p className="text-gray-300 text-xs md:text-sm">{award.description}</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>

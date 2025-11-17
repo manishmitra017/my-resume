@@ -166,15 +166,16 @@ const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Professional <span className="text-primary-400">Experience</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Professional </span>
+            <span className="gradient-text">Experience</span>
           </h2>
-          <div className="w-20 h-1 bg-primary-400 mx-auto" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
         <div className="relative">
           {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary-400/30" />
+          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-400/50 via-purple-400/50 to-cyan-400/50 rounded-full" />
 
           {experiences.map((exp, expIndex) => (
             <div key={expIndex} className="mb-12">
@@ -190,40 +191,43 @@ const Experience = () => {
                 >
                   {/* Content */}
                   <div className="md:w-1/2 w-full">
-                    <div className="bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all hover:shadow-lg hover:shadow-primary-500/20">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 md:gap-3 mb-3">
-                            <CompanyLogo company={exp.company} size="md" />
-                            <h4 className="text-primary-400 font-semibold text-base md:text-lg truncate">
-                              {exp.company}
-                            </h4>
+                    <div className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group transition-all">
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="relative z-10">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2 md:gap-3 mb-3">
+                              <CompanyLogo company={exp.company} size="md" />
+                              <h4 className="gradient-text font-semibold text-base md:text-lg truncate">
+                                {exp.company}
+                              </h4>
+                            </div>
+                            <h3 className="text-lg md:text-xl font-bold text-white mb-1">
+                              {role.title}
+                            </h3>
+                            <p className="text-gray-400 text-xs md:text-sm">{role.period}</p>
                           </div>
-                          <h3 className="text-lg md:text-xl font-bold text-white mb-1">
-                            {role.title}
-                          </h3>
-                          <p className="text-gray-400 text-xs md:text-sm">{role.period}</p>
+                          <FaBriefcase className="text-primary-400 text-xl md:text-2xl flex-shrink-0 ml-2" />
                         </div>
-                        <FaBriefcase className="text-primary-400 text-xl md:text-2xl flex-shrink-0 ml-2" />
+                        <p className="text-gray-300 mb-4 text-sm md:text-base">{role.description}</p>
+                        <ul className="space-y-2">
+                          {role.highlights.map((highlight, hIndex) => (
+                            <li
+                              key={hIndex}
+                              className="text-gray-400 text-xs md:text-sm flex items-start"
+                            >
+                              <span className="text-primary-400 mr-2 flex-shrink-0">▹</span>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
-                      <p className="text-gray-300 mb-4 text-sm md:text-base">{role.description}</p>
-                      <ul className="space-y-2">
-                        {role.highlights.map((highlight, hIndex) => (
-                          <li
-                            key={hIndex}
-                            className="text-gray-400 text-xs md:text-sm flex items-start"
-                          >
-                            <span className="text-primary-400 mr-2 flex-shrink-0">▹</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
 
                   {/* Timeline dot */}
                   <div className="hidden md:block relative">
-                    <div className="w-4 h-4 bg-primary-400 rounded-full border-4 border-gray-900" />
+                    <div className="w-5 h-5 bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 rounded-full border-4 border-gray-900 shadow-glow animate-pulse-glow" />
                   </div>
 
                   {/* Spacer */}
