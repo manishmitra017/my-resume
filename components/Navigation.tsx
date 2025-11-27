@@ -21,9 +21,9 @@ const Navigation = () => {
     { name: "About", href: "/#about" },
     { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
-    { name: "Community Projects", href: "/community-projects" },
-    { name: "Articles", href: "/articles" },
-    { name: "Hobbies", href: "/hobbies" },
+    { name: "Community Projects", href: "/community-projects/" },
+    { name: "Articles", href: "/articles/" },
+    { name: "Hobbies", href: "/hobbies/" },
     { name: "Contact", href: "/#contact" },
   ];
 
