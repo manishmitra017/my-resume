@@ -17,13 +17,14 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Personal Projects", href: "#personal-projects" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "/community-projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Skills", href: "/#skills" },
+    { name: "Experience", href: "/#experience" },
+    { name: "Community Projects", href: "/community-projects" },
+    { name: "Articles", href: "/articles" },
+    { name: "Hobbies", href: "/hobbies" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (

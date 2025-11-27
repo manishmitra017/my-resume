@@ -2,8 +2,18 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt, FaClock } from "react-icons/fa";
+import { FaGithub, FaStar, FaCodeBranch, FaExternalLinkAlt, FaClock, FaCode, FaAws } from "react-icons/fa";
 import { BiGitRepoForked } from "react-icons/bi";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiDocker,
+  SiPython,
+  SiReact,
+  SiTailwindcss,
+  SiGoogle
+} from "react-icons/si";
+import { MdSecurity } from "react-icons/md";
 import Navigation from "@/components/Navigation";
 
 interface Repository {
@@ -22,6 +32,109 @@ interface Repository {
   open_issues_count: number;
   size: number;
 }
+
+// Featured Projects Data
+const featuredProjects = [
+  {
+    name: "PentestAI",
+    tagline: "AI-Powered Security Testing Framework",
+    description: "Open-source penetration testing framework built on Google's Agent Development Kit (ADK) that automates security assessments through specialized AI agents following PTES methodology.",
+    technologies: [
+      { name: "Python", icon: SiPython },
+      { name: "Google ADK", icon: SiGoogle },
+      { name: "Security", icon: MdSecurity },
+    ],
+    features: [
+      "Multi-agent architecture across 5 pentest phases (Recon, Vuln Assessment, Exploitation, Post-Exploitation, Reporting)",
+      "Integration with established security tools (Nmap, OWASP ZAP)",
+      "Human-in-the-loop controls for exploitation phases",
+      "Built-in authorization validation and target scoping",
+      "Automated professional report generation",
+      "Fully offline operation capability",
+    ],
+    impact: "Streamlines authorized security testing with AI-powered automation",
+    githubUrl: "https://github.com/manishmitra017/Pentest-google-adk-agent",
+    stars: 0,
+    category: "AI/ML & Security",
+    year: "2025",
+    gradient: "from-red-500/20 to-orange-500/20",
+  },
+  {
+    name: "BSM Melbourne Website",
+    tagline: "Community Platform for Bengali Diaspora",
+    description: "Full-stack bilingual community platform serving the Bengali Society of Melbourne with event management, membership system, and automated deployments.",
+    technologies: [
+      { name: "Next.js 15", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "AWS", icon: FaAws },
+      { name: "Docker", icon: SiDocker },
+      { name: "React 19", icon: SiReact },
+    ],
+    features: [
+      "Bilingual support (English/Bengali) with Noto Sans Bengali typography",
+      "Event management system with photo galleries using Framer Motion",
+      "Membership forms with Google Maps API integration",
+      "AWS infrastructure: ECS Fargate, ALB, Route53, Certificate Manager",
+      "Automated CI/CD with GitHub Actions",
+      "Blood donation and tree plantation volunteering coordination",
+    ],
+    impact: "Active community platform with 2 GitHub stars",
+    githubUrl: "https://github.com/manishmitra017/bsm-website",
+    liveUrl: "https://bsm.org.au",
+    stars: 2,
+    category: "Full-Stack Web Development",
+    year: "2024",
+    gradient: "from-green-500/20 to-blue-500/20",
+  },
+  {
+    name: "Video-to-SOP Automation",
+    tagline: "AI-Powered Documentation Generator",
+    description: "Intelligent tool that transforms screen recordings into detailed step-by-step user journey documentation using multimodal LLM analysis.",
+    technologies: [
+      { name: "Python", icon: SiPython },
+    ],
+    features: [
+      "Automated frame extraction from screen recording videos",
+      "Multimodal LLM (Google Gemini) for visual analysis",
+      "Incremental journey creation with overlapping chunk analysis",
+      "Dual output: detailed logs for AI processing and human-readable summaries",
+      "Captures clicks, typing, URL navigation, and on-screen text",
+      "Automated Markdown documentation generation",
+    ],
+    impact: "Automates technical documentation and SOP creation",
+    githubUrl: "https://github.com/manishmitra017/video-sop",
+    stars: 0,
+    category: "AI/ML & Automation",
+    year: "2024",
+    gradient: "from-purple-500/20 to-pink-500/20",
+  },
+  {
+    name: "Cosmic Renewable Energy",
+    tagline: "Green Tech Business Platform",
+    description: "Modern responsive business website for renewable energy company with integrated quote management and service showcase.",
+    technologies: [
+      { name: "Next.js 15", icon: SiNextdotjs },
+      { name: "FastAPI", icon: FaCode },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Python", icon: SiPython },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+    ],
+    features: [
+      "Modern, responsive design with Tailwind CSS",
+      "FastAPI backend with Pydantic data validation",
+      "Contact and quote request forms with validation",
+      "Comprehensive service pages and FAQ section",
+      "SEO optimized with proper meta tags and semantic HTML",
+      "Dual-server architecture with automated startup scripts",
+    ],
+    impact: "Production-ready business platform for renewable energy sector",
+    githubUrl: "https://github.com/manishmitra017/cosmic-renwable",
+    stars: 0,
+    category: "Full-Stack Development",
+    year: "2024",
+    gradient: "from-yellow-500/20 to-green-500/20",
+  },
+];
 
 const CommunityProjects = () => {
   const [repos, setRepos] = useState<Repository[]>([]);
@@ -145,12 +258,12 @@ const CommunityProjects = () => {
             className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
           >
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 text-center">
-              <div className="text-primary-400 text-4xl font-bold mb-2">{repos.length}</div>
-              <div className="text-gray-400">Active Projects</div>
+              <div className="text-primary-400 text-4xl font-bold mb-2">{repos.length + featuredProjects.length}</div>
+              <div className="text-gray-400">Total Projects</div>
             </div>
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-lg border border-gray-700 text-center">
               <div className="text-primary-400 text-4xl font-bold mb-2">
-                {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0)}
+                {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0) + featuredProjects.reduce((acc, p) => acc + p.stars, 0)}
               </div>
               <div className="text-gray-400">Total Stars</div>
             </div>
@@ -160,6 +273,141 @@ const CommunityProjects = () => {
               </div>
               <div className="text-gray-400">Technologies</div>
             </div>
+          </motion.div>
+
+          {/* Featured Projects Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl font-bold text-white mb-8 text-center">
+              Featured <span className="text-primary-400">Projects</span>
+            </h2>
+            <div className="space-y-8">
+              {featuredProjects.map((project, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  whileHover={{ scale: 1.01 }}
+                  className="relative bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700 hover:border-primary-400/50 transition-all overflow-hidden group"
+                >
+                  <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-30 group-hover:opacity-50 transition-opacity duration-500`} />
+
+                  <div className="relative z-10">
+                    {/* Header */}
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-2xl md:text-3xl font-bold text-white">
+                            {project.name}
+                          </h3>
+                          {project.stars > 0 && (
+                            <div className="flex items-center gap-1 text-yellow-400">
+                              <FaStar />
+                              <span className="text-sm">{project.stars}</span>
+                            </div>
+                          )}
+                        </div>
+                        <p className="text-primary-300 font-semibold text-lg mb-2">
+                          {project.tagline}
+                        </p>
+                        <div className="flex flex-wrap gap-2 text-xs text-gray-400 mb-4">
+                          <span className="bg-gray-700/50 px-3 py-1 rounded-full">{project.category}</span>
+                          <span className="bg-gray-700/50 px-3 py-1 rounded-full">{project.year}</span>
+                        </div>
+                      </div>
+
+                      {/* Links */}
+                      <div className="flex gap-3">
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 bg-gray-700/50 px-4 py-2 rounded-lg border border-gray-600/50 hover:border-primary-400/50 transition-all"
+                        >
+                          <FaGithub className="text-xl" />
+                          <span className="text-sm">Code</span>
+                        </a>
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-lg transition-all"
+                          >
+                            <FaExternalLinkAlt className="text-sm" />
+                            <span className="text-sm">Live</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-gray-300 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-gray-400 mb-3">Technologies</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, techIndex) => {
+                          const IconComponent = tech.icon;
+                          return (
+                            <div key={techIndex} className="flex items-center gap-2 bg-gray-700/50 px-3 py-1 rounded-full">
+                              <IconComponent className="text-primary-400" />
+                              <span className="text-xs text-gray-300">{tech.name}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+
+                    {/* Features */}
+                    <div className="mb-6">
+                      <h4 className="text-sm font-semibold text-gray-400 mb-3">Key Features</h4>
+                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {project.features.map((feature, fIndex) => (
+                          <li
+                            key={fIndex}
+                            className="text-gray-400 text-sm flex items-start"
+                          >
+                            <span className="text-primary-400 mr-2 flex-shrink-0">▹</span>
+                            <span>{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Impact */}
+                    <div className="border-t border-gray-700 pt-4">
+                      <p className="text-primary-300 font-semibold text-sm">
+                        Impact: <span className="text-gray-300 font-normal">{project.impact}</span>
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Other Projects Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-8"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4 text-center">
+              Other <span className="text-primary-400">Projects</span>
+            </h2>
+            <p className="text-gray-400 text-center max-w-2xl mx-auto">
+              Additional open-source projects and experiments from my GitHub
+            </p>
           </motion.div>
 
           {/* Projects Grid */}
