@@ -41,6 +41,30 @@ export class PortfolioStack extends cdk.Stack {
       versioned: false,
     });
 
+    // CloudFront Function to handle subdirectory index.html rewrites
+    // This is needed for Next.js static export with trailingSlash: true
+    const urlRewriteFunction = new cloudfront.Function(this, 'UrlRewriteFunction', {
+      code: cloudfront.FunctionCode.fromInline(`
+function handler(event) {
+  var request = event.request;
+  var uri = request.uri;
+
+  // Check if URI ends with '/' and add index.html
+  if (uri.endsWith('/')) {
+    request.uri += 'index.html';
+  }
+  // Check if URI doesn't have an extension (no dot in last segment)
+  else if (!uri.includes('.')) {
+    request.uri += '/index.html';
+  }
+
+  return request;
+}
+      `),
+      functionName: 'PortfolioUrlRewrite',
+      comment: 'Rewrites URLs to append index.html for subdirectories',
+    });
+
     // Create CloudFront distribution with custom domain
     const distribution = new cloudfront.Distribution(this, 'PortfolioDistribution', {
       defaultBehavior: {
@@ -50,6 +74,10 @@ export class PortfolioStack extends cdk.Stack {
         cachedMethods: cloudfront.CachedMethods.CACHE_GET_HEAD_OPTIONS,
         cachePolicy: cloudfront.CachePolicy.CACHING_OPTIMIZED,
         compress: true,
+        functionAssociations: [{
+          function: urlRewriteFunction,
+          eventType: cloudfront.FunctionEventType.VIEWER_REQUEST,
+        }],
       },
       domainNames: certificate ? [domainName, wwwDomainName] : undefined,
       certificate: certificate,
