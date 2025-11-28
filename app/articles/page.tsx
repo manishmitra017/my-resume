@@ -19,37 +19,57 @@ export interface Article {
 }
 
 const articlesData: Article[] = [
-  // Sample data - replace with your actual articles
   {
     id: "1",
-    title: "Building Scalable Microservices with AWS Lambda",
-    excerpt: "Exploring serverless architecture patterns for modern cloud applications. This article covers best practices for Lambda functions and cost optimization.",
-    publishedDate: "2024-03-15",
-    readTime: 8,
-    source: "Medium",
-    sourceUrl: "https://medium.com/@example/article-1",
-    tags: ["AWS", "Serverless", "Architecture"],
+    title: "The Importance of Shift Left Paradigm",
+    excerpt: "Exploring how shifting testing and quality practices earlier in the development lifecycle leads to better outcomes, reduced costs, and faster delivery.",
+    publishedDate: "2023-06-15",
+    readTime: 6,
+    source: "LinkedIn",
+    sourceUrl: "https://www.linkedin.com/pulse/importance-shift-left-paradigm-manish-mitra/",
+    tags: ["Testing", "DevOps", "Quality Engineering"],
     featured: true,
   },
   {
     id: "2",
-    title: "React Performance Optimization Techniques",
-    excerpt: "Deep dive into React performance patterns, memo optimization, and rendering strategies for large-scale applications.",
-    publishedDate: "2024-02-20",
-    readTime: 6,
-    source: "Dev.to",
-    sourceUrl: "https://dev.to/example/article-2",
-    tags: ["React", "Performance", "JavaScript"],
+    title: "Why Mentors are Important",
+    excerpt: "Reflecting on the value of mentorship in professional growth and how the right guidance can accelerate your career journey.",
+    publishedDate: "2023-04-20",
+    readTime: 5,
+    source: "LinkedIn",
+    sourceUrl: "https://www.linkedin.com/pulse/why-mentors-important-manish-mitra/",
+    tags: ["Career", "Mentorship", "Professional Growth"],
   },
   {
     id: "3",
-    title: "Infrastructure as Code with CDK",
-    excerpt: "Learn how to build and deploy cloud infrastructure using AWS CDK with TypeScript for type-safe infrastructure management.",
-    publishedDate: "2024-01-10",
+    title: "Service Virtualization Testing for Microservices",
+    excerpt: "A comprehensive guide to service virtualization techniques for testing microservices architectures, enabling teams to test in isolation.",
+    publishedDate: "2023-02-10",
+    readTime: 8,
+    source: "LinkedIn",
+    sourceUrl: "https://www.linkedin.com/pulse/service-virtualization-testing-microservices-manish-mitra/",
+    tags: ["Microservices", "Testing", "Service Virtualization"],
+  },
+  {
+    id: "4",
+    title: "My Learnings with AI: Nondeterministic Testing",
+    excerpt: "Exploring the challenges and strategies for testing AI-powered applications where outputs can be nondeterministic and unpredictable.",
+    publishedDate: "2024-01-15",
+    readTime: 7,
+    source: "Medium",
+    sourceUrl: "https://medium.com/@manishmitraba/my-learnings-with-ai-nondeterministic-testing-a86e577a0395",
+    tags: ["AI", "Testing", "Machine Learning"],
+    featured: true,
+  },
+  {
+    id: "5",
+    title: "Experiments with Playwright & Axe on Accessibility Testing",
+    excerpt: "Hands-on experience combining Playwright's browser automation with Axe for comprehensive accessibility testing of web applications.",
+    publishedDate: "2024-03-10",
     readTime: 10,
-    source: "Personal Blog",
-    sourceUrl: "https://blog.example.com/article-3",
-    tags: ["AWS", "CDK", "DevOps"],
+    source: "Medium (Wesfarmers OneDigital)",
+    sourceUrl: "https://medium.com/wesfarmers-onedigital/experiments-with-playwright-axe-on-accessibility-testing-cc70062525cd",
+    tags: ["Accessibility", "Playwright", "Testing", "a11y"],
   },
 ];
 
@@ -296,7 +316,7 @@ export default function ArticlesPage() {
             serverless development, and software engineering best practices.
           </p>
           <a
-            href="https://medium.com/@manishmitra"
+            href="https://medium.com/@manishmitraba"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white py-3 px-6 rounded-md font-medium transition-colors"
