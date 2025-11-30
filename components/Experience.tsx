@@ -2,13 +2,14 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { FaBriefcase } from "react-icons/fa";
+import { useRef, useState } from "react";
+import { FaChevronDown, FaChevronUp, FaTrophy } from "react-icons/fa";
 import CompanyLogo from "./CompanyLogo";
 
 const Experience = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   const experiences = [
     {
@@ -17,7 +18,8 @@ const Experience = () => {
         {
           title: "Senior Engineering Manager (Agentic Banking – Gen AI)",
           period: "October 2023 - Present",
-          description: "Building reusable AI agents and agentic AI capabilities for banking modernization",
+          description:
+            "Building reusable AI agents and agentic AI capabilities for banking modernization",
           highlights: [
             "Built first GENAI project in bank on RACO for adverse media screening - won CEO Excellence Awards",
             "Built and released reusable expert AI system (Dialogue agent template) and AI agents for E2E dispute journey - won Excellence Awards",
@@ -26,6 +28,7 @@ const Experience = () => {
             "Strong contributor to AIPE projects with campus relationships at Monash/Melbourne University",
             "Working with Pydantic AI, Google ADK, LLMs, Langgraph, ML OPS, A2A, MCP, DevSecOps",
           ],
+          featured: true,
         },
       ],
     },
@@ -158,85 +161,183 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gradient-to-b from-gray-900 via-purple-900/10 to-gray-900" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="py-24 relative" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">Professional </span>
-            <span className="gradient-text">Experience</span>
+          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+            Career Journey
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
+            Professional{" "}
+            <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              Experience
+            </span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-primary-400/50 via-purple-400/50 to-cyan-400/50 rounded-full" />
-
+        {/* Experience Cards */}
+        <div className="space-y-4">
           {experiences.map((exp, expIndex) => (
-            <div key={expIndex} className="mb-12">
-              {exp.roles.map((role, roleIndex) => (
-                <motion.div
-                  key={roleIndex}
-                  initial={{ opacity: 0, y: 50 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ duration: 0.6, delay: expIndex * 0.2 + roleIndex * 0.1 }}
-                  className={`flex flex-col md:flex-row gap-8 items-center mb-8 ${
-                    expIndex % 2 === 0 ? "md:flex-row-reverse" : ""
-                  }`}
-                >
-                  {/* Content */}
-                  <div className="md:w-1/2 w-full">
-                    <div className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group transition-all">
-                      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative z-10">
-                        <div className="flex items-start justify-between mb-4">
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-2 md:gap-3 mb-3">
-                              <CompanyLogo company={exp.company} size="md" />
-                              <h4 className="gradient-text font-semibold text-base md:text-lg truncate">
-                                {exp.company}
-                              </h4>
-                            </div>
-                            <h3 className="text-lg md:text-xl font-bold text-white mb-1">
-                              {role.title}
-                            </h3>
-                            <p className="text-gray-400 text-xs md:text-sm">{role.period}</p>
-                          </div>
-                          <FaBriefcase className="text-primary-400 text-xl md:text-2xl flex-shrink-0 ml-2" />
-                        </div>
-                        <p className="text-gray-300 mb-4 text-sm md:text-base">{role.description}</p>
-                        <ul className="space-y-2">
-                          {role.highlights.map((highlight, hIndex) => (
-                            <li
-                              key={hIndex}
-                              className="text-gray-400 text-xs md:text-sm flex items-start"
-                            >
-                              <span className="text-primary-400 mr-2 flex-shrink-0">▹</span>
-                              <span>{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
+            <motion.div
+              key={expIndex}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: expIndex * 0.1 }}
+            >
+              {exp.roles.map((role, roleIndex) => {
+                const isExpanded = expandedIndex === expIndex;
+                const isFeatured = "featured" in role && role.featured;
+
+                return (
+                  <div
+                    key={roleIndex}
+                    className={`bg-gray-800/40 backdrop-blur-xl rounded-2xl border transition-all overflow-hidden ${
+                      isFeatured
+                        ? "border-primary-500/30 ring-1 ring-primary-500/20"
+                        : "border-gray-700/50 hover:border-gray-600/50"
+                    }`}
+                  >
+                    {/* Card Header - Always Visible */}
+                    <button
+                      onClick={() =>
+                        setExpandedIndex(isExpanded ? null : expIndex)
+                      }
+                      className="w-full p-6 text-left flex items-center gap-4 hover:bg-gray-700/20 transition-colors"
+                    >
+                      {/* Company Logo */}
+                      <div className="flex-shrink-0">
+                        <CompanyLogo company={exp.company} size="md" />
                       </div>
-                    </div>
-                  </div>
 
-                  {/* Timeline dot */}
-                  <div className="hidden md:block relative">
-                    <div className="w-5 h-5 bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 rounded-full border-4 border-gray-900 shadow-glow animate-pulse-glow" />
-                  </div>
+                      {/* Main Info */}
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 mb-1">
+                          <h3 className="text-lg md:text-xl font-bold text-white truncate">
+                            {role.title}
+                          </h3>
+                          {isFeatured && (
+                            <span className="inline-flex items-center gap-1 bg-primary-500/20 text-primary-400 px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0">
+                              <FaTrophy size={10} />
+                              Current
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                          <span className="text-primary-400 font-medium">
+                            {exp.company}
+                          </span>
+                          <span className="text-gray-500">•</span>
+                          <span className="text-gray-400 text-sm">
+                            {role.period}
+                          </span>
+                        </div>
+                      </div>
 
-                  {/* Spacer */}
-                  <div className="hidden md:block md:w-1/2" />
-                </motion.div>
-              ))}
-            </div>
+                      {/* Expand/Collapse Icon */}
+                      <div className="flex-shrink-0 text-gray-400">
+                        {isExpanded ? (
+                          <FaChevronUp size={16} />
+                        ) : (
+                          <FaChevronDown size={16} />
+                        )}
+                      </div>
+                    </button>
+
+                    {/* Expandable Content */}
+                    <motion.div
+                      initial={false}
+                      animate={{
+                        height: isExpanded ? "auto" : 0,
+                        opacity: isExpanded ? 1 : 0,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-6 pb-6 pt-2 border-t border-gray-700/50">
+                        <p className="text-gray-300 mb-4">{role.description}</p>
+
+                        <div className="space-y-2">
+                          {role.highlights.map((highlight, hIndex) => (
+                            <motion.div
+                              key={hIndex}
+                              initial={{ opacity: 0, x: -10 }}
+                              animate={
+                                isExpanded ? { opacity: 1, x: 0 } : {}
+                              }
+                              transition={{
+                                duration: 0.3,
+                                delay: hIndex * 0.05,
+                              }}
+                              className="flex items-start gap-3"
+                            >
+                              <span className="text-primary-400 mt-1.5 flex-shrink-0">
+                                <svg
+                                  width="6"
+                                  height="6"
+                                  viewBox="0 0 6 6"
+                                  fill="currentColor"
+                                >
+                                  <circle cx="3" cy="3" r="3" />
+                                </svg>
+                              </span>
+                              <span className="text-gray-400 text-sm leading-relaxed">
+                                {highlight}
+                              </span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                );
+              })}
+            </motion.div>
           ))}
         </div>
+
+        {/* Timeline Summary */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.8 }}
+          className="mt-12 bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-6"
+        >
+          <div className="flex flex-wrap items-center justify-center gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+                17+
+              </div>
+              <div className="text-gray-400 text-sm">Years Experience</div>
+            </div>
+            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+                9
+              </div>
+              <div className="text-gray-400 text-sm">Companies</div>
+            </div>
+            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+                120+
+              </div>
+              <div className="text-gray-400 text-sm">Team Led</div>
+            </div>
+            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div>
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+                3
+              </div>
+              <div className="text-gray-400 text-sm">Awards</div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

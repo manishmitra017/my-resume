@@ -1,209 +1,207 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from "react-icons/fa";
 import { SiOpenai } from "react-icons/si";
+import { HiSparkles } from "react-icons/hi2";
 
 const Hero = () => {
   const socialLinks = [
     {
-      icon: <FaLinkedin size={24} />,
+      icon: <FaLinkedin size={20} />,
       href: "https://www.linkedin.com/in/manish-mitra/",
       label: "LinkedIn",
     },
     {
-      icon: <FaGithub size={24} />,
+      icon: <FaGithub size={20} />,
       href: "https://github.com/manishmitra017",
       label: "GitHub",
     },
     {
-      icon: <FaEnvelope size={24} />,
+      icon: <FaEnvelope size={20} />,
       href: "mailto:manishmitra013@gmail.com",
       label: "Email",
     },
   ];
 
+  const highlights = [
+    { label: "CEO Excellence Awards", icon: "🏆" },
+    { label: "Gen AI at CBA", icon: "🤖" },
+    { label: "4 → 80 Team Growth", icon: "📈" },
+    { label: "DORA Specialist", icon: "⚡" },
+  ];
+
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative pt-16"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1],
-            rotate: [0, 90, 0],
-          }}
-          transition={{
-            duration: 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -top-1/2 -left-1/2 w-full h-full bg-primary-500/5 rounded-full blur-3xl"
-        />
-        <motion.div
-          animate={{
-            scale: [1.2, 1, 1.2],
-            rotate: [90, 0, 90],
-          }}
-          transition={{
-            duration: 25,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-primary-400/5 rounded-full blur-3xl"
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center">
-          {/* Profile Picture with animation */}
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        {/* Bento Grid Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6">
+          {/* Main Profile Card - Spans 8 columns */}
           <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="flex justify-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="lg:col-span-8 bg-gray-800/40 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-gray-700/50 relative overflow-hidden"
           >
-            <div className="relative">
+            {/* Subtle gradient accent */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl" />
+
+            <div className="relative z-10">
+              {/* Badge */}
               <motion.div
-                animate={{
-                  boxShadow: [
-                    "0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(168, 85, 247, 0.2)",
-                    "0 0 40px rgba(168, 85, 247, 0.6), 0 0 60px rgba(6, 182, 212, 0.4)",
-                    "0 0 30px rgba(6, 182, 212, 0.5), 0 0 50px rgba(14, 165, 233, 0.3)",
-                    "0 0 20px rgba(14, 165, 233, 0.4), 0 0 40px rgba(168, 85, 247, 0.2)",
-                  ],
-                }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="rounded-full overflow-hidden border-4 border-transparent w-40 h-40 md:w-48 md:h-48 neon-border"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2 }}
+                className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 px-4 py-2 rounded-full text-sm font-medium mb-6"
               >
-                <img
-                  src="/images/Profile-picture.jpg"
-                  alt="Manish Mitra"
-                  className="w-full h-full object-cover"
-                />
+                <HiSparkles className="text-primary-400" />
+                Available for opportunities
               </motion.div>
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                className="absolute -bottom-2 -right-2 bg-primary-500 p-3 rounded-full"
+
+              {/* Name */}
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight"
               >
-                <SiOpenai className="text-white text-2xl" />
+                <span className="text-white">Manish</span>{" "}
+                <span className="bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                  Mitra
+                </span>
+              </motion.h1>
+
+              {/* Title */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="text-xl md:text-2xl text-gray-300 mb-6"
+              >
+                <span className="text-primary-400 font-semibold">AI Leadership</span>
+                <span className="mx-3 text-gray-600">•</span>
+                <span className="font-medium">Senior Engineering Manager</span>
+              </motion.p>
+
+              {/* Description */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-gray-400 text-lg leading-relaxed max-w-2xl mb-8"
+              >
+                Building production{" "}
+                <span className="text-white font-medium">Agentic AI systems</span> with
+                MCP, OpenAI Agents SDK, LlamaIndex, Google ADK, and Pydantic AI.
+                Leading Gen AI innovation at{" "}
+                <span className="text-white font-medium">Commonwealth Bank</span>.
+              </motion.p>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="flex flex-wrap gap-4"
+              >
+                <a
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  Get In Touch
+                  <span className="group-hover:translate-x-1 transition-transform">→</span>
+                </a>
+                <a
+                  href="#experience"
+                  className="inline-flex items-center gap-2 bg-gray-700/50 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-700 border border-gray-600/50"
+                >
+                  View Experience
+                </a>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-4"
-          >
-            <span className="text-white">Manish </span>
-            <span className="gradient-text-animated">Mitra</span>
-          </motion.h1>
-
-          {/* Title */}
+          {/* Profile Image Card - Spans 4 columns */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-300 mb-6"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:col-span-4 bg-gradient-to-br from-primary-500/20 via-purple-500/10 to-cyan-500/20 rounded-3xl p-2 border border-gray-700/50 relative overflow-hidden"
           >
-            <span className="text-primary-400 font-semibold">AI Leadership</span> |{" "}
-            <span className="font-semibold">Senior Engineering Manager</span>
-          </motion.div>
-
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="text-base md:text-lg lg:text-xl text-gray-400 mb-8 max-w-3xl mx-auto px-4"
-          >
-            Building production{" "}
-            <span className="text-primary-400 font-semibold">Agentic AI systems</span> with{" "}
-            <span className="text-primary-400">MCP, OpenAI Agents SDK, LlamaIndex, Google ADK</span>, and{" "}
-            <span className="text-primary-400">Pydantic AI</span>
-            <br className="hidden sm:block" />
-            <span className="block sm:inline mt-2 sm:mt-0">
-              <span className="font-semibold text-white">CEO Excellence Awards</span> winner •{" "}
-              Leading Gen AI at{" "}
-              <span className="font-semibold text-white">Commonwealth Bank</span>
-            </span>
-            <br className="hidden sm:block" />
-            <span className="block sm:inline mt-2 sm:mt-0">
-              Grew team <span className="text-primary-400">4 to 80 members</span> •{" "}
-              <span className="text-primary-400">DORA Specialist</span>
-            </span>
-          </motion.p>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex justify-center space-x-6 mb-12"
-          >
-            {socialLinks.map((link, index) => (
-              <motion.a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-gray-400 hover:text-primary-400 transition-colors"
-                aria-label={link.label}
+            <div className="relative w-full h-full min-h-[300px] lg:min-h-full rounded-2xl overflow-hidden">
+              <img
+                src="/images/Profile-picture.jpg"
+                alt="Manish Mitra"
+                className="w-full h-full object-cover"
+              />
+              {/* AI Badge */}
+              <motion.div
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-4 right-4 bg-gray-900/90 backdrop-blur-sm p-3 rounded-xl border border-gray-700/50"
               >
-                {link.icon}
-              </motion.a>
-            ))}
+                <SiOpenai className="text-primary-400 text-2xl" />
+              </motion.div>
+            </div>
           </motion.div>
 
-          {/* CTA Buttons */}
+          {/* Highlights Row - 4 equal cards */}
+          {highlights.map((highlight, index) => (
+            <motion.div
+              key={highlight.label}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
+              className="lg:col-span-3 bg-gray-800/40 backdrop-blur-xl rounded-2xl p-5 border border-gray-700/50 hover:border-gray-600/50 transition-all hover:bg-gray-800/60 group"
+            >
+              <span className="text-2xl mb-2 block group-hover:scale-110 transition-transform">{highlight.icon}</span>
+              <span className="text-white font-medium text-sm">{highlight.label}</span>
+            </motion.div>
+          ))}
+
+          {/* Social Links Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            transition={{ duration: 0.5, delay: 1.1 }}
+            className="lg:col-span-12 bg-gray-800/40 backdrop-blur-xl rounded-2xl p-4 border border-gray-700/50 flex items-center justify-center gap-6"
           >
-            <motion.a
-              href="#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative bg-gradient-to-r from-primary-500 via-purple-500 to-cyan-500 hover:from-primary-600 hover:via-purple-600 hover:to-cyan-600 text-white px-8 py-3 rounded-lg font-medium transition-all shadow-neon hover:shadow-neon-strong overflow-hidden group"
-            >
-              <span className="relative z-10">Get In Touch</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity" />
-            </motion.a>
-            <motion.a
-              href="#experience"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="glass-strong hover:bg-gray-700/50 text-white px-8 py-3 rounded-lg font-medium transition-all border-2 border-gray-600/50 hover:border-primary-400/50 hover:shadow-glow"
-            >
-              View Experience
-            </motion.a>
+            <span className="text-gray-500 text-sm font-medium hidden sm:block">Connect with me</span>
+            <div className="flex items-center gap-4">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-primary-400 transition-colors p-2 rounded-lg hover:bg-gray-700/50"
+                  aria-label={link.label}
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
           </motion.div>
         </div>
 
         {/* Scroll indicator */}
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1, y: [0, 10, 0] }}
-          transition={{ delay: 1.5, duration: 1.5, repeat: Infinity }}
-          className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5 }}
+          className="flex justify-center mt-12"
         >
-          <div className="w-6 h-10 border-2 border-primary-400 rounded-full flex justify-center">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1 h-3 bg-primary-400 rounded-full mt-2"
-            />
-          </div>
+          <motion.a
+            href="#about"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="text-gray-500 hover:text-primary-400 transition-colors"
+          >
+            <FaArrowDown size={20} />
+          </motion.a>
         </motion.div>
       </div>
     </section>
