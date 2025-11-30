@@ -7,56 +7,56 @@ import { FaCertificate, FaAward, FaMicrosoft, FaAws } from "react-icons/fa";
 
 const Certifications = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const certifications = [
     {
       name: "AWS Certified Solutions Architect",
       issuer: "Amazon Web Services",
-      icon: <FaAws />,
-      color: "text-orange-400",
+      icon: <FaAws size={24} />,
+      gradient: "from-orange-500 to-amber-500",
       image: null,
     },
     {
       name: "AWS Certified Developer",
       issuer: "Amazon Web Services",
-      icon: <FaAws />,
-      color: "text-orange-400",
+      icon: <FaAws size={24} />,
+      gradient: "from-orange-500 to-amber-500",
       image: null,
     },
     {
       name: "AWS AI Certified",
       issuer: "Amazon Web Services",
-      icon: <FaAws />,
-      color: "text-orange-400",
+      icon: <FaAws size={24} />,
+      gradient: "from-orange-500 to-amber-500",
       image: null,
     },
     {
       name: "ITIL Certificate",
       issuer: "AXELOS",
-      icon: <FaCertificate />,
-      color: "text-blue-400",
+      icon: <FaCertificate size={24} />,
+      gradient: "from-blue-500 to-indigo-500",
       image: "itil.jpeg",
     },
     {
       name: "Salesforce Certified Administrator",
       issuer: "Salesforce",
-      icon: <FaCertificate />,
-      color: "text-cyan-400",
+      icon: <FaCertificate size={24} />,
+      gradient: "from-cyan-500 to-blue-500",
       image: "salesforce.png",
     },
     {
-      name: "Microsoft Certified: Azure Fundamentals",
+      name: "Microsoft Azure Fundamentals",
       issuer: "Microsoft",
-      icon: <FaMicrosoft />,
-      color: "text-blue-500",
+      icon: <FaMicrosoft size={24} />,
+      gradient: "from-blue-500 to-purple-500",
       image: null,
     },
     {
       name: "CCBA",
       issuer: "IIBA",
-      icon: <FaCertificate />,
-      color: "text-purple-400",
+      icon: <FaCertificate size={24} />,
+      gradient: "from-purple-500 to-pink-500",
       image: "ccba.jpeg",
     },
   ];
@@ -64,103 +64,124 @@ const Certifications = () => {
   const awards = [
     {
       name: "CEO Excellence Awards",
-      description: "Won for building first GENAI project in bank on RACO for adverse media screening",
-      icon: <FaAward />,
+      description:
+        "Won for building first GENAI project in bank on RACO for adverse media screening",
+      gradient: "from-yellow-500 to-orange-500",
     },
     {
       name: "Excellence Awards",
-      description: "Won for building reusable expert AI system and AI agents for E2E dispute journey",
-      icon: <FaAward />,
+      description:
+        "Won for building reusable expert AI system and AI agents for E2E dispute journey",
+      gradient: "from-purple-500 to-pink-500",
     },
     {
       name: "Spot Award Winner",
-      description: "Recognition for exceptional performance and contributions",
-      icon: <FaAward />,
+      description:
+        "Recognition for exceptional performance and contributions",
+      gradient: "from-blue-500 to-cyan-500",
     },
     {
       name: "Achieving Excellence",
-      description: "Award for consistent high-quality delivery and leadership",
-      icon: <FaAward />,
+      description:
+        "Award for consistent high-quality delivery and leadership",
+      gradient: "from-green-500 to-emerald-500",
     },
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-gradient-to-b from-gray-900 via-indigo-900/10 to-gray-900" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="certifications" className="py-24 relative" ref={ref}>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-white">Certifications & </span>
-            <span className="gradient-text">Awards</span>
+          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+            Credentials
+          </span>
+          <h2 className="text-3xl md:text-5xl font-bold text-white">
+            Certifications &{" "}
+            <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              Awards
+            </span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift" />
         </motion.div>
 
-        {/* Certifications */}
-        <div className="mb-12">
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
+        {/* Certifications Grid */}
+        <div className="mb-16">
+          <h3 className="text-lg font-semibold text-gray-400 mb-6">
             Professional Certifications
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {certifications.map((cert, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow text-center relative overflow-hidden group"
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all text-center relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
                 <div className="relative z-10">
-                {cert.image ? (
-                  <div className="mb-3 md:mb-4 flex justify-center">
-                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden bg-white flex items-center justify-center">
-                      <img
-                        src={`/images/companies/${cert.image}`}
-                        alt={cert.name}
-                        className="w-full h-full object-contain p-2"
-                      />
+                  {cert.image ? (
+                    <div className="mb-4 flex justify-center">
+                      <div className="w-14 h-14 rounded-xl overflow-hidden bg-white flex items-center justify-center">
+                        <img
+                          src={`/images/companies/${cert.image}`}
+                          alt={cert.name}
+                          className="w-full h-full object-contain p-2"
+                        />
+                      </div>
                     </div>
-                  </div>
-                ) : (
-                  <div className={`text-4xl md:text-5xl mb-3 md:mb-4 ${cert.color}`}>{cert.icon}</div>
-                )}
-                <h4 className="text-white font-semibold mb-2 text-sm md:text-base">{cert.name}</h4>
-                <p className="text-gray-400 text-xs md:text-sm">{cert.issuer}</p>
+                  ) : (
+                    <div
+                      className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br ${cert.gradient} text-white mb-4`}
+                    >
+                      {cert.icon}
+                    </div>
+                  )}
+                  <h4 className="text-white font-medium text-sm mb-1 line-clamp-2">
+                    {cert.name}
+                  </h4>
+                  <p className="text-gray-500 text-xs">{cert.issuer}</p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Awards */}
+        {/* Awards Grid */}
         <div>
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-6 text-center">
+          <h3 className="text-lg font-semibold text-gray-400 mb-6">
             Honors & Awards
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid md:grid-cols-2 gap-4">
             {awards.map((award, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                whileHover={{ scale: 1.03, y: -5 }}
-                className="glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                className="group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all relative overflow-hidden"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-purple-500/10 opacity-70 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10">
-                  <div className="flex items-start space-x-3 md:space-x-4">
-                    <div className="text-transparent bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-3xl md:text-4xl flex-shrink-0">{award.icon}</div>
-                    <div className="min-w-0">
-                      <h4 className="text-white font-bold mb-2 text-base md:text-lg">{award.name}</h4>
-                      <p className="text-gray-300 text-xs md:text-sm">{award.description}</p>
-                    </div>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${award.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                />
+                <div className="relative z-10 flex items-start gap-4">
+                  <div
+                    className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${award.gradient} text-white flex-shrink-0`}
+                  >
+                    <FaAward size={18} />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-white font-semibold mb-1">
+                      {award.name}
+                    </h4>
+                    <p className="text-gray-400 text-sm">{award.description}</p>
                   </div>
                 </div>
               </motion.div>
