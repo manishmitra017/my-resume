@@ -50,6 +50,7 @@ const Skills = () => {
         { name: "RAG Systems", icon: <FaRobot size={16} /> },
         { name: "Vector Databases", icon: <FaRobot size={16} /> },
         { name: "Embeddings", icon: <FaRobot size={16} /> },
+        { name: "Machine Learning", icon: <FaRobot size={16} /> },
         { name: "LLMOps", icon: <FaRobot size={16} /> },
       ],
     },
@@ -90,6 +91,7 @@ const Skills = () => {
       skills: [
         { name: "AWS (SA + Dev + AI Certified)", icon: <FaAws size={16} /> },
         { name: "DevSecOps", icon: <FaTools size={16} /> },
+        { name: "MLOps", icon: <FaTools size={16} /> },
         { name: "DORA Specialist", icon: <FaTools size={16} /> },
         { name: "Terraform", icon: <SiTerraform size={16} /> },
         { name: "Docker", icon: <SiDocker size={16} /> },
@@ -128,7 +130,7 @@ const Skills = () => {
           <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Expertise
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
             Technical{" "}
             <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
               Skills
@@ -144,7 +146,7 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden"
+              className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
             >
               {/* Category Header */}
               <div className="p-6 border-b border-gray-700/50">

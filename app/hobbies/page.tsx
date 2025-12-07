@@ -164,7 +164,7 @@ export default function HobbiesPage() {
       direction === "next"
         ? (currentIndex + 1) % cricketData.photos.length
         : (currentIndex - 1 + cricketData.photos.length) %
-          cricketData.photos.length;
+        cricketData.photos.length;
     setCurrentIndex(newIndex);
     setSelectedPhoto(cricketData.photos[newIndex]);
   };
@@ -185,7 +185,7 @@ export default function HobbiesPage() {
             <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Beyond Code
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Hobbies &{" "}
               <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
                 Interests
@@ -340,7 +340,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-gray-700/50 hover:border-gray-600/50"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300"
                   onClick={() => openLightbox(photo, index)}
                 >
                   <img
@@ -388,7 +388,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="flex gap-4 p-4">
                     <div className="w-24 h-36 flex-shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-primary-500/20 to-purple-500/20">
@@ -442,7 +442,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
@@ -451,20 +451,19 @@ export default function HobbiesPage() {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                     <div
-                      className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${
-                        event.type === "speaking"
+                      className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${event.type === "speaking"
                           ? "bg-blue-500/80 text-white"
                           : event.type === "award"
-                          ? "bg-yellow-500/80 text-white"
-                          : "bg-pink-500/80 text-white"
-                      }`}
+                            ? "bg-yellow-500/80 text-white"
+                            : "bg-pink-500/80 text-white"
+                        }`}
                     >
                       <event.icon size={12} />
                       {event.type === "speaking"
                         ? "Speaking"
                         : event.type === "award"
-                        ? "Award"
-                        : "Charity"}
+                          ? "Award"
+                          : "Charity"}
                     </div>
                   </div>
                   <div className="p-5">

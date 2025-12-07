@@ -101,7 +101,7 @@ const Certifications = () => {
           <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Credentials
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white">
+          <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
             Certifications &{" "}
             <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
               Awards
@@ -111,7 +111,7 @@ const Certifications = () => {
 
         {/* Certifications Grid */}
         <div className="mb-16">
-          <h3 className="text-lg font-semibold text-gray-400 mb-6">
+          <h3 className="text-lg font-semibold text-gray-400 mb-6 font-display">
             Professional Certifications
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -121,7 +121,7 @@ const Certifications = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all text-center relative overflow-hidden"
+                className="group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 text-center relative overflow-hidden"
               >
                 <div
                   className={`absolute inset-0 bg-gradient-to-br ${cert.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}

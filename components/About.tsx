@@ -49,7 +49,7 @@ const About = () => {
           <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             About Me
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
             Engineering leader with close to{" "}
             <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
               20 years
@@ -116,7 +116,7 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                className="group bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all relative overflow-hidden"
+                className="group bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 relative overflow-hidden"
               >
                 {/* Gradient accent on hover */}
                 <div

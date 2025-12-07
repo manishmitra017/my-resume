@@ -224,7 +224,7 @@ const CommunityProjects = () => {
             <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Open Source
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Community{" "}
               <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
                 Projects
@@ -282,7 +282,7 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="p-6">
                     {/* Header */}
@@ -387,7 +387,7 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">

@@ -66,10 +66,10 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight"
+                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-display"
               >
                 <span className="text-white">Manish</span>{" "}
-                <span className="bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent drop-shadow-lg">
                   Mitra
                 </span>
               </motion.h1>
