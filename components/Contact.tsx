@@ -16,10 +16,10 @@ const Contact = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const handleDownloadCV = async () => {
+  const handleDownloadCV = () => {
     try {
-      const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
-      await downloadResumeAsPDF();
+      const { downloadResumeAsPDF } = require("@/utils/downloadResume");
+      downloadResumeAsPDF();
     } catch (error) {
       console.error("Error downloading CV:", error);
     }

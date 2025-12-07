@@ -28,10 +28,10 @@ const Navigation = () => {
     { name: "Contact", href: "/#contact" },
   ];
 
-  const handleDownloadCV = async () => {
+  const handleDownloadCV = () => {
     try {
-      const { downloadResumeAsPDF } = await import("@/utils/downloadResume");
-      await downloadResumeAsPDF();
+      const { downloadResumeAsPDF } = require("@/utils/downloadResume");
+      downloadResumeAsPDF();
     } catch (error) {
       console.error("Error downloading CV:", error);
     }
