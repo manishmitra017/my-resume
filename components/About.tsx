@@ -9,6 +9,19 @@ const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
+  // Calculate years of experience from June 2007
+  const calculateYearsOfExperience = () => {
+    const startDate = new Date(2007, 5, 1); // June 2007 (month is 0-indexed)
+    const currentDate = new Date();
+    const years = currentDate.getFullYear() - startDate.getFullYear();
+    const months = currentDate.getMonth() - startDate.getMonth();
+
+    // If we haven't passed June yet this year, subtract 1
+    return months < 0 ? years - 1 : years;
+  };
+
+  const yearsOfExperience = calculateYearsOfExperience();
+
   const highlights = [
     {
       icon: <FaBrain size={24} />,
@@ -50,11 +63,10 @@ const About = () => {
             About Me
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
-            Engineering leader with close to{" "}
             <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
-              20 years
+              Seasoned engineering leader
             </span>{" "}
-            of experience
+            driving AI innovation and organizational excellence
           </h2>
         </motion.div>
 

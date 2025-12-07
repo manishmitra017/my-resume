@@ -11,6 +11,19 @@ const Experience = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
+  // Calculate years of experience from June 2007
+  const calculateYearsOfExperience = () => {
+    const startDate = new Date(2007, 5, 1); // June 2007 (month is 0-indexed)
+    const currentDate = new Date();
+    const years = currentDate.getFullYear() - startDate.getFullYear();
+    const months = currentDate.getMonth() - startDate.getMonth();
+
+    // If we haven't passed June yet this year, subtract 1
+    return months < 0 ? years - 1 : years;
+  };
+
+  const yearsOfExperience = calculateYearsOfExperience();
+
   const experiences = [
     {
       company: "Commonwealth Bank",
@@ -310,7 +323,7 @@ const Experience = () => {
           <div className="flex flex-wrap items-center justify-center gap-8 text-center">
             <div>
               <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
-                17+
+                {yearsOfExperience}+
               </div>
               <div className="text-gray-400 text-sm">Years Experience</div>
             </div>
