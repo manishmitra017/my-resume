@@ -69,7 +69,7 @@ const Contact = () => {
           <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Get In Touch
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
             Let&apos;s{" "}
             <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
               Connect
@@ -91,9 +91,8 @@ const Contact = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => info.href && window.open(info.href, "_blank")}
-                className={`group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all ${
-                  info.href ? "cursor-pointer" : ""
-                }`}
+                className={`group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 ${info.href ? "cursor-pointer" : ""
+                  }`}
               >
                 <div
                   className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${info.gradient} text-white mb-4`}
@@ -113,8 +112,9 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gradient-to-br from-primary-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 flex flex-col justify-center"
+            className="bg-gradient-to-br from-primary-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 flex flex-col justify-center relative overflow-hidden group"
           >
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to work together?
             </h3>

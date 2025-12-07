@@ -42,11 +42,10 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-gray-900/80 backdrop-blur-xl border-b border-gray-800/50"
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled
+          ? "bg-gray-900/70 backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -55,9 +54,9 @@ const Navigation = () => {
             href="/#home"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-xl font-bold text-white group"
+            className="text-2xl font-bold text-white group font-display tracking-tight"
           >
-            <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-md">
               MM
             </span>
           </motion.a>

@@ -110,7 +110,7 @@ export default function ArticlesPage() {
             <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Knowledge Sharing
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Articles &{" "}
               <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
                 Publications
@@ -158,11 +158,10 @@ export default function ArticlesPage() {
           >
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                selectedTag === null
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedTag === null
                   ? "bg-primary-500 text-white"
                   : "bg-gray-800/40 text-gray-400 hover:bg-gray-700/50 border border-gray-700/50"
-              }`}
+                }`}
             >
               All
             </button>
@@ -170,11 +169,10 @@ export default function ArticlesPage() {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                  selectedTag === tag
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${selectedTag === tag
                     ? "bg-primary-500 text-white"
                     : "bg-gray-800/40 text-gray-400 hover:bg-gray-700/50 border border-gray-700/50"
-                }`}
+                  }`}
               >
                 {tag}
               </button>
@@ -197,7 +195,7 @@ export default function ArticlesPage() {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="h-full bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-gray-600/50 transition-all overflow-hidden relative">
+                  <div className="h-full bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden relative">
                     {/* Featured Badge */}
                     {article.featured && (
                       <div className="absolute top-4 right-4 z-10">
