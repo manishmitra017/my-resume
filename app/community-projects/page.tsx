@@ -42,6 +42,28 @@ interface Repository {
 
 const featuredProjects = [
   {
+    name: "Voice Guard Rail",
+    tagline: "Real-Time Speech Emotion Detection",
+    description:
+      "AI-powered emotion recognition system achieving 92% accuracy in detecting 7 emotions from speech in real-time, featuring OpenAI Whisper integration for transcription and a modern React + FastAPI architecture.",
+    technologies: [
+      { name: "Python", icon: SiPython },
+      { name: "React 19", icon: SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "FastAPI", icon: FaCode },
+    ],
+    features: [
+      "92% accuracy across 7 emotions using Whisper-based model",
+      "Real-time audio capture and processing from browser",
+      "OpenAI Whisper integration for speech transcription",
+      "Modern full-stack architecture with React 19 and FastAPI",
+    ],
+    githubUrl: "https://github.com/manishmitra017/voice_guard_rail",
+    stars: 0,
+    category: "AI/ML & Real-Time",
+    gradient: "from-blue-500 to-purple-500",
+  },
+  {
     name: "PentestAI",
     tagline: "AI-Powered Security Testing Framework",
     description:
