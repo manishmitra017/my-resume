@@ -1,10 +1,19 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 import { SiOpenai } from "react-icons/si";
+import { useRef } from "react";
 
 const Hero = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
   const socialLinks = [
     {
       icon: <FaLinkedin size={24} />,
@@ -25,11 +34,15 @@ const Hero = () => {
 
   return (
     <section
+      ref={ref}
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Animated background elements with parallax */}
+      <motion.div
+        className="absolute inset-0 overflow-hidden"
+        style={{ y, opacity }}
+      >
         <motion.div
           animate={{
             scale: [1, 1.2, 1],
@@ -54,9 +67,12 @@ const Hero = () => {
           }}
           className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-primary-400/5 rounded-full blur-3xl"
         />
-      </div>
+      </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <motion.div
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        style={{ opacity }}
+      >
         <div className="text-center">
           {/* Profile Picture with animation */}
           <motion.div
@@ -205,7 +221,7 @@ const Hero = () => {
             />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 };

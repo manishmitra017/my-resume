@@ -60,10 +60,11 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Get In <span className="text-primary-400">Touch</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-white">Get In </span>
+            <span className="gradient-text">Touch</span>
           </h2>
-          <div className="w-20 h-1 bg-primary-400 mx-auto mb-6" />
+          <div className="w-20 h-1 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 mx-auto rounded-full animate-gradient-shift mb-6" />
           <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto px-4">
             I'm always open to discussing new opportunities, collaborations, or
             just connecting with fellow professionals in AI and engineering.
@@ -78,14 +79,15 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ scale: info.href ? 1.03 : 1 }}
-                className={`bg-gray-800/50 backdrop-blur-sm p-4 md:p-6 rounded-lg border border-gray-700 hover:border-primary-400 transition-all ${
+                whileHover={{ scale: info.href ? 1.03 : 1, y: info.href ? -5 : 0 }}
+                className={`glass-strong p-4 md:p-6 rounded-xl border-2 border-gray-600/30 hover:border-transparent hover-glow relative overflow-hidden group ${
                   info.href ? "cursor-pointer" : ""
                 }`}
                 onClick={() => info.href && window.open(info.href, "_blank")}
               >
-                <div className="flex items-center space-x-3 md:space-x-4">
-                  <div className="text-primary-400 flex-shrink-0">{info.icon}</div>
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 via-purple-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="relative z-10 flex items-center space-x-3 md:space-x-4">
+                  <div className="text-transparent bg-gradient-to-br from-primary-400 via-purple-400 to-cyan-400 bg-clip-text flex-shrink-0">{info.icon}</div>
                   <div className="flex-1 min-w-0">
                     <p className="text-gray-400 text-xs md:text-sm mb-1">{info.label}</p>
                     <p className="text-white font-medium text-sm md:text-base break-all">{info.value}</p>
@@ -104,17 +106,18 @@ const Contact = () => {
           >
             <motion.a
               href="mailto:manishmitra013@gmail.com"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-medium transition-colors shadow-lg shadow-primary-500/50 text-center"
+              className="relative inline-block bg-gradient-to-r from-primary-500 via-purple-500 to-cyan-500 hover:from-primary-600 hover:via-purple-600 hover:to-cyan-600 text-white px-8 py-4 rounded-lg font-medium transition-all shadow-neon hover:shadow-neon-strong text-center overflow-hidden group"
             >
-              Send Me an Email
+              <span className="relative z-10">Send Me an Email</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 opacity-0 group-hover:opacity-20 transition-opacity" />
             </motion.a>
             <motion.button
               onClick={handleDownloadCV}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center justify-center gap-2 bg-gray-800 hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-medium transition-colors border border-gray-700"
+              className="inline-flex items-center justify-center gap-2 glass-strong hover:bg-gray-700/50 text-white px-8 py-4 rounded-lg font-medium transition-all border-2 border-gray-600/50 hover:border-primary-400/50 hover:shadow-glow"
             >
               <FaDownload />
               Download CV
