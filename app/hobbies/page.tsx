@@ -187,7 +187,7 @@ export default function HobbiesPage() {
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Hobbies &{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 Interests
               </span>
             </h1>
@@ -340,7 +340,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300"
                   onClick={() => openLightbox(photo, index)}
                 >
                   <img
@@ -388,7 +388,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="flex gap-4 p-4">
                     <div className="w-24 h-36 flex-shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-primary-500/20 to-purple-500/20">
@@ -442,7 +442,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
@@ -488,7 +488,7 @@ export default function HobbiesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-br from-primary-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
+            className="mt-16 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
           >
             <h3 className="text-2xl font-bold text-white mb-3">
               Share common interests?

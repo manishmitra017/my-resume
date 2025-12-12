@@ -188,7 +188,7 @@ const Experience = () => {
           </span>
           <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
             Professional{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
@@ -211,8 +211,8 @@ const Experience = () => {
                   <div
                     key={roleIndex}
                     className={`bg-gray-800/40 backdrop-blur-xl rounded-2xl border transition-all duration-300 overflow-hidden group ${isFeatured
-                        ? "border-primary-500/30 ring-1 ring-primary-500/20 shadow-[0_0_30px_rgba(14,165,233,0.15)]"
-                        : "border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)]"
+                        ? "border-primary-500/30 ring-1 ring-primary-500/20 shadow-[0_0_30px_rgba(245,158,11,0.12)]"
+                        : "border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)]"
                       }`}
                   >
                     {/* Card Header - Always Visible */}
@@ -322,28 +322,28 @@ const Experience = () => {
         >
           <div className="flex flex-wrap items-center justify-center gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {yearsOfExperience}+
               </div>
               <div className="text-gray-400 text-sm">Years Experience</div>
             </div>
             <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 9
               </div>
               <div className="text-gray-400 text-sm">Companies</div>
             </div>
             <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 120+
               </div>
               <div className="text-gray-400 text-sm">Team Led</div>
             </div>
             <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 3
               </div>
               <div className="text-gray-400 text-sm">Awards</div>

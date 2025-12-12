@@ -112,7 +112,7 @@ export default function ArticlesPage() {
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Articles &{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 Publications
               </span>
             </h1>
@@ -130,19 +130,19 @@ export default function ArticlesPage() {
             className="grid grid-cols-3 gap-4 mb-12"
           >
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {articlesData.length}
               </div>
               <div className="text-gray-500 text-sm">Articles</div>
             </div>
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {articlesData.reduce((acc, article) => acc + article.readTime, 0)}
               </div>
               <div className="text-gray-500 text-sm">Min Read Time</div>
             </div>
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {allTags.length}
               </div>
               <div className="text-gray-500 text-sm">Topics</div>
@@ -195,7 +195,7 @@ export default function ArticlesPage() {
                   rel="noopener noreferrer"
                   className="block h-full"
                 >
-                  <div className="h-full bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden relative">
+                  <div className="h-full bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden relative">
                     {/* Featured Badge */}
                     {article.featured && (
                       <div className="absolute top-4 right-4 z-10">
@@ -206,7 +206,7 @@ export default function ArticlesPage() {
                     )}
 
                     {/* Gradient Header */}
-                    <div className="h-32 bg-gradient-to-br from-primary-500/20 via-purple-500/10 to-cyan-500/20 flex items-center justify-center">
+                    <div className="h-32 bg-gradient-to-br from-primary-500/20 via-primary-600/10 to-accent-600/20 flex items-center justify-center">
                       <span className="text-4xl opacity-30">
                         {article.source === "Medium" ? "📝" : "💼"}
                       </span>
@@ -291,7 +291,7 @@ export default function ArticlesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-br from-primary-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
+            className="mt-16 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
           >
             <h3 className="text-2xl font-bold text-white mb-3">
               Want to read more?

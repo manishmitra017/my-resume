@@ -47,7 +47,7 @@ const Hero = () => {
             className="lg:col-span-8 bg-gray-800/40 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-gray-700/50 relative overflow-hidden"
           >
             {/* Subtle gradient accent */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-500/10 via-purple-500/5 to-transparent rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-500/10 via-primary-600/5 to-transparent rounded-full blur-3xl" />
 
             <div className="relative z-10">
               {/* Badge */}
@@ -69,7 +69,7 @@ const Hero = () => {
                 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-display"
               >
                 <span className="text-white">Manish</span>{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent drop-shadow-lg">
+                <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent drop-shadow-lg">
                   Mitra
                 </span>
               </motion.h1>
@@ -129,7 +129,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-4 bg-gradient-to-br from-primary-500/20 via-purple-500/10 to-cyan-500/20 rounded-3xl p-2 border border-gray-700/50 relative overflow-hidden"
+            className="lg:col-span-4 bg-gradient-to-br from-primary-500/15 via-primary-600/10 to-accent-600/10 rounded-3xl p-2 border border-gray-700/50 relative overflow-hidden"
           >
             <div className="relative w-full h-full min-h-[300px] lg:min-h-full rounded-2xl overflow-hidden">
               <img

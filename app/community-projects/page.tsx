@@ -248,7 +248,7 @@ const CommunityProjects = () => {
             </span>
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
               Community{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 Projects
               </span>
             </h1>
@@ -267,20 +267,20 @@ const CommunityProjects = () => {
             className="grid grid-cols-3 gap-4 mb-16"
           >
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {repos.length + featuredProjects.length}
               </div>
               <div className="text-gray-500 text-sm">Total Projects</div>
             </div>
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0) +
                   featuredProjects.reduce((acc, p) => acc + p.stars, 0)}
               </div>
               <div className="text-gray-500 text-sm">Total Stars</div>
             </div>
             <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-cyan-400 bg-clip-text text-transparent">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
                 {new Set(repos.map((repo) => repo.language).filter(Boolean)).size}
               </div>
               <div className="text-gray-500 text-sm">Languages</div>
@@ -304,7 +304,7 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="p-6">
                     {/* Header */}
@@ -409,7 +409,7 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(14,165,233,0.1)] transition-all duration-300 overflow-hidden"
+                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
                 >
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
@@ -482,7 +482,7 @@ const CommunityProjects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-br from-primary-500/10 via-purple-500/5 to-cyan-500/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
+            className="mt-16 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
           >
             <h3 className="text-2xl font-bold text-white mb-3">
               Interested in collaboration?
