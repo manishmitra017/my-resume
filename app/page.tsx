@@ -18,8 +18,8 @@ export default function Home() {
       {/* Animated gradient orbs */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary-500/20 rounded-full blur-4xl animate-pulse-glow" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-4xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-cyan-500/20 rounded-full blur-4xl animate-pulse-glow" style={{ animationDelay: '2s' }} />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-600/15 rounded-full blur-4xl animate-pulse-glow" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-accent-500/15 rounded-full blur-4xl animate-pulse-glow" style={{ animationDelay: '2s' }} />
       </div>
 
       {/* Grid pattern overlay */}

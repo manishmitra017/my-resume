@@ -56,7 +56,7 @@ const Navigation = () => {
             animate={{ opacity: 1 }}
             className="text-2xl font-bold text-white group font-display tracking-tight"
           >
-            <span className="bg-gradient-to-r from-primary-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-md">
+            <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent drop-shadow-md">
               MM
             </span>
           </motion.a>
