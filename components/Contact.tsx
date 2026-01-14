@@ -114,7 +114,7 @@ const Contact = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 flex flex-col justify-center relative overflow-hidden group"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
             <h3 className="text-2xl font-bold text-white mb-4">
               Ready to work together?
             </h3>
