@@ -8,6 +8,7 @@ import { IoBookSharp } from "react-icons/io5";
 import { HiUsers, HiHeart } from "react-icons/hi";
 import { FiMic, FiAward } from "react-icons/fi";
 import Navigation from "@/components/Navigation";
+import GeometricShapes from "@/components/GeometricShapes";
 
 export interface HobbyPhoto {
   id: string;
@@ -178,10 +179,11 @@ export default function HobbiesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+      <GeometricShapes />
       <Navigation />
 
-      <section className="pt-28 pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="pt-28 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div
@@ -190,16 +192,16 @@ export default function HobbiesPage() {
             transition={{ duration: 0.5 }}
             className="mb-16"
           >
-            <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+            <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Beyond Code
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
+            <h1 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 font-display">
               Hobbies &{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 Interests
               </span>
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl">
+            <p className="text-text-secondary dark:text-gray-300 text-lg max-w-2xl">
               Exploring passions that shape who I am beyond the professional
               world.
             </p>
@@ -213,26 +215,26 @@ export default function HobbiesPage() {
             className="mb-16"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 text-white">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-teal-400 text-white">
                 <GiCricketBat size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-white">Cricket</h2>
+              <h2 className="text-2xl font-bold text-text-primary dark:text-white">Cricket</h2>
             </div>
 
             {/* Stats Card */}
-            <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-6 mb-6">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-6 mb-6 shadow-card">
               <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                 <div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-text-primary dark:text-white">
                     {cricketData.stats.matchesPlayed} Matches
                   </h3>
-                  <p className="text-gray-500 text-sm">Career Statistics</p>
+                  <p className="text-text-muted dark:text-gray-400 text-sm">Career Statistics</p>
                 </div>
                 <a
                   href={cricketData.profileUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary-400 hover:text-primary-300 text-sm"
+                  className="text-teal-500 hover:text-teal-600 text-sm"
                 >
                   View Full Profile →
                 </a>
@@ -240,100 +242,100 @@ export default function HobbiesPage() {
 
               <div className="grid md:grid-cols-3 gap-4">
                 {/* Batting */}
-                <div className="bg-gray-700/30 rounded-xl p-4">
-                  <h4 className="text-primary-400 font-medium text-sm uppercase tracking-wide mb-3">
+                <div className="bg-cream-200/50 dark:bg-gray-700/50 rounded-xl p-4">
+                  <h4 className="text-teal-500 font-medium text-sm uppercase tracking-wide mb-3">
                     Batting
                   </h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.batting.runs}
                       </div>
-                      <div className="text-xs text-gray-500">Runs</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Runs</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.batting.average}
                       </div>
-                      <div className="text-xs text-gray-500">Average</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Average</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.batting.highScore}
                       </div>
-                      <div className="text-xs text-gray-500">High Score</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">High Score</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.batting.hundreds}/{cricketData.batting.fifties}
                       </div>
-                      <div className="text-xs text-gray-500">100s/50s</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">100s/50s</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Bowling */}
-                <div className="bg-gray-700/30 rounded-xl p-4">
-                  <h4 className="text-primary-400 font-medium text-sm uppercase tracking-wide mb-3">
+                <div className="bg-cream-200/50 dark:bg-gray-700/50 rounded-xl p-4">
+                  <h4 className="text-coral-500 font-medium text-sm uppercase tracking-wide mb-3">
                     Bowling
                   </h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.bowling.wickets}
                       </div>
-                      <div className="text-xs text-gray-500">Wickets</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Wickets</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.bowling.average}
                       </div>
-                      <div className="text-xs text-gray-500">Average</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Average</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.bowling.bestBowling}
                       </div>
-                      <div className="text-xs text-gray-500">Best</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Best</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.bowling.economy}
                       </div>
-                      <div className="text-xs text-gray-500">Economy</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Economy</div>
                     </div>
                   </div>
                 </div>
 
                 {/* Fielding */}
-                <div className="bg-gray-700/30 rounded-xl p-4">
-                  <h4 className="text-primary-400 font-medium text-sm uppercase tracking-wide mb-3">
+                <div className="bg-cream-200/50 dark:bg-gray-700/50 rounded-xl p-4">
+                  <h4 className="text-navy-500 font-medium text-sm uppercase tracking-wide mb-3">
                     Fielding
                   </h4>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.fielding.catches}
                       </div>
-                      <div className="text-xs text-gray-500">Catches</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Catches</div>
                     </div>
                     <div>
-                      <div className="text-2xl font-bold text-white">
+                      <div className="text-2xl font-bold text-text-primary dark:text-white">
                         {cricketData.fielding.runOuts}
                       </div>
-                      <div className="text-xs text-gray-500">Run Outs</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Run Outs</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.batting.innings}
                       </div>
-                      <div className="text-xs text-gray-500">Innings</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Innings</div>
                     </div>
                     <div>
-                      <div className="text-xl font-bold text-white">
+                      <div className="text-xl font-bold text-text-primary dark:text-white">
                         {cricketData.position}
                       </div>
-                      <div className="text-xs text-gray-500">Role</div>
+                      <div className="text-xs text-text-muted dark:text-gray-400">Role</div>
                     </div>
                   </div>
                 </div>
@@ -348,7 +350,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300"
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl cursor-pointer border border-text-primary/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 shadow-card"
                   onClick={() => openLightbox(photo, index)}
                 >
                   <img
@@ -379,13 +381,13 @@ export default function HobbiesPage() {
             className="mb-16"
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 text-white">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-coral-400 text-white">
                 <IoBookSharp size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-white">Books I&apos;m Reading</h2>
+              <h2 className="text-2xl font-bold text-text-primary dark:text-white">Books I&apos;m Reading</h2>
             </div>
 
-            <p className="text-gray-400 mb-6 max-w-2xl">
+            <p className="text-text-secondary dark:text-gray-300 mb-6 max-w-2xl">
               {booksData.introduction}
             </p>
 
@@ -396,10 +398,10 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
                 >
                   <div className="flex gap-4 p-4">
-                    <div className="w-24 h-36 flex-shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-primary-500/20 to-purple-500/20">
+                    <div className="w-24 h-36 flex-shrink-0 rounded-lg overflow-hidden bg-gradient-to-br from-teal-400/20 to-coral-400/20">
                       <img
                         src={book.imageUrl}
                         alt={book.title}
@@ -407,16 +409,16 @@ export default function HobbiesPage() {
                       />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <span className="text-xs text-primary-400 font-medium">
+                      <span className="text-xs text-teal-500 font-medium">
                         {book.category}
                       </span>
-                      <h3 className="text-lg font-bold text-white mt-1 group-hover:text-primary-400 transition-colors">
+                      <h3 className="text-lg font-bold text-text-primary dark:text-white mt-1 group-hover:text-teal-500 transition-colors">
                         {book.title}
                       </h3>
-                      <p className="text-gray-500 text-sm mb-2">
+                      <p className="text-text-muted dark:text-gray-400 text-sm mb-2">
                         by {book.author}
                       </p>
-                      <p className="text-gray-400 text-xs italic line-clamp-2">
+                      <p className="text-text-secondary dark:text-gray-300 text-xs italic line-clamp-2">
                         &quot;{book.keyTakeaway}&quot;
                       </p>
                     </div>
@@ -433,13 +435,13 @@ export default function HobbiesPage() {
             transition={{ duration: 0.5, delay: 0.3 }}
           >
             <div className="flex items-center gap-3 mb-6">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 text-white">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-navy-500 text-white">
                 <HiUsers size={20} />
               </div>
-              <h2 className="text-2xl font-bold text-white">Community Events</h2>
+              <h2 className="text-2xl font-bold text-text-primary dark:text-white">Community Events</h2>
             </div>
 
-            <p className="text-gray-400 mb-6 max-w-2xl">
+            <p className="text-text-secondary dark:text-gray-300 mb-6 max-w-2xl">
               {communityEventsData.introduction}
             </p>
 
@@ -450,7 +452,7 @@ export default function HobbiesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
                 >
                   <div className="aspect-[16/10] overflow-hidden relative">
                     <img
@@ -460,10 +462,10 @@ export default function HobbiesPage() {
                     />
                     <div
                       className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${event.type === "speaking"
-                          ? "bg-blue-500/80 text-white"
+                          ? "bg-teal-400 text-white"
                           : event.type === "award"
-                            ? "bg-yellow-500/80 text-white"
-                            : "bg-pink-500/80 text-white"
+                            ? "bg-golden-400 text-white"
+                            : "bg-coral-400 text-white"
                         }`}
                     >
                       <event.icon size={12} />
@@ -475,13 +477,13 @@ export default function HobbiesPage() {
                     </div>
                   </div>
                   <div className="p-5">
-                    <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary-400 transition-colors">
+                    <h3 className="text-lg font-bold text-text-primary dark:text-white mb-2 group-hover:text-teal-500 transition-colors">
                       {event.title}
                     </h3>
-                    <p className="text-gray-400 text-sm mb-3">
+                    <p className="text-text-secondary dark:text-gray-300 text-sm mb-3">
                       {event.description}
                     </p>
-                    <div className="flex items-center gap-1 text-xs text-gray-500">
+                    <div className="flex items-center gap-1 text-xs text-text-muted dark:text-gray-400">
                       <FiMapPin size={10} />
                       {event.venue}
                     </div>
@@ -496,17 +498,17 @@ export default function HobbiesPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
+            className="mt-16 bg-gradient-to-br from-teal-400/10 via-coral-400/5 to-golden-400/10 dark:from-teal-400/20 dark:via-coral-400/10 dark:to-golden-400/20 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-8 text-center shadow-card"
           >
-            <h3 className="text-2xl font-bold text-white mb-3">
+            <h3 className="text-2xl font-bold text-text-primary dark:text-white mb-3">
               Share common interests?
             </h3>
-            <p className="text-gray-400 mb-6 max-w-lg mx-auto">
+            <p className="text-text-secondary dark:text-gray-300 mb-6 max-w-lg mx-auto">
               Whether it&apos;s cricket, tech, or community events - let&apos;s connect!
             </p>
             <a
               href="/#contact"
-              className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-100"
+              className="inline-flex items-center gap-2 bg-navy-500 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-navy-600"
             >
               Get in Touch
             </a>
@@ -526,7 +528,7 @@ export default function HobbiesPage() {
           >
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 text-white hover:text-primary-400 transition-colors z-10"
+              className="absolute top-4 right-4 text-white hover:text-teal-400 transition-colors z-10"
               aria-label="Close lightbox"
             >
               <FiX size={32} />
@@ -537,7 +539,7 @@ export default function HobbiesPage() {
                 e.stopPropagation();
                 navigatePhoto("prev");
               }}
-              className="absolute left-4 text-white hover:text-primary-400 transition-colors z-10"
+              className="absolute left-4 text-white hover:text-teal-400 transition-colors z-10"
               aria-label="Previous photo"
             >
               <FiChevronLeft size={48} />
@@ -548,7 +550,7 @@ export default function HobbiesPage() {
                 e.stopPropagation();
                 navigatePhoto("next");
               }}
-              className="absolute right-4 text-white hover:text-primary-400 transition-colors z-10"
+              className="absolute right-4 text-white hover:text-teal-400 transition-colors z-10"
               aria-label="Next photo"
             >
               <FiChevronRight size={48} />

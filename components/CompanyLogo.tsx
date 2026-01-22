@@ -39,7 +39,7 @@ const CompanyLogo = ({ company, size = "md" }: CompanyLogoProps) => {
     // Render image logo
     return (
       <div
-        className={`${sizeClasses[size]} rounded-lg overflow-hidden bg-white flex items-center justify-center shadow-lg border border-gray-200`}
+        className={`${sizeClasses[size]} rounded-lg overflow-hidden bg-white dark:bg-gray-700 flex items-center justify-center shadow-lg border border-gray-200 dark:border-gray-600`}
         title={company}
       >
         <img
