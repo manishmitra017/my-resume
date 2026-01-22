@@ -22,6 +22,7 @@ import {
 } from "react-icons/si";
 import { MdSecurity } from "react-icons/md";
 import Navigation from "@/components/Navigation";
+import GeometricShapes from "@/components/GeometricShapes";
 
 interface Repository {
   id: number;
@@ -61,7 +62,7 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/voice_guard_rail",
     stars: 0,
     category: "AI/ML & Real-Time",
-    gradient: "from-blue-500 to-purple-500",
+    color: "bg-coral-400",
   },
   {
     name: "PentestAI",
@@ -82,7 +83,7 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/Pentest-google-adk-agent",
     stars: 0,
     category: "AI/ML & Security",
-    gradient: "from-red-500 to-orange-500",
+    color: "bg-navy-500",
   },
   {
     name: "BSM Melbourne Website",
@@ -106,7 +107,7 @@ const featuredProjects = [
     liveUrl: "https://bsm.org.au",
     stars: 2,
     category: "Full-Stack Web",
-    gradient: "from-green-500 to-emerald-500",
+    color: "bg-teal-400",
   },
   {
     name: "Video-to-SOP Automation",
@@ -123,7 +124,7 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/video-sop",
     stars: 0,
     category: "AI/ML & Automation",
-    gradient: "from-purple-500 to-pink-500",
+    color: "bg-golden-400",
   },
   {
     name: "Cosmic Renewable Energy",
@@ -145,7 +146,7 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/cosmic-renwable",
     stars: 0,
     category: "Full-Stack Development",
-    gradient: "from-yellow-500 to-green-500",
+    color: "bg-coral-400",
   },
 ];
 
@@ -198,13 +199,14 @@ const CommunityProjects = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+        <GeometricShapes />
         <Navigation />
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-screen relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-gray-400 text-xl"
+            className="text-text-secondary dark:text-gray-300 text-xl"
           >
             Loading projects...
           </motion.div>
@@ -215,13 +217,14 @@ const CommunityProjects = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gray-900">
+      <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+        <GeometricShapes />
         <Navigation />
-        <div className="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center min-h-screen relative z-10">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="text-red-400 text-xl"
+            className="text-coral-500 dark:text-coral-400 text-xl"
           >
             Error: {error}
           </motion.div>
@@ -231,10 +234,11 @@ const CommunityProjects = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
+      <GeometricShapes />
       <Navigation />
 
-      <section className="pt-28 pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="pt-28 pb-24 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <motion.div
@@ -243,16 +247,16 @@ const CommunityProjects = () => {
             transition={{ duration: 0.5 }}
             className="mb-16"
           >
-            <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+            <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Open Source
             </span>
-            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
+            <h1 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 font-display">
               Community{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 Projects
               </span>
             </h1>
-            <p className="text-gray-400 text-lg max-w-2xl">
+            <p className="text-text-secondary dark:text-gray-300 text-lg max-w-2xl">
               Open-source projects and community contributions. Exploring new
               technologies, building solutions, and sharing with the developer
               community.
@@ -266,24 +270,24 @@ const CommunityProjects = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="grid grid-cols-3 gap-4 mb-16"
           >
-            <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 {repos.length + featuredProjects.length}
               </div>
-              <div className="text-gray-500 text-sm">Total Projects</div>
+              <div className="text-text-muted dark:text-gray-400 text-sm">Total Projects</div>
             </div>
-            <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0) +
                   featuredProjects.reduce((acc, p) => acc + p.stars, 0)}
               </div>
-              <div className="text-gray-500 text-sm">Total Stars</div>
+              <div className="text-text-muted dark:text-gray-400 text-sm">Total Stars</div>
             </div>
-            <div className="bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-5 text-center">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
+              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 {new Set(repos.map((repo) => repo.language).filter(Boolean)).size}
               </div>
-              <div className="text-gray-500 text-sm">Languages</div>
+              <div className="text-text-muted dark:text-gray-400 text-sm">Languages</div>
             </div>
           </motion.div>
 
@@ -294,7 +298,7 @@ const CommunityProjects = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="mb-16"
           >
-            <h2 className="text-lg font-semibold text-gray-400 mb-6">
+            <h2 className="text-lg font-semibold text-text-secondary dark:text-gray-300 mb-6">
               Featured Projects
             </h2>
             <div className="space-y-4">
@@ -304,27 +308,27 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
                 >
                   <div className="p-6">
                     {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-bold text-white group-hover:text-primary-400 transition-colors">
+                          <h3 className="text-xl font-bold text-text-primary dark:text-white group-hover:text-teal-500 transition-colors">
                             {project.name}
                           </h3>
                           {project.stars > 0 && (
-                            <div className="flex items-center gap-1 text-yellow-400 text-sm">
+                            <div className="flex items-center gap-1 text-golden-500 text-sm">
                               <FaStar size={12} />
                               <span>{project.stars}</span>
                             </div>
                           )}
                         </div>
-                        <p className="text-primary-400 text-sm font-medium mb-2">
+                        <p className="text-teal-500 text-sm font-medium mb-2">
                           {project.tagline}
                         </p>
-                        <span className="inline-block text-xs bg-gray-700/50 text-gray-400 px-2.5 py-1 rounded-full">
+                        <span className={`inline-block text-xs ${project.color} text-white px-2.5 py-1 rounded-full`}>
                           {project.category}
                         </span>
                       </div>
@@ -334,7 +338,7 @@ const CommunityProjects = () => {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-gray-700/50 px-4 py-2 rounded-lg border border-gray-600/50 hover:border-primary-400/50 transition-all text-sm"
+                          className="inline-flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg border border-text-primary/10 dark:border-white/10 hover:border-teal-400/50 transition-all text-sm text-text-primary dark:text-white shadow-card"
                         >
                           <FaGithub />
                           Code
@@ -344,7 +348,7 @@ const CommunityProjects = () => {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 px-4 py-2 rounded-lg transition-all text-sm"
+                            className="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white px-4 py-2 rounded-lg transition-all text-sm"
                           >
                             <FaExternalLinkAlt size={12} />
                             Live
@@ -353,7 +357,7 @@ const CommunityProjects = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-400 text-sm mb-4">
+                    <p className="text-text-secondary dark:text-gray-300 text-sm mb-4">
                       {project.description}
                     </p>
 
@@ -364,10 +368,10 @@ const CommunityProjects = () => {
                         return (
                           <div
                             key={techIndex}
-                            className="flex items-center gap-1.5 bg-gray-700/30 px-2.5 py-1 rounded-lg"
+                            className="flex items-center gap-1.5 bg-cream-200/50 dark:bg-gray-700/50 px-2.5 py-1 rounded-lg"
                           >
-                            <IconComponent className="text-primary-400" size={14} />
-                            <span className="text-xs text-gray-300">
+                            <IconComponent className="text-teal-500" size={14} />
+                            <span className="text-xs text-text-secondary dark:text-gray-300">
                               {tech.name}
                             </span>
                           </div>
@@ -380,9 +384,9 @@ const CommunityProjects = () => {
                       {project.features.map((feature, fIndex) => (
                         <div
                           key={fIndex}
-                          className="text-gray-500 text-xs flex items-start gap-2"
+                          className="text-text-muted dark:text-gray-400 text-xs flex items-start gap-2"
                         >
-                          <span className="text-primary-400">•</span>
+                          <span className="text-teal-500">•</span>
                           <span>{feature}</span>
                         </div>
                       ))}
@@ -399,7 +403,7 @@ const CommunityProjects = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h2 className="text-lg font-semibold text-gray-400 mb-6">
+            <h2 className="text-lg font-semibold text-text-secondary dark:text-gray-300 mb-6">
               Other Projects
             </h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -409,17 +413,17 @@ const CommunityProjects = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
+                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
                 >
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-bold text-white group-hover:text-primary-400 transition-colors flex-1 truncate">
+                      <h3 className="text-lg font-bold text-text-primary dark:text-white group-hover:text-teal-500 transition-colors flex-1 truncate">
                         {repo.name}
                       </h3>
-                      <FaGithub className="text-gray-500 flex-shrink-0 ml-2" />
+                      <FaGithub className="text-text-muted flex-shrink-0 ml-2" />
                     </div>
 
-                    <p className="text-gray-500 text-sm mb-4 line-clamp-2 min-h-[40px]">
+                    <p className="text-text-muted dark:text-gray-400 text-sm mb-4 line-clamp-2 min-h-[40px]">
                       {repo.description || "No description available"}
                     </p>
 
@@ -428,7 +432,7 @@ const CommunityProjects = () => {
                         {repo.topics.slice(0, 3).map((topic) => (
                           <span
                             key={topic}
-                            className="px-2 py-0.5 bg-primary-500/10 text-primary-400 text-xs rounded-full border border-primary-500/20"
+                            className="px-2 py-0.5 bg-teal-400/10 text-teal-600 dark:text-teal-400 text-xs rounded-full border border-teal-400/20"
                           >
                             {topic}
                           </span>
@@ -436,7 +440,7 @@ const CommunityProjects = () => {
                       </div>
                     )}
 
-                    <div className="flex items-center justify-between mb-4 text-xs text-gray-500">
+                    <div className="flex items-center justify-between mb-4 text-xs text-text-muted dark:text-gray-400">
                       {repo.language && (
                         <div className="flex items-center gap-1.5">
                           <div
@@ -448,7 +452,7 @@ const CommunityProjects = () => {
                       )}
                       <div className="flex items-center gap-3">
                         <div className="flex items-center gap-1">
-                          <FaStar className="text-yellow-400" size={12} />
+                          <FaStar className="text-golden-400" size={12} />
                           <span>{repo.stargazers_count}</span>
                         </div>
                         <div className="flex items-center gap-1">
@@ -458,7 +462,7 @@ const CommunityProjects = () => {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 text-gray-500 text-xs mb-4">
+                    <div className="flex items-center gap-1.5 text-text-muted dark:text-gray-400 text-xs mb-4">
                       <FaClock size={10} />
                       <span>Updated {formatDate(repo.updated_at)}</span>
                     </div>
@@ -467,7 +471,7 @@ const CommunityProjects = () => {
                       href={repo.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full bg-gray-700/50 hover:bg-gray-700 text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors text-center"
+                      className="block w-full bg-cream-200/50 dark:bg-gray-700/50 hover:bg-cream-300/50 dark:hover:bg-gray-600/50 text-text-primary dark:text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors text-center"
                     >
                       View Code
                     </a>
@@ -482,12 +486,12 @@ const CommunityProjects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-16 bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-8 text-center"
+            className="mt-16 bg-gradient-to-br from-teal-400/10 via-coral-400/5 to-golden-400/10 dark:from-teal-400/20 dark:via-coral-400/10 dark:to-golden-400/20 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-8 text-center shadow-card"
           >
-            <h3 className="text-2xl font-bold text-white mb-3">
+            <h3 className="text-2xl font-bold text-text-primary dark:text-white mb-3">
               Interested in collaboration?
             </h3>
-            <p className="text-gray-400 mb-6 max-w-lg mx-auto">
+            <p className="text-text-secondary dark:text-gray-300 mb-6 max-w-lg mx-auto">
               I&apos;m always open to discussing new projects, creative ideas, or
               opportunities to contribute.
             </p>
@@ -495,7 +499,7 @@ const CommunityProjects = () => {
               href="https://github.com/manishmitra017"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-100"
+              className="inline-flex items-center gap-2 bg-navy-500 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-navy-600"
             >
               <FaGithub />
               Follow on GitHub

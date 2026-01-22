@@ -183,12 +183,12 @@ const Experience = () => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Career Journey
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white font-display">
             Professional{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
               Experience
             </span>
           </h2>
@@ -210,9 +210,9 @@ const Experience = () => {
                 return (
                   <div
                     key={roleIndex}
-                    className={`bg-gray-800/40 backdrop-blur-xl rounded-2xl border transition-all duration-300 overflow-hidden group ${isFeatured
-                        ? "border-primary-500/30 ring-1 ring-primary-500/20 shadow-[0_0_30px_rgba(245,158,11,0.12)]"
-                        : "border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)]"
+                    className={`bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border transition-all duration-300 overflow-hidden group shadow-card ${isFeatured
+                        ? "border-teal-400/30 ring-1 ring-teal-400/20 shadow-teal"
+                        : "border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover"
                       }`}
                   >
                     {/* Card Header - Always Visible */}
@@ -220,7 +220,7 @@ const Experience = () => {
                       onClick={() =>
                         setExpandedIndex(isExpanded ? null : expIndex)
                       }
-                      className="w-full p-6 text-left flex items-center gap-4 hover:bg-gray-700/20 transition-colors"
+                      className="w-full p-6 text-left flex items-center gap-4 hover:bg-cream-100/50 dark:hover:bg-gray-700/50 transition-colors"
                     >
                       {/* Company Logo */}
                       <div className="flex-shrink-0">
@@ -230,29 +230,29 @@ const Experience = () => {
                       {/* Main Info */}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 mb-1">
-                          <h3 className="text-lg md:text-xl font-bold text-white truncate">
+                          <h3 className="text-lg md:text-xl font-bold text-text-primary dark:text-white truncate">
                             {role.title}
                           </h3>
                           {isFeatured && (
-                            <span className="inline-flex items-center gap-1 bg-primary-500/20 text-primary-400 px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0">
+                            <span className="inline-flex items-center gap-1 bg-teal-400/20 text-teal-600 dark:text-teal-400 px-2 py-0.5 rounded-full text-xs font-medium flex-shrink-0">
                               <FaTrophy size={10} />
                               Current
                             </span>
                           )}
                         </div>
                         <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                          <span className="text-primary-400 font-medium">
+                          <span className="text-teal-500 font-medium">
                             {exp.company}
                           </span>
-                          <span className="text-gray-500">•</span>
-                          <span className="text-gray-400 text-sm">
+                          <span className="text-text-muted dark:text-gray-400">•</span>
+                          <span className="text-text-secondary dark:text-gray-300 text-sm">
                             {role.period}
                           </span>
                         </div>
                       </div>
 
                       {/* Expand/Collapse Icon */}
-                      <div className="flex-shrink-0 text-gray-400">
+                      <div className="flex-shrink-0 text-text-muted dark:text-gray-400">
                         {isExpanded ? (
                           <FaChevronUp size={16} />
                         ) : (
@@ -271,8 +271,8 @@ const Experience = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="overflow-hidden"
                     >
-                      <div className="px-6 pb-6 pt-2 border-t border-gray-700/50">
-                        <p className="text-gray-300 mb-4">{role.description}</p>
+                      <div className="px-6 pb-6 pt-2 border-t border-text-primary/5 dark:border-white/5">
+                        <p className="text-text-secondary dark:text-gray-300 mb-4">{role.description}</p>
 
                         <div className="space-y-2">
                           {role.highlights.map((highlight, hIndex) => (
@@ -288,7 +288,7 @@ const Experience = () => {
                               }}
                               className="flex items-start gap-3"
                             >
-                              <span className="text-primary-400 mt-1.5 flex-shrink-0">
+                              <span className="text-teal-500 mt-1.5 flex-shrink-0">
                                 <svg
                                   width="6"
                                   height="6"
@@ -298,7 +298,7 @@ const Experience = () => {
                                   <circle cx="3" cy="3" r="3" />
                                 </svg>
                               </span>
-                              <span className="text-gray-400 text-sm leading-relaxed">
+                              <span className="text-text-secondary dark:text-gray-300 text-sm leading-relaxed">
                                 {highlight}
                               </span>
                             </motion.div>
@@ -318,35 +318,35 @@ const Experience = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="mt-12 bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 p-6"
+          className="mt-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-6 shadow-card"
         >
           <div className="flex flex-wrap items-center justify-center gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 {yearsOfExperience}+
               </div>
-              <div className="text-gray-400 text-sm">Years Experience</div>
+              <div className="text-text-secondary dark:text-gray-300 text-sm">Years Experience</div>
             </div>
-            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div className="h-12 w-px bg-text-primary/10 dark:bg-white/10 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 9
               </div>
-              <div className="text-gray-400 text-sm">Companies</div>
+              <div className="text-text-secondary dark:text-gray-300 text-sm">Companies</div>
             </div>
-            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div className="h-12 w-px bg-text-primary/10 dark:bg-white/10 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 120+
               </div>
-              <div className="text-gray-400 text-sm">Team Led</div>
+              <div className="text-text-secondary dark:text-gray-300 text-sm">Team Led</div>
             </div>
-            <div className="h-12 w-px bg-gray-700/50 hidden sm:block" />
+            <div className="h-12 w-px bg-text-primary/10 dark:bg-white/10 hidden sm:block" />
             <div>
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+              <div className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
                 3
               </div>
-              <div className="text-gray-400 text-sm">Awards</div>
+              <div className="text-text-secondary dark:text-gray-300 text-sm">Awards</div>
             </div>
           </div>
         </motion.div>

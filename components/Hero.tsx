@@ -44,10 +44,10 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-8 bg-gray-800/40 backdrop-blur-xl rounded-3xl p-6 md:p-10 border border-gray-700/50 relative overflow-hidden"
+            className="lg:col-span-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-6 md:p-10 border border-text-primary/5 dark:border-white/5 shadow-card relative overflow-hidden"
           >
             {/* Subtle gradient accent */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary-500/10 via-primary-600/5 to-transparent rounded-full blur-3xl" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-teal-400/10 via-coral-400/5 to-transparent rounded-full blur-3xl" />
 
             <div className="relative z-10">
               {/* Badge */}
@@ -55,9 +55,9 @@ const Hero = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 px-4 py-2 rounded-full text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 text-teal-600 dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6"
               >
-                <HiSparkles className="text-primary-400" />
+                <HiSparkles className="text-teal-500" />
                 Available for opportunities
               </motion.div>
 
@@ -68,8 +68,8 @@ const Hero = () => {
                 transition={{ delay: 0.3 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight font-display"
               >
-                <span className="text-white">Manish</span>{" "}
-                <span className="bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 bg-clip-text text-transparent drop-shadow-lg">
+                <span className="text-text-primary dark:text-white">Manish</span>{" "}
+                <span className="bg-gradient-to-r from-teal-400 via-teal-500 to-navy-500 bg-clip-text text-transparent">
                   Mitra
                 </span>
               </motion.h1>
@@ -79,11 +79,11 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="text-xl md:text-2xl text-gray-300 mb-6"
+                className="text-xl md:text-2xl text-text-secondary dark:text-gray-300 mb-6"
               >
-                <span className="text-primary-400 font-semibold">AI Leadership</span>
-                <span className="mx-3 text-gray-600">•</span>
-                <span className="font-medium">Senior Engineering Manager</span>
+                <span className="text-teal-500 font-semibold">AI Leadership</span>
+                <span className="mx-3 text-text-muted dark:text-gray-500">•</span>
+                <span className="font-medium text-text-primary dark:text-white">Senior Engineering Manager</span>
               </motion.p>
 
               {/* Description */}
@@ -91,13 +91,13 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="text-gray-400 text-lg leading-relaxed max-w-2xl mb-8"
+                className="text-text-secondary dark:text-gray-300 text-lg leading-relaxed max-w-2xl mb-8"
               >
                 Building production{" "}
-                <span className="text-white font-medium">Agentic AI systems</span> with
+                <span className="text-text-primary dark:text-white font-medium">Agentic AI systems</span> with
                 MCP, OpenAI Agents SDK, LlamaIndex, Google ADK, and Pydantic AI.
                 Leading Gen AI innovation at{" "}
-                <span className="text-white font-medium">Commonwealth Bank</span>.
+                <span className="text-text-primary dark:text-white font-medium">Commonwealth Bank</span>.
               </motion.p>
 
               {/* CTA Buttons */}
@@ -105,18 +105,18 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 relative z-20"
               >
                 <a
                   href="#contact"
-                  className="group inline-flex items-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-100 hover:scale-[1.02] active:scale-[0.98]"
+                  className="group inline-flex items-center gap-2 bg-navy-500 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-navy-600 hover:scale-[1.02] active:scale-[0.98] shadow-soft"
                 >
                   Get In Touch
                   <span className="group-hover:translate-x-1 transition-transform">→</span>
                 </a>
                 <a
                   href="#experience"
-                  className="inline-flex items-center gap-2 bg-gray-700/50 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-700 border border-gray-600/50"
+                  className="inline-flex items-center gap-2 bg-white dark:bg-gray-800 text-text-primary dark:text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-cream-100 dark:hover:bg-gray-700 border border-text-primary/10 dark:border-white/10 shadow-card"
                 >
                   View Experience
                 </a>
@@ -129,7 +129,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-4 bg-gradient-to-br from-primary-500/15 via-primary-600/10 to-accent-600/10 rounded-3xl p-2 border border-gray-700/50 relative overflow-hidden"
+            className="lg:col-span-4 bg-gradient-to-br from-teal-400/20 via-coral-400/10 to-golden-400/10 rounded-3xl p-2 border border-text-primary/5 relative overflow-hidden shadow-card"
           >
             <div className="relative w-full h-full min-h-[300px] lg:min-h-full rounded-2xl overflow-hidden">
               <img
@@ -141,9 +141,9 @@ const Hero = () => {
               <motion.div
                 animate={{ y: [0, -5, 0] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-4 right-4 bg-gray-900/90 backdrop-blur-sm p-3 rounded-xl border border-gray-700/50"
+                className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-xl border border-text-primary/5 shadow-card"
               >
-                <SiOpenai className="text-primary-400 text-2xl" />
+                <SiOpenai className="text-teal-500 text-2xl" />
               </motion.div>
             </div>
           </motion.div>
@@ -155,10 +155,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-              className="lg:col-span-3 bg-gray-800/40 backdrop-blur-xl rounded-2xl p-5 border border-gray-700/50 hover:border-gray-600/50 transition-all hover:bg-gray-800/60 group"
+              className="lg:col-span-3 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-5 border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 transition-all hover:shadow-card-hover group shadow-card"
             >
               <span className="text-2xl mb-2 block group-hover:scale-110 transition-transform">{highlight.icon}</span>
-              <span className="text-white font-medium text-sm">{highlight.label}</span>
+              <span className="text-text-primary dark:text-white font-medium text-sm">{highlight.label}</span>
             </motion.div>
           ))}
 
@@ -167,9 +167,9 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 1.1 }}
-            className="lg:col-span-12 bg-gray-800/40 backdrop-blur-xl rounded-2xl p-4 border border-gray-700/50 flex items-center justify-center gap-6"
+            className="lg:col-span-12 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-4 border border-text-primary/5 dark:border-white/5 flex items-center justify-center gap-6 shadow-card"
           >
-            <span className="text-gray-500 text-sm font-medium hidden sm:block">Connect with me</span>
+            <span className="text-text-muted dark:text-gray-400 text-sm font-medium hidden sm:block">Connect with me</span>
             <div className="flex items-center gap-4">
               {socialLinks.map((link) => (
                 <a
@@ -177,7 +177,7 @@ const Hero = () => {
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-primary-400 transition-colors p-2 rounded-lg hover:bg-gray-700/50"
+                  className="text-text-secondary hover:text-teal-500 transition-colors p-2 rounded-lg hover:bg-teal-400/10"
                   aria-label={link.label}
                 >
                   {link.icon}
@@ -198,7 +198,7 @@ const Hero = () => {
             href="#about"
             animate={{ y: [0, 8, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-gray-500 hover:text-primary-400 transition-colors"
+            className="text-text-muted dark:text-gray-400 hover:text-teal-500 transition-colors"
           >
             <FaArrowDown size={20} />
           </motion.a>

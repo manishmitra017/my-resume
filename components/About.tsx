@@ -27,25 +27,25 @@ const About = () => {
       icon: <FaBrain size={24} />,
       title: "Agentic AI Leadership",
       description: "Built first GENAI project in bank winning CEO Excellence Awards - reusable AI agents and dialogue templates",
-      gradient: "from-purple-500 to-pink-500",
+      color: "bg-teal-400",
     },
     {
       icon: <FaUsers size={24} />,
       title: "Team Growth",
       description: "Grew team from 4 to 80 members across Melbourne/Sydney/India - led 120 people at ANZ",
-      gradient: "from-blue-500 to-cyan-500",
+      color: "bg-coral-400",
     },
     {
       icon: <FaRocket size={24} />,
       title: "Innovation & Awards",
       description: "Won Excellence Awards for E2E dispute journey AI agents - DORA specialist",
-      gradient: "from-orange-500 to-red-500",
+      color: "bg-navy-500",
     },
     {
       icon: <FaTrophy size={24} />,
       title: "Technical Expertise",
       description: "Pydantic AI, Google ADK, MCP, ML OPS, LangGraph - AWS Certified (SA, Developer, AI)",
-      gradient: "from-green-500 to-emerald-500",
+      color: "bg-golden-400",
     },
   ];
 
@@ -59,11 +59,11 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
             About Me
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
-            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 font-display">
+            <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
               Seasoned engineering leader
             </span>{" "}
             driving AI innovation and organizational excellence
@@ -78,36 +78,36 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="space-y-6"
           >
-            <p className="text-gray-300 text-lg leading-relaxed">
+            <p className="text-text-secondary dark:text-gray-300 text-lg leading-relaxed">
               Currently{" "}
-              <span className="text-white font-semibold">
+              <span className="text-text-primary dark:text-white font-semibold">
                 Senior Engineering Manager (Agentic Banking – Gen AI)
               </span>{" "}
               at Commonwealth Bank. Built the first GENAI project in the bank on
               RACO for adverse media screening,{" "}
-              <span className="text-primary-400 font-semibold">
+              <span className="text-teal-500 font-semibold">
                 winning CEO Excellence Awards
               </span>
               .
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-text-secondary dark:text-gray-300 leading-relaxed">
               Deep expertise in{" "}
-              <span className="text-white font-medium">Agentic AI frameworks</span>{" "}
+              <span className="text-text-primary dark:text-white font-medium">Agentic AI frameworks</span>{" "}
               including Pydantic AI, Google ADK, LangGraph, MCP, ML OPS, and A2A.
               Built reusable expert AI systems, dialogue agent templates, and AI
               agents for E2E dispute journey winning Excellence Awards.
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-text-secondary dark:text-gray-300 leading-relaxed">
               Previously led{" "}
-              <span className="text-primary-400">120 people at ANZ</span> building
+              <span className="text-teal-500">120 people at ANZ</span> building
               API modernization platform, served as Principal Engineer at Wesfarmers
               for OnePass (one of most successful ventures), and built AWS Business
               Banking Engineering Labs at NAB.
             </p>
 
-            <p className="text-gray-400 leading-relaxed">
+            <p className="text-text-secondary dark:text-gray-300 leading-relaxed">
               Passionate about engineering excellence, team development, and AI
               innovation. Strong contributor to AIPE projects with campus
               relationships at Monash/Melbourne University. Completed Executive
@@ -128,21 +128,21 @@ const About = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                className="group bg-gray-800/40 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.1)] transition-all duration-300 relative overflow-hidden"
+                className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-6 rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 relative overflow-hidden shadow-card"
               >
                 {/* Gradient accent on hover */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  className={`absolute inset-0 ${item.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
                 />
 
                 <div className="relative z-10">
                   <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${item.gradient} text-white mb-4`}
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${item.color} text-white mb-4`}
                   >
                     {item.icon}
                   </div>
-                  <h4 className="text-white font-semibold mb-2">{item.title}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">
+                  <h4 className="text-text-primary dark:text-white font-semibold mb-2">{item.title}</h4>
+                  <p className="text-text-secondary dark:text-gray-300 text-sm leading-relaxed">
                     {item.description}
                   </p>
                 </div>

@@ -31,28 +31,28 @@ const Contact = () => {
       label: "Email",
       value: "manishmitra013@gmail.com",
       href: "mailto:manishmitra013@gmail.com",
-      gradient: "from-orange-500 to-red-500",
+      color: "bg-coral-400",
     },
     {
       icon: <FaMapMarkerAlt size={20} />,
       label: "Location",
       value: "Melbourne, Victoria, Australia",
       href: null,
-      gradient: "from-green-500 to-emerald-500",
+      color: "bg-teal-400",
     },
     {
       icon: <FaLinkedin size={20} />,
       label: "LinkedIn",
       value: "linkedin.com/in/manish-mitra",
       href: "https://www.linkedin.com/in/manish-mitra/",
-      gradient: "from-blue-500 to-indigo-500",
+      color: "bg-navy-500",
     },
     {
       icon: <FaGithub size={20} />,
       label: "GitHub",
       value: "github.com/manishmitra017",
       href: "https://github.com/manishmitra017",
-      gradient: "from-purple-500 to-pink-500",
+      color: "bg-golden-400",
     },
   ];
 
@@ -66,16 +66,16 @@ const Contact = () => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Get In Touch
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-display">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white mb-4 font-display">
             Let&apos;s{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
               Connect
             </span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl">
+          <p className="text-text-secondary dark:text-gray-300 text-lg max-w-2xl">
             I&apos;m always open to discussing new opportunities, collaborations,
             or just connecting with fellow professionals in AI and engineering.
           </p>
@@ -91,16 +91,16 @@ const Contact = () => {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 onClick={() => info.href && window.open(info.href, "_blank")}
-                className={`group bg-gray-800/40 backdrop-blur-xl p-5 rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 ${info.href ? "cursor-pointer" : ""
+                className={`group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm p-5 rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 shadow-card ${info.href ? "cursor-pointer" : ""
                   }`}
               >
                 <div
-                  className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${info.gradient} text-white mb-4`}
+                  className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${info.color} text-white mb-4`}
                 >
                   {info.icon}
                 </div>
-                <p className="text-gray-500 text-sm mb-1">{info.label}</p>
-                <p className="text-white font-medium text-sm break-all group-hover:text-primary-400 transition-colors">
+                <p className="text-text-muted dark:text-gray-400 text-sm mb-1">{info.label}</p>
+                <p className="text-text-primary dark:text-white font-medium text-sm break-all group-hover:text-teal-500 transition-colors">
                   {info.value}
                 </p>
               </motion.div>
@@ -112,13 +112,13 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-gradient-to-br from-primary-500/10 via-primary-600/5 to-accent-600/10 backdrop-blur-xl p-8 rounded-2xl border border-gray-700/50 flex flex-col justify-center relative overflow-hidden group"
+            className="bg-gradient-to-br from-teal-400/10 via-coral-400/5 to-golden-400/10 dark:from-teal-400/20 dark:via-coral-400/10 dark:to-golden-400/20 backdrop-blur-sm p-8 rounded-2xl border border-text-primary/5 dark:border-white/5 flex flex-col justify-center relative overflow-hidden group shadow-card"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary-500/10 to-primary-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <div className="absolute inset-0 bg-gradient-to-r from-teal-400/10 to-coral-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+            <h3 className="text-2xl font-bold text-text-primary dark:text-white mb-4">
               Ready to work together?
             </h3>
-            <p className="text-gray-400 mb-6">
+            <p className="text-text-secondary dark:text-gray-300 mb-6">
               Whether you have a project in mind or just want to chat about AI
               and technology, I&apos;d love to hear from you.
             </p>
@@ -127,7 +127,7 @@ const Contact = () => {
                 href="mailto:manishmitra013@gmail.com"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-100"
+                className="inline-flex items-center justify-center gap-2 bg-navy-500 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-navy-600"
               >
                 Send Email
                 <FaArrowRight size={14} />
@@ -136,7 +136,7 @@ const Contact = () => {
                 onClick={handleDownloadCV}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center justify-center gap-2 bg-gray-700/50 text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-gray-700 border border-gray-600/50"
+                className="inline-flex items-center justify-center gap-2 bg-white dark:bg-gray-800 text-text-primary dark:text-white px-6 py-3 rounded-xl font-semibold transition-all hover:bg-cream-100 dark:hover:bg-gray-700 border border-text-primary/10 dark:border-white/10 shadow-card"
               >
                 <FaDownload size={14} />
                 Download CV
@@ -150,13 +150,13 @@ const Contact = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="text-center mt-16 pt-8 border-t border-gray-800/50"
+          className="text-center mt-16 pt-8 border-t border-text-primary/10 dark:border-white/10"
         >
-          <p className="text-gray-500 text-sm">
+          <p className="text-text-muted dark:text-gray-400 text-sm">
             © {new Date().getFullYear()} Manish Mitra. Built with{" "}
-            <span className="text-gray-400">Next.js</span>,{" "}
-            <span className="text-gray-400">TypeScript</span>, and{" "}
-            <span className="text-gray-400">Tailwind CSS</span>.
+            <span className="text-text-secondary dark:text-gray-300">Next.js</span>,{" "}
+            <span className="text-text-secondary dark:text-gray-300">TypeScript</span>, and{" "}
+            <span className="text-text-secondary dark:text-gray-300">Tailwind CSS</span>.
           </p>
         </motion.div>
       </div>

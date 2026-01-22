@@ -26,7 +26,7 @@ const Skills = () => {
     {
       category: "Agentic AI & Frameworks",
       icon: <FaRobot size={24} />,
-      gradient: "from-purple-500 to-pink-500",
+      color: "bg-teal-400",
       skills: [
         { name: "Model Context Protocol (MCP)", icon: <FaRobot size={16} /> },
         { name: "OpenAI Agents SDK", icon: <SiOpenai size={16} /> },
@@ -41,7 +41,7 @@ const Skills = () => {
     {
       category: "LLM & GenAI",
       icon: <SiOpenai size={24} />,
-      gradient: "from-blue-500 to-indigo-500",
+      color: "bg-coral-400",
       skills: [
         { name: "OpenAI SDK", icon: <SiOpenai size={16} /> },
         { name: "GPT-4/GPT-4o", icon: <SiOpenai size={16} /> },
@@ -57,7 +57,7 @@ const Skills = () => {
     {
       category: "AI Evaluation & Observability",
       icon: <FaRobot size={24} />,
-      gradient: "from-green-500 to-teal-500",
+      color: "bg-navy-500",
       skills: [
         { name: "LangFuse", icon: <FaRobot size={16} /> },
         { name: "Agent Evaluation", icon: <FaRobot size={16} /> },
@@ -72,7 +72,7 @@ const Skills = () => {
     {
       category: "Programming & APIs",
       icon: <FaCode size={24} />,
-      gradient: "from-cyan-500 to-blue-500",
+      color: "bg-golden-400",
       skills: [
         { name: "Python (Fast API)", icon: <SiPython size={16} /> },
         { name: "TypeScript", icon: <SiTypescript size={16} /> },
@@ -87,7 +87,7 @@ const Skills = () => {
     {
       category: "Cloud & DevOps",
       icon: <FaCloud size={24} />,
-      gradient: "from-orange-500 to-red-500",
+      color: "bg-coral-400",
       skills: [
         { name: "AWS (SA + Dev + AI Certified)", icon: <FaAws size={16} /> },
         { name: "DevSecOps", icon: <FaTools size={16} /> },
@@ -103,7 +103,7 @@ const Skills = () => {
     {
       category: "Testing & QE",
       icon: <FaTools size={24} />,
-      gradient: "from-emerald-500 to-green-500",
+      color: "bg-teal-400",
       skills: [
         { name: "Playwright", icon: <FaTools size={16} /> },
         { name: "Cypress", icon: <SiCypress size={16} /> },
@@ -127,12 +127,12 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="mb-16"
         >
-          <span className="text-primary-400 text-sm font-semibold tracking-wider uppercase mb-2 block">
+          <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
             Expertise
           </span>
-          <h2 className="text-3xl md:text-5xl font-bold text-white font-display">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary dark:text-white font-display">
             Technical{" "}
-            <span className="bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
               Skills
             </span>
           </h2>
@@ -146,17 +146,17 @@ const Skills = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: catIndex * 0.1 }}
-              className="group bg-gray-800/40 backdrop-blur-xl rounded-2xl border border-gray-700/50 hover:border-primary-500/30 hover:shadow-[0_0_20px_rgba(245,158,11,0.08)] transition-all duration-300 overflow-hidden"
+              className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
             >
               {/* Category Header */}
-              <div className="p-6 border-b border-gray-700/50">
+              <div className="p-6 border-b border-text-primary/5 dark:border-white/5">
                 <div className="flex items-center gap-4">
                   <div
-                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} text-white`}
+                    className={`inline-flex items-center justify-center w-12 h-12 rounded-xl ${category.color} text-white`}
                   >
                     {category.icon}
                   </div>
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="text-lg font-bold text-text-primary dark:text-white">
                     {category.category}
                   </h3>
                 </div>
@@ -174,12 +174,12 @@ const Skills = () => {
                         duration: 0.3,
                         delay: catIndex * 0.1 + skillIndex * 0.03,
                       }}
-                      className="inline-flex items-center gap-2 bg-gray-700/40 hover:bg-gray-700/60 px-3 py-2 rounded-lg transition-colors group/skill"
+                      className="inline-flex items-center gap-2 bg-cream-200/50 dark:bg-gray-700/50 hover:bg-cream-300/50 dark:hover:bg-gray-600/50 px-3 py-2 rounded-lg transition-colors group/skill"
                     >
-                      <span className="text-primary-400 group-hover/skill:text-primary-300 transition-colors">
+                      <span className="text-teal-500 group-hover/skill:text-teal-600 transition-colors">
                         {skill.icon}
                       </span>
-                      <span className="text-gray-300 text-sm">{skill.name}</span>
+                      <span className="text-text-secondary dark:text-gray-300 text-sm">{skill.name}</span>
                     </motion.div>
                   ))}
                 </div>
