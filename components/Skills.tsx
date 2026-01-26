@@ -46,6 +46,8 @@ const Skills = () => {
         { name: "OpenAI SDK", icon: <SiOpenai size={16} /> },
         { name: "GPT-4/GPT-4o", icon: <SiOpenai size={16} /> },
         { name: "Anthropic Claude SDK", icon: <SiOpenai size={16} /> },
+        { name: "Portkey", icon: <FaRobot size={16} /> },
+        { name: "LiteLLM", icon: <FaRobot size={16} /> },
         { name: "Prompt Engineering", icon: <FaRobot size={16} /> },
         { name: "RAG Systems", icon: <FaRobot size={16} /> },
         { name: "Vector Databases", icon: <FaRobot size={16} /> },
@@ -59,7 +61,8 @@ const Skills = () => {
       icon: <FaRobot size={24} />,
       color: "bg-navy-500",
       skills: [
-        { name: "LangFuse", icon: <FaRobot size={16} /> },
+        { name: "Langfuse", icon: <FaRobot size={16} /> },
+        { name: "HoneyHive", icon: <FaRobot size={16} /> },
         { name: "Agent Evaluation", icon: <FaRobot size={16} /> },
         { name: "LLM Tracing", icon: <FaRobot size={16} /> },
         { name: "Prompt Optimization", icon: <FaRobot size={16} /> },
@@ -113,6 +116,19 @@ const Skills = () => {
         { name: "PACT Flow", icon: <FaTools size={16} /> },
         { name: "TerraTest", icon: <SiTerraform size={16} /> },
         { name: "Kafka Testing", icon: <FaTools size={16} /> },
+      ],
+    },
+    {
+      category: "AI Pair Engineering (AIPE)",
+      icon: <FaCode size={24} />,
+      color: "bg-navy-500",
+      skills: [
+        { name: "Claude Code", icon: <FaRobot size={16} /> },
+        { name: "OpenAI Codex", icon: <SiOpenai size={16} /> },
+        { name: "GitHub Copilot", icon: <SiGithub size={16} /> },
+        { name: "Cursor", icon: <FaCode size={16} /> },
+        { name: "Aider", icon: <FaCode size={16} /> },
+        { name: "Cline", icon: <FaCode size={16} /> },
       ],
     },
   ];
