@@ -12,6 +12,7 @@ interface ShapeProps {
   right?: string;
   delay?: number;
   animate?: boolean;
+  hideOnMobile?: boolean;
 }
 
 const colorMap = {
@@ -32,7 +33,7 @@ const radiusMap = {
   "semi-r": "rounded-r-full",
 };
 
-const Shape = ({ size, color, type, top, bottom, left, right, delay = 0, animate = false }: ShapeProps) => {
+const Shape = ({ size, color, type, top, bottom, left, right, delay = 0, animate = false, hideOnMobile = false }: ShapeProps) => {
   const style: React.CSSProperties = {
     width: size,
     height: type.startsWith("semi") ? size / 2 : size,
@@ -48,12 +49,14 @@ const Shape = ({ size, color, type, top, bottom, left, right, delay = 0, animate
     style.width = size / 2;
   }
 
+  const mobileClass = hideOnMobile ? "hidden md:block" : "";
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8, delay }}
-      className={`absolute pointer-events-none ${colorMap[color]} ${radiusMap[type]} ${animate ? "animate-float-slow" : ""}`}
+      className={`absolute pointer-events-none ${colorMap[color]} ${radiusMap[type]} ${animate ? "animate-float-slow" : ""} ${mobileClass}`}
       style={style}
     />
   );
@@ -81,6 +84,7 @@ const GeometricShapes = () => {
         left="60px"
         delay={0.3}
         animate
+        hideOnMobile
       />
 
       {/* Top Right Cluster - Main shapes like reference */}
@@ -92,6 +96,7 @@ const GeometricShapes = () => {
         top="40px"
         right="280px"
         delay={0.2}
+        hideOnMobile
       />
 
       {/* Coral + Golden combo (stacked like reference) */}
@@ -102,6 +107,7 @@ const GeometricShapes = () => {
         top="80px"
         right="120px"
         delay={0.25}
+        hideOnMobile
       />
       <Shape
         size={100}
@@ -110,6 +116,7 @@ const GeometricShapes = () => {
         top="180px"
         right="120px"
         delay={0.3}
+        hideOnMobile
       />
 
       {/* Navy + Teal combo */}
@@ -120,6 +127,7 @@ const GeometricShapes = () => {
         top="60px"
         right="40px"
         delay={0.35}
+        hideOnMobile
       />
       <Shape
         size={80}
@@ -128,6 +136,7 @@ const GeometricShapes = () => {
         top="140px"
         right="40px"
         delay={0.4}
+        hideOnMobile
       />
 
       {/* Golden accent near cluster */}
@@ -139,6 +148,7 @@ const GeometricShapes = () => {
         right="240px"
         delay={0.45}
         animate
+        hideOnMobile
       />
 
       {/* Mid-right area */}
@@ -149,6 +159,7 @@ const GeometricShapes = () => {
         top="380px"
         right="60px"
         delay={0.5}
+        hideOnMobile
       />
       <Shape
         size={100}
@@ -157,6 +168,7 @@ const GeometricShapes = () => {
         top="280px"
         right="60px"
         delay={0.55}
+        hideOnMobile
       />
 
       {/* Teal accent mid-right */}
@@ -168,6 +180,7 @@ const GeometricShapes = () => {
         right="180px"
         delay={0.6}
         animate
+        hideOnMobile
       />
 
       {/* Lower right scattered */}
@@ -178,6 +191,7 @@ const GeometricShapes = () => {
         bottom="200px"
         right="100px"
         delay={0.65}
+        hideOnMobile
       />
       <Shape
         size={50}
@@ -187,6 +201,7 @@ const GeometricShapes = () => {
         right="200px"
         delay={0.7}
         animate
+        hideOnMobile
       />
 
       {/* Bottom right corner - small shapes trailing off */}
@@ -197,6 +212,7 @@ const GeometricShapes = () => {
         bottom="40px"
         right="40px"
         delay={0.75}
+        hideOnMobile
       />
       <Shape
         size={40}
@@ -205,6 +221,7 @@ const GeometricShapes = () => {
         bottom="80px"
         right="140px"
         delay={0.8}
+        hideOnMobile
       />
     </div>
   );
