@@ -9,6 +9,7 @@ import {
   FaClock,
   FaCode,
   FaAws,
+  FaDatabase,
 } from "react-icons/fa";
 import { BiGitRepoForked } from "react-icons/bi";
 import {
@@ -127,6 +128,50 @@ const featuredProjects = [
     color: "bg-golden-400",
   },
   {
+    name: "Flowchart Conversational Agent",
+    tagline: "AI-Driven Dynamic Questionnaire Engine",
+    description:
+      "A conversational AI agent built with Google ADK that parses any Mermaid flowchart, drives dynamic conversations following graph logic, handles conditional branching, and persists answers in SQLite for cross-session resumption.",
+    technologies: [
+      { name: "Python", icon: SiPython },
+      { name: "Google ADK", icon: SiGoogle },
+      { name: "SQLite", icon: FaDatabase },
+    ],
+    features: [
+      "Parses any Mermaid flowchart to drive conversations",
+      "Conditional branching with yes/no, multiple choice, and free text",
+      "SQLite persistence for cross-session answer resumption",
+      "Customizable persona, tone, and domain via frontmatter metadata",
+    ],
+    githubUrl: "https://github.com/manishmitra017/flowchart-project",
+    stars: 0,
+    category: "AI/ML & Automation",
+    color: "bg-navy-500",
+  },
+  {
+    name: "Wedding Photo Portfolio",
+    tagline: "Premium Photo Gallery with AWS CDK Infrastructure",
+    description:
+      "A premium wedding photo portfolio featuring 103 curated photos across 6 gallery sections, with masonry layouts, parallax dividers, lightbox viewing, and full AWS infrastructure deployed via CDK.",
+    technologies: [
+      { name: "Next.js 15", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "AWS CDK", icon: FaAws },
+    ],
+    features: [
+      "Masonry gallery layout with full-screen lightbox viewing",
+      "Auto-generated galleries from photo folder structure",
+      "AWS S3 + CloudFront with CDK infrastructure-as-code",
+      "Parallax dividers with Bengali and English typography",
+    ],
+    githubUrl: "https://github.com/manishmitra017/marriage-portfolio",
+    liveUrl: "https://ritusoumya.in",
+    stars: 0,
+    category: "Full-Stack Web",
+    color: "bg-coral-400",
+  },
+  {
     name: "Cosmic Renewable Energy",
     tagline: "Green Tech Business Platform",
     description:
@@ -167,7 +212,10 @@ const CommunityProjects = () => {
         const data = await response.json();
         const filteredRepos = data.filter(
           (repo: Repository) =>
-            repo.name !== "stagehand-demo" && repo.name !== "my-resume"
+            repo.name !== "stagehand-demo" &&
+            repo.name !== "my-resume" &&
+            repo.name !== "flowchart-project" &&
+            repo.name !== "marriage-portfolio"
         );
         setRepos(filteredRepos);
         setLoading(false);
