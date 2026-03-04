@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "e7c580241418",
+  "session_id": "f2ecdb6a-5485-4815-9b2f-854e88378732",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-04T03:18:32.967557Z",
+  "branch": "claude/remove-availability-badge",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "components/Hero.tsx"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "0efbf956c5e2",
+  "token_usage": {
+    "input_tokens": 633,
+    "cache_creation_tokens": 52856,
+    "cache_read_tokens": 459826,
+    "output_tokens": 1320,
+    "api_call_count": 10
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-04T03:18:32.92582Z",
+    "agent_lines": 0,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 0,
+    "agent_percentage": 0
+  }
+}

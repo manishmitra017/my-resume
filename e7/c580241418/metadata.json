@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "e7c580241418",
+  "strategy": "manual-commit",
+  "branch": "claude/remove-availability-badge",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "components/Hero.tsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/e7/c580241418/0/metadata.json",
+      "transcript": "/e7/c580241418/0/full.jsonl",
+      "context": "/e7/c580241418/0/context.md",
+      "content_hash": "/e7/c580241418/0/content_hash.txt",
+      "prompt": "/e7/c580241418/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 633,
+    "cache_creation_tokens": 52856,
+    "cache_read_tokens": 459826,
+    "output_tokens": 1320,
+    "api_call_count": 10
+  }
+}
