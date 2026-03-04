@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope, FaArrowDown } from "react-icons/fa";
 import { SiOpenai } from "react-icons/si";
-import { HiSparkles } from "react-icons/hi2";
 
 const Hero = () => {
   const socialLinks = [
@@ -50,16 +49,6 @@ const Hero = () => {
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-teal-400/10 via-coral-400/5 to-transparent rounded-full blur-3xl" />
 
             <div className="relative z-10">
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-teal-400/10 border border-teal-400/20 text-teal-600 dark:text-teal-400 px-4 py-2 rounded-full text-sm font-medium mb-6"
-              >
-                <HiSparkles className="text-teal-500" />
-                Available for opportunities
-              </motion.div>
 
               {/* Name */}
               <motion.h1
