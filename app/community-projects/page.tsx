@@ -1,21 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
   FaGithub,
   FaStar,
   FaExternalLinkAlt,
-  FaClock,
   FaCode,
   FaAws,
   FaDatabase,
+  FaRobot,
+  FaGlobe,
 } from "react-icons/fa";
-import { BiGitRepoForked } from "react-icons/bi";
 import {
   SiNextdotjs,
   SiTypescript,
-  SiDocker,
   SiPython,
   SiReact,
   SiTailwindcss,
@@ -25,24 +24,47 @@ import { MdSecurity } from "react-icons/md";
 import Navigation from "@/components/Navigation";
 import GeometricShapes from "@/components/GeometricShapes";
 
-interface Repository {
-  id: number;
+type Category = "all" | "ai-ml" | "full-stack";
+
+interface Project {
   name: string;
-  description: string | null;
-  html_url: string;
-  homepage: string | null;
-  language: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  topics: string[];
-  created_at: string;
-  updated_at: string;
-  pushed_at: string;
-  open_issues_count: number;
-  size: number;
+  tagline: string;
+  description: string;
+  technologies: { name: string; icon: React.ComponentType<{ className?: string; size?: number }> }[];
+  features: string[];
+  githubUrl: string;
+  liveUrl?: string;
+  stars: number;
+  category: string;
+  categoryKey: "ai-ml" | "full-stack";
+  color: string;
+  gradient: string;
 }
 
-const featuredProjects = [
+const projects: Project[] = [
+  {
+    name: "Flowchart Conversational Agent",
+    tagline: "AI-Driven Dynamic Questionnaire Engine",
+    description:
+      "A conversational AI agent built with Google ADK that parses any Mermaid flowchart, drives dynamic conversations following graph logic, handles conditional branching, and persists answers in SQLite for cross-session resumption.",
+    technologies: [
+      { name: "Python", icon: SiPython },
+      { name: "Google ADK", icon: SiGoogle },
+      { name: "SQLite", icon: FaDatabase },
+    ],
+    features: [
+      "Parses any Mermaid flowchart to drive conversations",
+      "Conditional branching with yes/no, multiple choice, and free text",
+      "SQLite persistence for cross-session answer resumption",
+      "Customizable persona, tone, and domain via frontmatter metadata",
+    ],
+    githubUrl: "https://github.com/manishmitra017/flowchart-project",
+    stars: 0,
+    category: "AI/ML & Automation",
+    categoryKey: "ai-ml",
+    color: "bg-teal-400",
+    gradient: "from-teal-400/20 to-navy-500/20",
+  },
   {
     name: "Voice Guard Rail",
     tagline: "Real-Time Speech Emotion Detection",
@@ -63,7 +85,9 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/voice_guard_rail",
     stars: 0,
     category: "AI/ML & Real-Time",
+    categoryKey: "ai-ml",
     color: "bg-coral-400",
+    gradient: "from-coral-400/20 to-golden-400/20",
   },
   {
     name: "PentestAI",
@@ -84,31 +108,9 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/Pentest-google-adk-agent",
     stars: 0,
     category: "AI/ML & Security",
+    categoryKey: "ai-ml",
     color: "bg-navy-500",
-  },
-  {
-    name: "BSM Melbourne Website",
-    tagline: "Community Platform for Bengali Diaspora",
-    description:
-      "Full-stack bilingual community platform serving the Bengali Society of Melbourne with event management, membership system, and automated deployments.",
-    technologies: [
-      { name: "Next.js 15", icon: SiNextdotjs },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "AWS", icon: FaAws },
-      { name: "Docker", icon: SiDocker },
-      { name: "React 19", icon: SiReact },
-    ],
-    features: [
-      "Bilingual support (English/Bengali)",
-      "Event management with photo galleries",
-      "AWS infrastructure: ECS Fargate, ALB, Route53",
-      "Automated CI/CD with GitHub Actions",
-    ],
-    githubUrl: "https://github.com/manishmitra017/bsm-website",
-    liveUrl: "https://bsm.org.au",
-    stars: 2,
-    category: "Full-Stack Web",
-    color: "bg-teal-400",
+    gradient: "from-navy-500/20 to-teal-400/20",
   },
   {
     name: "Video-to-SOP Automation",
@@ -125,28 +127,34 @@ const featuredProjects = [
     githubUrl: "https://github.com/manishmitra017/video-sop",
     stars: 0,
     category: "AI/ML & Automation",
+    categoryKey: "ai-ml",
     color: "bg-golden-400",
+    gradient: "from-golden-400/20 to-coral-400/20",
   },
   {
-    name: "Flowchart Conversational Agent",
-    tagline: "AI-Driven Dynamic Questionnaire Engine",
+    name: "BSM Melbourne Website",
+    tagline: "Community Platform for Bengali Diaspora",
     description:
-      "A conversational AI agent built with Google ADK that parses any Mermaid flowchart, drives dynamic conversations following graph logic, handles conditional branching, and persists answers in SQLite for cross-session resumption.",
+      "Full-stack bilingual community platform serving the Bengali Society of Melbourne with event management, membership system, and automated deployments.",
     technologies: [
-      { name: "Python", icon: SiPython },
-      { name: "Google ADK", icon: SiGoogle },
-      { name: "SQLite", icon: FaDatabase },
+      { name: "Next.js 15", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "AWS", icon: FaAws },
+      { name: "React 19", icon: SiReact },
     ],
     features: [
-      "Parses any Mermaid flowchart to drive conversations",
-      "Conditional branching with yes/no, multiple choice, and free text",
-      "SQLite persistence for cross-session answer resumption",
-      "Customizable persona, tone, and domain via frontmatter metadata",
+      "Bilingual support (English/Bengali)",
+      "Event management with photo galleries",
+      "AWS infrastructure: ECS Fargate, ALB, Route53",
+      "Automated CI/CD with GitHub Actions",
     ],
-    githubUrl: "https://github.com/manishmitra017/flowchart-project",
-    stars: 0,
-    category: "AI/ML & Automation",
-    color: "bg-navy-500",
+    githubUrl: "https://github.com/manishmitra017/bsm-website",
+    liveUrl: "https://bsm.org.au",
+    stars: 2,
+    category: "Full-Stack Web",
+    categoryKey: "full-stack",
+    color: "bg-teal-400",
+    gradient: "from-teal-400/20 to-navy-500/20",
   },
   {
     name: "Wedding Photo Portfolio",
@@ -169,7 +177,9 @@ const featuredProjects = [
     liveUrl: "https://ritusoumya.in",
     stars: 0,
     category: "Full-Stack Web",
+    categoryKey: "full-stack",
     color: "bg-coral-400",
+    gradient: "from-coral-400/20 to-golden-400/20",
   },
   {
     name: "Cosmic Renewable Energy",
@@ -190,96 +200,31 @@ const featuredProjects = [
     ],
     githubUrl: "https://github.com/manishmitra017/cosmic-renwable",
     stars: 0,
-    category: "Full-Stack Development",
-    color: "bg-coral-400",
+    category: "Full-Stack Web",
+    categoryKey: "full-stack",
+    color: "bg-golden-400",
+    gradient: "from-golden-400/20 to-teal-400/20",
   },
 ];
 
+const categories: { key: Category; label: string; icon: React.ReactNode }[] = [
+  { key: "all", label: "All Projects", icon: <FaCode size={14} /> },
+  { key: "ai-ml", label: "AI / ML", icon: <FaRobot size={14} /> },
+  { key: "full-stack", label: "Full-Stack", icon: <FaGlobe size={14} /> },
+];
+
 const CommunityProjects = () => {
-  const [repos, setRepos] = useState<Repository[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [activeCategory, setActiveCategory] = useState<Category>("all");
 
-  useEffect(() => {
-    const fetchRepos = async () => {
-      try {
-        const response = await fetch(
-          "https://api.github.com/users/manishmitra017/repos?sort=updated&per_page=100"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch repositories");
-        }
-        const data = await response.json();
-        const filteredRepos = data.filter(
-          (repo: Repository) =>
-            repo.name !== "stagehand-demo" &&
-            repo.name !== "my-resume" &&
-            repo.name !== "flowchart-project" &&
-            repo.name !== "marriage-portfolio"
-        );
-        setRepos(filteredRepos);
-        setLoading(false);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-        setLoading(false);
-      }
-    };
-    fetchRepos();
-  }, []);
+  const filteredProjects =
+    activeCategory === "all"
+      ? projects
+      : projects.filter((p) => p.categoryKey === activeCategory);
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", { month: "short", year: "numeric" });
-  };
-
-  const getLanguageColor = (language: string | null) => {
-    const colors: { [key: string]: string } = {
-      TypeScript: "#3178c6",
-      JavaScript: "#f1e05a",
-      Python: "#3572A5",
-      Java: "#b07219",
-      Go: "#00ADD8",
-      CSS: "#563d7c",
-      HTML: "#e34c26",
-    };
-    return colors[language || ""] || "#8b949e";
-  };
-
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
-        <GeometricShapes />
-        <Navigation />
-        <div className="flex items-center justify-center min-h-screen relative z-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-text-secondary dark:text-gray-300 text-xl"
-          >
-            Loading projects...
-          </motion.div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
-        <GeometricShapes />
-        <Navigation />
-        <div className="flex items-center justify-center min-h-screen relative z-10">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-coral-500 dark:text-coral-400 text-xl"
-          >
-            Error: {error}
-          </motion.div>
-        </div>
-      </div>
-    );
-  }
+  const aiCount = projects.filter((p) => p.categoryKey === "ai-ml").length;
+  const fullStackCount = projects.filter((p) => p.categoryKey === "full-stack").length;
+  const totalStars = projects.reduce((acc, p) => acc + p.stars, 0);
+  const liveCount = projects.filter((p) => p.liveUrl).length;
 
   return (
     <div className="min-h-screen bg-cream-300 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
@@ -293,7 +238,7 @@ const CommunityProjects = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-16"
+            className="mb-12"
           >
             <span className="text-teal-500 text-sm font-semibold tracking-wider uppercase mb-2 block">
               Open Source
@@ -305,228 +250,169 @@ const CommunityProjects = () => {
               </span>
             </h1>
             <p className="text-text-secondary dark:text-gray-300 text-lg max-w-2xl">
-              Open-source projects and community contributions. Exploring new
-              technologies, building solutions, and sharing with the developer
+              Open-source projects spanning AI agents, full-stack web platforms,
+              and developer tools. Building solutions and sharing with the
               community.
             </p>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats Row */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="grid grid-cols-3 gap-4 mb-16"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-10"
           >
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
-                {repos.length + featuredProjects.length}
+            {[
+              { value: projects.length, label: "Projects", color: "from-teal-400 to-navy-500" },
+              { value: aiCount, label: "AI / ML", color: "from-coral-400 to-golden-400" },
+              { value: fullStackCount, label: "Full-Stack", color: "from-navy-500 to-teal-400" },
+              { value: liveCount, label: "Live Sites", color: "from-golden-400 to-coral-400" },
+            ].map((stat, i) => (
+              <div
+                key={i}
+                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-4 text-center shadow-card"
+              >
+                <div
+                  className={`text-2xl md:text-3xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-text-muted dark:text-gray-400 text-xs mt-1">
+                  {stat.label}
+                </div>
               </div>
-              <div className="text-text-muted dark:text-gray-400 text-sm">Total Projects</div>
-            </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
-                {repos.reduce((acc, repo) => acc + repo.stargazers_count, 0) +
-                  featuredProjects.reduce((acc, p) => acc + p.stars, 0)}
-              </div>
-              <div className="text-text-muted dark:text-gray-400 text-sm">Total Stars</div>
-            </div>
-            <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 p-5 text-center shadow-card">
-              <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-400 to-navy-500 bg-clip-text text-transparent">
-                {new Set(repos.map((repo) => repo.language).filter(Boolean)).size}
-              </div>
-              <div className="text-text-muted dark:text-gray-400 text-sm">Languages</div>
-            </div>
+            ))}
           </motion.div>
 
-          {/* Featured Projects */}
+          {/* Category Filter */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mb-16"
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="flex gap-2 mb-10 flex-wrap"
           >
-            <h2 className="text-lg font-semibold text-text-secondary dark:text-gray-300 mb-6">
-              Featured Projects
-            </h2>
-            <div className="space-y-4">
-              {featuredProjects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
-                >
-                  <div className="p-6">
-                    {/* Header */}
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="text-xl font-bold text-text-primary dark:text-white group-hover:text-teal-500 transition-colors">
-                            {project.name}
-                          </h3>
-                          {project.stars > 0 && (
-                            <div className="flex items-center gap-1 text-golden-500 text-sm">
-                              <FaStar size={12} />
-                              <span>{project.stars}</span>
-                            </div>
-                          )}
-                        </div>
-                        <p className="text-teal-500 text-sm font-medium mb-2">
-                          {project.tagline}
-                        </p>
-                        <span className={`inline-block text-xs ${project.color} text-white px-2.5 py-1 rounded-full`}>
-                          {project.category}
-                        </span>
-                      </div>
+            {categories.map((cat) => (
+              <button
+                key={cat.key}
+                onClick={() => setActiveCategory(cat.key)}
+                className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                  activeCategory === cat.key
+                    ? "bg-navy-500 text-white shadow-soft"
+                    : "bg-white/80 dark:bg-gray-800/80 text-text-secondary dark:text-gray-300 border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30"
+                }`}
+              >
+                {cat.icon}
+                {cat.label}
+              </button>
+            ))}
+          </motion.div>
 
-                      <div className="flex gap-2">
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg border border-text-primary/10 dark:border-white/10 hover:border-teal-400/50 transition-all text-sm text-text-primary dark:text-white shadow-card"
-                        >
-                          <FaGithub />
-                          Code
-                        </a>
-                        {project.liveUrl && (
-                          <a
-                            href={project.liveUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white px-4 py-2 rounded-lg transition-all text-sm"
-                          >
-                            <FaExternalLinkAlt size={12} />
-                            Live
-                          </a>
+          {/* Projects Grid */}
+          <motion.div
+            layout
+            className="grid md:grid-cols-2 gap-5"
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.name}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card flex flex-col"
+              >
+                {/* Color accent bar */}
+                <div className={`h-1 bg-gradient-to-r ${project.gradient}`} />
+
+                <div className="p-6 flex flex-col flex-1">
+                  {/* Header */}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1 flex-wrap">
+                        <h3 className="text-lg font-bold text-text-primary dark:text-white group-hover:text-teal-500 transition-colors">
+                          {project.name}
+                        </h3>
+                        {project.stars > 0 && (
+                          <div className="flex items-center gap-1 text-golden-500 text-xs">
+                            <FaStar size={11} />
+                            <span>{project.stars}</span>
+                          </div>
                         )}
                       </div>
+                      <p className="text-teal-500 text-sm font-medium">
+                        {project.tagline}
+                      </p>
                     </div>
-
-                    <p className="text-text-secondary dark:text-gray-300 text-sm mb-4">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, techIndex) => {
-                        const IconComponent = tech.icon;
-                        return (
-                          <div
-                            key={techIndex}
-                            className="flex items-center gap-1.5 bg-cream-200/50 dark:bg-gray-700/50 px-2.5 py-1 rounded-lg"
-                          >
-                            <IconComponent className="text-teal-500" size={14} />
-                            <span className="text-xs text-text-secondary dark:text-gray-300">
-                              {tech.name}
-                            </span>
-                          </div>
-                        );
-                      })}
-                    </div>
-
-                    {/* Features */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-1.5">
-                      {project.features.map((feature, fIndex) => (
-                        <div
-                          key={fIndex}
-                          className="text-text-muted dark:text-gray-400 text-xs flex items-start gap-2"
-                        >
-                          <span className="text-teal-500">•</span>
-                          <span>{feature}</span>
-                        </div>
-                      ))}
-                    </div>
+                    <span
+                      className={`inline-block text-[10px] ${project.color} text-white px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0`}
+                    >
+                      {project.category}
+                    </span>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
 
-          {/* Other Projects */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-          >
-            <h2 className="text-lg font-semibold text-text-secondary dark:text-gray-300 mb-6">
-              Other Projects
-            </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {repos.map((repo, index) => (
-                <motion.div
-                  key={repo.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.05 }}
-                  className="group bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-text-primary/5 dark:border-white/5 hover:border-teal-400/30 hover:shadow-card-hover transition-all duration-300 overflow-hidden shadow-card"
-                >
-                  <div className="p-5">
-                    <div className="flex items-start justify-between mb-3">
-                      <h3 className="text-lg font-bold text-text-primary dark:text-white group-hover:text-teal-500 transition-colors flex-1 truncate">
-                        {repo.name}
-                      </h3>
-                      <FaGithub className="text-text-muted flex-shrink-0 ml-2" />
-                    </div>
+                  {/* Description */}
+                  <p className="text-text-secondary dark:text-gray-300 text-sm mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
 
-                    <p className="text-text-muted dark:text-gray-400 text-sm mb-4 line-clamp-2 min-h-[40px]">
-                      {repo.description || "No description available"}
-                    </p>
-
-                    {repo.topics && repo.topics.length > 0 && (
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {repo.topics.slice(0, 3).map((topic) => (
-                          <span
-                            key={topic}
-                            className="px-2 py-0.5 bg-teal-400/10 text-teal-600 dark:text-teal-400 text-xs rounded-full border border-teal-400/20"
-                          >
-                            {topic}
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {project.technologies.map((tech, techIndex) => {
+                      const IconComponent = tech.icon;
+                      return (
+                        <div
+                          key={techIndex}
+                          className="flex items-center gap-1.5 bg-cream-200/50 dark:bg-gray-700/50 px-2.5 py-1 rounded-lg"
+                        >
+                          <IconComponent className="text-teal-500" size={13} />
+                          <span className="text-xs text-text-secondary dark:text-gray-300">
+                            {tech.name}
                           </span>
-                        ))}
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  {/* Features */}
+                  <div className="grid grid-cols-1 gap-1 mb-5 flex-1">
+                    {project.features.map((feature, fIndex) => (
+                      <div
+                        key={fIndex}
+                        className="text-text-muted dark:text-gray-400 text-xs flex items-start gap-2"
+                      >
+                        <span className="text-teal-500 mt-0.5">&#8226;</span>
+                        <span>{feature}</span>
                       </div>
-                    )}
+                    ))}
+                  </div>
 
-                    <div className="flex items-center justify-between mb-4 text-xs text-text-muted dark:text-gray-400">
-                      {repo.language && (
-                        <div className="flex items-center gap-1.5">
-                          <div
-                            className="w-2.5 h-2.5 rounded-full"
-                            style={{ backgroundColor: getLanguageColor(repo.language) }}
-                          />
-                          <span>{repo.language}</span>
-                        </div>
-                      )}
-                      <div className="flex items-center gap-3">
-                        <div className="flex items-center gap-1">
-                          <FaStar className="text-golden-400" size={12} />
-                          <span>{repo.stargazers_count}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <BiGitRepoForked size={12} />
-                          <span>{repo.forks_count}</span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="flex items-center gap-1.5 text-text-muted dark:text-gray-400 text-xs mb-4">
-                      <FaClock size={10} />
-                      <span>Updated {formatDate(repo.updated_at)}</span>
-                    </div>
-
+                  {/* Actions */}
+                  <div className="flex gap-2 mt-auto pt-2">
                     <a
-                      href={repo.html_url}
+                      href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="block w-full bg-cream-200/50 dark:bg-gray-700/50 hover:bg-cream-300/50 dark:hover:bg-gray-600/50 text-text-primary dark:text-white py-2 px-4 rounded-lg text-sm font-medium transition-colors text-center"
+                      className="inline-flex items-center gap-2 bg-white dark:bg-gray-700 px-4 py-2 rounded-lg border border-text-primary/10 dark:border-white/10 hover:border-teal-400/50 transition-all text-sm text-text-primary dark:text-white shadow-card"
                     >
-                      View Code
+                      <FaGithub />
+                      Code
                     </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white px-4 py-2 rounded-lg transition-all text-sm"
+                      >
+                        <FaExternalLinkAlt size={11} />
+                        Live
+                      </a>
+                    )}
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* CTA */}
