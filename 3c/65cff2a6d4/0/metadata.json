@@ -1,0 +1,30 @@
+{
+  "cli_version": "0.4.9",
+  "checkpoint_id": "3c65cff2a6d4",
+  "session_id": "8dd85739-d660-4dea-87e1-d67b49b6f22d",
+  "strategy": "manual-commit",
+  "created_at": "2026-03-09T09:35:57.290117Z",
+  "branch": "claude/redesign-projects-section",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "app/community-projects/page.tsx"
+  ],
+  "agent": "Claude Code",
+  "turn_id": "ea38e7c8da81",
+  "token_usage": {
+    "input_tokens": 2353,
+    "cache_creation_tokens": 97243,
+    "cache_read_tokens": 567305,
+    "output_tokens": 8605,
+    "api_call_count": 12
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-03-09T09:35:57.153108Z",
+    "agent_lines": 215,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 215,
+    "agent_percentage": 100
+  }
+}
