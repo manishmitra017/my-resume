@@ -109,7 +109,7 @@ const About = () => {
 
             <p className="text-text-secondary dark:text-gray-300 leading-relaxed">
               Passionate about engineering excellence, team development, and AI
-              innovation. Strong contributor to AIPE projects with campus
+              innovation. Strong contributor to AI Powered Engineering (AIPE) projects with campus
               relationships at Monash/Melbourne University. Completed Executive
               Leadership program at CBA SPARK.
             </p>
