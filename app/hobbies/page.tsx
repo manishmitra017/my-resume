@@ -42,6 +42,15 @@ const booksData = {
       keyTakeaway:
         "Techniques to break free from analysis paralysis and reduce anxiety.",
     },
+    {
+      id: "3",
+      title: "The Gospel of Sri Ramakrishna",
+      author: "Mahendranath Gupta (M.)",
+      imageUrl: "/Volunteering/Books/Gospel-of-Sri-Ramakrishna.jpeg",
+      category: "Spirituality",
+      keyTakeaway:
+        "Profound spiritual teachings and conversations of Sri Ramakrishna, showing that all paths lead to the same divine truth.",
+    },
   ],
 };
 
