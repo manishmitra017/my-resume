@@ -205,6 +205,31 @@ const projects: Project[] = [
     color: "bg-golden-400",
     gradient: "from-golden-400/20 to-teal-400/20",
   },
+  {
+    name: "Zenith Trends",
+    tagline: "B2B Promotional Products Catalog",
+    description:
+      "Full-stack B2B catalog website for an Australian supplier of branded corporate merchandise, featuring product browsing, AWS CDK infrastructure with S3 + CloudFront, and automated CI/CD deployments via GitHub Actions.",
+    technologies: [
+      { name: "Next.js 16", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "AWS CDK", icon: FaAws },
+    ],
+    features: [
+      "Next.js 16 with React 19 and Tailwind CSS 4",
+      "AWS CDK infrastructure: S3 + CloudFront + Route53 + ACM",
+      "Automated CI/CD pipeline with GitHub Actions",
+      "Private S3 bucket with CloudFront OAC for secure delivery",
+    ],
+    githubUrl: "https://github.com/manishmitra017/zenith_trends",
+    liveUrl: "https://zenithtrends.com.au",
+    stars: 0,
+    category: "Full-Stack Web",
+    categoryKey: "full-stack",
+    color: "bg-navy-500",
+    gradient: "from-navy-500/20 to-golden-400/20",
+  },
 ];
 
 const categories: { key: Category; label: string; icon: React.ReactNode }[] = [

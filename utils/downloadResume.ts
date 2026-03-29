@@ -102,7 +102,7 @@ export const downloadResumeAsPDF = () => {
     doc.setFont('helvetica', 'normal');
     doc.setFontSize(9.5);
     doc.setTextColor(...colors.gray);
-    const summary = `Engineering leader with ${yearsOfExperience}+ years of experience. Currently Senior Engineering Manager (Agentic Banking - Gen AI) at Commonwealth Bank. Built the first GENAI project in the bank on RACO for adverse media screening, winning CEO Excellence Awards. Deep expertise in Agentic AI frameworks including Pydantic AI, Google ADK, LangGraph, MCP, ML OPS, and A2A. Previously led 120 people at ANZ building API modernization platform, served as Principal Engineer at Wesfarmers for OnePass, and built AWS Business Banking Engineering Labs at NAB.`;
+    const summary = `Engineering leader with ${yearsOfExperience}+ years of experience. Currently Senior Engineering Manager (Agentic Banking - Gen AI) at Commonwealth Bank. Built the first GENAI project in the bank on RACO for adverse media screening, winning CEO Excellence Awards. Deep expertise in Agentic AI frameworks including Pydantic AI, Google ADK, LangGraph, MCP, ML OPS, and A2A. Building multi-modal agentic systems combining vision, speech, and text modalities. Previously led 120 people at ANZ building API modernization platform, served as Principal Engineer at Wesfarmers for OnePass, and built AWS Business Banking Engineering Labs at NAB.`;
     const summaryLines = doc.splitTextToSize(summary, pageWidth - 2 * margin);
     doc.text(summaryLines, margin, currentY);
     currentY += (summaryLines.length * 4) + 4;
@@ -147,9 +147,10 @@ export const downloadResumeAsPDF = () => {
           'Built first GENAI project in bank on RACO for adverse media screening - won CEO Excellence Awards',
           'Built and released reusable expert AI system and AI agents for E2E dispute journey - won Excellence Awards',
           'Built and experimented with Agentic AI applications for Fraud domain with numerous reusable agents',
+          'Building multi-modal agentic systems combining vision, speech, and text modalities for intelligent banking workflows',
           'Grew team from 4 to 80 members in Gen AI domain across Melbourne/Sydney/India',
           'Strong contributor to AIPE projects with campus relationships at Monash/Melbourne University',
-          'Working with Pydantic AI, Google ADK, LLMs, Langgraph, ML OPS, A2A, MCP, DevSecOps'
+          'Working with Pydantic AI, Google ADK, LLMs, Langgraph, ML OPS, A2A, MCP, Multi-Modal AI, DevSecOps'
         ]
       },
       {
@@ -400,6 +401,14 @@ export const downloadResumeAsPDF = () => {
         description: 'Modern responsive business website for renewable energy company with integrated quote management and service showcase.',
         tech: 'Next.js 15, FastAPI, TypeScript, Tailwind CSS',
         github: 'github.com/manishmitra017/cosmic-renwable'
+      },
+      {
+        name: 'Zenith Trends',
+        tagline: 'B2B Promotional Products Catalog',
+        description: 'Full-stack B2B catalog website for an Australian supplier of branded corporate merchandise with AWS CDK infrastructure and automated CI/CD.',
+        tech: 'Next.js 16, React 19, TypeScript, Tailwind CSS 4, AWS CDK',
+        github: 'github.com/manishmitra017/zenith_trends',
+        live: 'zenithtrends.com.au'
       }
     ];
 

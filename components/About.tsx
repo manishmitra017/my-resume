@@ -95,6 +95,7 @@ const About = () => {
               Deep expertise in{" "}
               <span className="text-text-primary dark:text-white font-medium">Agentic AI frameworks</span>{" "}
               including Pydantic AI, Google ADK, LangGraph, MCP, ML OPS, and A2A.
+              Building multi-modal agentic systems combining vision, speech, and text modalities.
               Built reusable expert AI systems, dialogue agent templates, and AI
               agents for E2E dispute journey winning Excellence Awards.
             </p>
