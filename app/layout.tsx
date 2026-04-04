@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 
@@ -26,6 +27,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${jakarta.variable} font-sans antialiased text-text-primary dark:text-gray-100 bg-cream-300 dark:bg-gray-900 transition-colors duration-300`}>
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="7fc6daf7-51dd-4833-bf7f-c3398148e5ab"
+          strategy="afterInteractive"
+        />
         <ThemeProvider>
           {children}
         </ThemeProvider>
